@@ -1,0 +1,61 @@
+---
+title: "Loading tweets from rda"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Loading tweet data
+
+```{r}
+load(url("http://varianceexplained.org/files/trump_tweets_df.rda"))
+df <- trump_tweets_df
+```
+
+
+## Filter data
+```{r}
+fliter.df <- df[df$favoriteCount > mean(df$favoriteCount) +2*sd (df$favoriteCount),]
+# View(fliter.df)
+
+fliter.df2 <- df[df$retweetCount > mean(df$retweetCount) + 2* sd (df$retweetCount),]
+# View(fliter.df2)
+
+order.df <- df[order(df$favoriteCount, decreasing = TRUE),]
+# View(order.df[1:10,])
+```
+
+
+## plot histogram
+* What is histogram? What is density function?
+```{r}
+hist(df$favoriteCount, breaks = 1000)
+
+df$nchar <-nchar (df$text)
+hist(df$nchar, breaks= 1000)
+```
+
+
+
+## take a glance on the data
+```{r}
+# View(order.df[ ,c(1,3,5,8,10,12)])
+# View(order.df[, c("text","favoriteCount")])
+
+# View(df)
+head(df)
+class(df)
+str(df)
+
+class(df$text)
+class(df$truncated)
+df$truncated
+class(df$favoriteCount)
+class(df)
+mode(df)
+?mode
+```

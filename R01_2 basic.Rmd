@@ -1,0 +1,78 @@
+---
+title: "Basic operations"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+## 載入資料
+
+* 直接從網路上載入台北市竊盜案資料
+* `df <- read.csv(url, fileEncoding = "big5")`這行的意思是把上面那個`url`用`read.csv()`這個函式讀取。讀取的同時，由於一般EXCEL為中文編碼`BIG5`，所以該文件八成是該台北市政單位還用EXCEL在編資料，所以要跟程式碼講說，這個網址所指到的檔案編碼為`BIG5`。
+* `fileEncoding = "big5"`稱為`read.csv()`這個函式的**參數(parameter)。
+* `df`為一個自定義的變數，你愛定成什麼就定成什麼名字，唯獨不能是數字或特殊符號開頭，最好都是用英文開頭。為何命名為`df`是因為他是一個`data.frame`，思考上，他很像一個EXCEL表格。每個欄位(Column)為一個變數，每列(Row)為一筆資料。
+* `<-`的記號稱為Assignment，在程式中，總是將右方的執行結果Assign給左方的變數。當我們在數學式`x = 100 + 4`時，我們做的事情也是將`100 + 4`後的結果Assign給左方的`x`。
+```{r}
+url <- "http://data.taipei/opendata/datalist/datasetMeta/download?id=68785231-d6c5-47a1-b001-77eec70bec02&rid=34a4a431-f04d-474a-8e72-8d3f586db3df"
+df <- read.csv(url, fileEncoding = "big5")
+```
+
+
+
+
+### DF1: 觀察資料內容
+
+
+* `View(df)` 用RStudio所提供的GUI直接觀看變數
+* `head(df)` 取前面六筆資料（也就是六列的資料來概觀該資料）
+* `class(df)` 印出該
+* `str(df)`
+
+
+```{r}
+# View(df)
+head(df)	# get first part of the data.frame
+class(df)
+str(df)
+
+summary(df)
+# look up help
+help(summary)
+?summary
+
+```
+
+
+
+### DF2: 觀察資料維度
+
+```{r}
+dim(df)
+ncol(df)
+nrow(df)
+length(df)
+```
+
+
+### DF3: 抽取資料中的變數
+* `names(df)`  列出變數名稱
+* `df$發生.現.地點` 顯示該變數內容
+* `df$發生時段` 顯示該變數內容
+* `length(df$發生時段)` 顯示該變數的長度（相當於有幾個）
+
+```{r}
+names(df)
+df$發生.現.地點
+df$發生時段
+length(df$發生時段)
+```
+
+
+
