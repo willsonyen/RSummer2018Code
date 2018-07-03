@@ -3,24 +3,6 @@ title: "Resource"
 date: "2018-01-01T21:48:51-07:00"
 ---
 
-## Slides
-
-* [R10: Random Forest](https://docs.google.com/presentation/d/e/2PACX-1vQRPmt4H5Pdys7pu7-SvNu7Y5p08OrINCJx-WFEm5PI2OM5k--pwNUUGjNxmGthpE2c66fzyP9Ms9ve/pub?start=false&loop=false&delayms=3000)
-* [R09: SVM](https://docs.google.com/presentation/d/e/2PACX-1vRVudHBYlfrtXZDu7zIdbde3_dB3gIXrl6S0lMSARfRfA__m0TPL-AmQvVMdEIE6BqU6dLgQWJ-QYwP/pub?start=false&loop=false&delayms=3000)
-* [R08-1: PCA](https://docs.google.com/presentation/d/e/2PACX-1vRhbsGGw0xYHisqd9IxqiOJ7iDYic0WjipPEwlI3J8LkaBYokP20oyOlKiGE7lyXBCAhBnBL4harpmV/pub?start=false&loop=false&delayms=3000)
-* [R08: word2vec](https://docs.google.com/presentation/d/e/2PACX-1vSaDbagemtALMf0F5CJViNvLUI7U7cGJtelziV5IdKOridKI28DQ85sWWpVa1Y_1G3vH0bkKMAzW-XZ/pub?start=false&loop=false&delayms=3000)
-* [R07. Processing Chinese text and topic modeling](https://docs.google.com/presentation/d/e/2PACX-1vRTSSO_8JuLTK_1OyM9eDrogA-K2fhXQwlKxh1PpRvNavkurCCcKBNftv9MpKGYM6EDXtNnqZvPDdKy/pub?start=false&loop=false&delayms=3000)
-* [R06. dplyr_trump's tweet](https://docs.google.com/presentation/d/e/2PACX-1vRNLWSWiTePNA5tmAhFcbkFWEzfa0LFiG0FENhalVpxz2lG2Z1lZ8pJHacaKHWpnC1SYhR-qxQOnKb7/pub?start=false&loop=false&delayms=3000)
-* [R05. ggplot](https://docs.google.com/presentation/d/e/2PACX-1vR0MIoaDm9YaEvop3wYAYHnr5O-kCPtK2AlS9QR8zpgeoCBQCfJ39q55VrK4RvM_UJg18JDQa1I_pgJ/pub?start=false&loop=false&delayms=3000)
-* [R04. HTML Parser](https://docs.google.com/presentation/d/e/2PACX-1vSGeNG6BcEUNjhZjqo1obJ9bijuMjKJ0WhEva29-AuishNv779rSC0nDShfkR5HcWp4EdlRUBaaiG0M/pub?start=false&loop=false&delayms=3000)
-* [R03. crawler design](https://docs.google.com/presentation/d/e/2PACX-1vRW84XoB5sFRT1Eg-GrK4smX23qoNkFffz_h8oRU4AIvJAgrrxBn8059_0UeHv_pFBks_Z37vNbLGai/pub?start=false&loop=false&delayms=3000)
-* [R02. Read csv and json](https://docs.google.com/presentation/d/e/2PACX-1vTFRVkwdscR3QNdVD6Q8JEKshlORtgdP_DUq19HPjbO6_8nN3ADTEtxuOr_Z28t3HKGdf9_m3icULpO/pub?start=false&loop=false&delayms=3000) - 
-* [R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
-* [R00. Install](https://docs.google.com/presentation/d/e/2PACX-1vSNj-P2-8cJptSy-eRMKXs4eSNgLgeaCHiF22THEDkmijIXaqFA8U67T3Lp-iR0ibXssD-NHUq5DEG2/pub?start=false&loop=false&delayms=3000),
-
-
-
-
 ## Template
 
 * [Google Drive Folder](https://drive.google.com/drive/folders/1PIyOzwcWK-AsbnuTtMd67nksQd_UoO46?usp=sharing)
@@ -31,10 +13,18 @@ date: "2018-01-01T21:48:51-07:00"
 
 
 ## Books
+建議你可以利用暑假和同組同學讀完一本書。
 
+### Best 
+* [Text mining using r](http://tidytextmining.com/): 使用R語言分析Jane Austen的書籍們，使用tidy style code，非常推薦閱讀。
 * [R for data science](http://r4ds.had.co.nz/introduction.html)
 	* Reading [Chapter 4 of R for data science](http://r4ds.had.co.nz/workflow-basics.html) to understand basic data types, assignments, variables, character vs. numeric variables, and functions.
-* [Text mining using r](http://tidytextmining.com/)
+* [R錦囊妙計](http://www.books.com.tw/products/0010624153): 各門各類的R語言使用技巧與複習。
+* [R軟體：應用統計方法 修訂版 附光碟1片](http://www.books.com.tw/products/0010486896): 豐富的統計應用
+
+### Reference 
+* [文學大數據：如何找出暢銷書指紋?解構1500本經典與名作家的寫作祕密](http://www.books.com.tw/products/0010784190):有助於文學文本分析。
+* [我們是誰？大數據下的人類行為觀察 Dataclysm：Who We Are(When We Think No One’s Looking)](http://www.books.com.tw/products/0010714059): 有助於社群資料分析。
 
 
 

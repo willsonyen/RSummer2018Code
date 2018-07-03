@@ -17,3 +17,12 @@ date: "2018-07-01T21:48:51-07:00"
     1. 期末專題（最多十五頁，其他資訊量較低的圖表請放在投影片最末當成附錄）
     2. DataCamp自學方案的規劃與執行過程（最多三頁）。
     3. 是否達到Minimal Requirements的說明（一頁）
+
+## Potential dataset
+* 鏡傳媒-政治獻金 + 台灣董監事名單（ronnywang）
+* 政府公開決標資料（爬蟲） + 台灣董監事名單
+* http://company.g0v.ronny.tw/
+* ubike data
+* rent591 + 信義房屋 + 政府實價登錄
+
+
