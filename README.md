@@ -2,21 +2,31 @@
 title: "Calendar"
 date: "2018-07-05T21:48:51-07:00"
 ---
+## Information
 
+* TA: 新聞所洪郁雯 r05342005[@]ntu.edu.tw
+* [Dropbox folder](https://www.dropbox.com/sh/w6y20aghioxbahv/AAAJFxtDJKSp98palnRuPMX7a?dl=0): Alternative way to download whole project
+* [Facebook Group](https://www.facebook.com/groups/RSummer2018/): Join the group to get the latest information!
+* [Youtube](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B): For personal course review
+* [Google Drive](): to submit slides and docs
+
+
+## Links
 * [Course info](info.md)
 * [Announcement](announcement.md)
 * [Final Project](finalproject.md)
 * [Resource](resource.md)
 * [Assignments](assignments.md)
 
-# 2018-07-03
-[R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
-[R00. Install](https://docs.google.com/presentation/d/e/2PACX-1vSNj-P2-8cJptSy-eRMKXs4eSNgLgeaCHiF22THEDkmijIXaqFA8U67T3Lp-iR0ibXssD-NHUq5DEG2/pub?start=false&loop=false&delayms=3000)
-[R00. Course overview](https://docs.google.com/presentation/d/e/2PACX-1vTSSfrUAnwy-mlcA7I3YBj1NeCTZY6z8b--cuyOqtg-p7-GbMmF11JejhGb6sOoogBbaSKMxpYSLcem/pub?start=false&loop=false&delayms=3000)
-[0_install_pkgs.html](html/0_install_pkgs.html)
-[R01_1_loading_data.html](html/R01_1_loading_data.html)
-[R01_2_basic.html](html/R01_2_basic.html)
-[R01_3_load_and_summarize_tweet_data.html](html/R01_3_load_and_summarize_tweet_data.html)
+
+## 2018-07-03
+* [R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
+* [R00. Install](https://docs.google.com/presentation/d/e/2PACX-1vSNj-P2-8cJptSy-eRMKXs4eSNgLgeaCHiF22THEDkmijIXaqFA8U67T3Lp-iR0ibXssD-NHUq5DEG2/pub?start=false&loop=false&delayms=3000)
+* [R00. Course overview](https://docs.google.com/presentation/d/e/2PACX-1vTSSfrUAnwy-mlcA7I3YBj1NeCTZY6z8b--cuyOqtg-p7-GbMmF11JejhGb6sOoogBbaSKMxpYSLcem/pub?start=false&loop=false&delayms=3000)
+* [0_install_pkgs.html](html/0_install_pkgs.html)
+* [R01_1_loading_data.html](html/R01_1_loading_data.html)
+* [R01_2_basic.html](html/R01_2_basic.html)
+* [R01_3_load_and_summarize_tweet_data.html](html/R01_3_load_and_summarize_tweet_data.html)
 
 
 ## Slides
@@ -33,4 +43,5 @@ date: "2018-07-05T21:48:51-07:00"
 * [R02. Read csv and json](https://docs.google.com/presentation/d/e/2PACX-1vTFRVkwdscR3QNdVD6Q8JEKshlORtgdP_DUq19HPjbO6_8nN3ADTEtxuOr_Z28t3HKGdf9_m3icULpO/pub?start=false&loop=false&delayms=3000) - 
 * [R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
 * [R00. Install](https://docs.google.com/presentation/d/e/2PACX-1vSNj-P2-8cJptSy-eRMKXs4eSNgLgeaCHiF22THEDkmijIXaqFA8U67T3Lp-iR0ibXssD-NHUq5DEG2/pub?start=false&loop=false&delayms=3000)
+* [R00. Course overview](https://docs.google.com/presentation/d/e/2PACX-1vTSSfrUAnwy-mlcA7I3YBj1NeCTZY6z8b--cuyOqtg-p7-GbMmF11JejhGb6sOoogBbaSKMxpYSLcem/pub?start=false&loop=false&delayms=3000)
 

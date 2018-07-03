@@ -3,15 +3,6 @@ title: "Course Info"
 date: "2018-07-01T21:48:51-07:00"
 ---
 
-## Information
-
-* TA: 新聞所洪郁雯 r05342005[@]ntu.edu.tw
-* [Google Drive](https://drive.google.com/drive/folders/1PIyOzwcWK-AsbnuTtMd67nksQd_UoO46?usp=sharing)
-* [Facebook Group](https://www.facebook.com/groups/RSummer2018/)
-* [Dropbox folder](https://www.dropbox.com/sh/w6y20aghioxbahv/AAAJFxtDJKSp98palnRuPMX7a?dl=0)
-* [Youtube](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B)
-
-
 ## Gradings
 
 * Quiz: 20%
