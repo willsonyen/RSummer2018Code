@@ -17,10 +17,9 @@ date: "2018-01-01T21:48:51-07:00"
 
 ### Best 
 * [Text mining using r](http://tidytextmining.com/): 使用R語言分析Jane Austen的書籍們，使用tidy style code，非常推薦閱讀。
-* [R for data science](http://r4ds.had.co.nz/introduction.html)
-	* Reading [Chapter 4 of R for data science](http://r4ds.had.co.nz/workflow-basics.html) to understand basic data types, assignments, variables, character vs. numeric variables, and functions.
-* [R錦囊妙計](http://www.books.com.tw/products/0010624153): 各門各類的R語言使用技巧與複習。
-* [R軟體：應用統計方法 修訂版 附光碟1片](http://www.books.com.tw/products/0010486896): 豐富的統計應用
+* [R for data science](http://r4ds.had.co.nz/introduction.html) 每一個章節都寫得非常不錯，往往能夠補足一些上課不夠時間說清楚的地方。可閱讀[Chapter 4 of R for data science](http://r4ds.had.co.nz/workflow-basics.html)來了解基本的資料型態、assignment、變數、文字、數字和函式。
+* [R錦囊妙計](http://www.books.com.tw/products/0010624153): 各門各類的R語言特殊使用技巧與複習，也可以用來加深基礎。
+* [R軟體：應用統計方法 修訂版 附光碟1片](http://www.books.com.tw/products/0010486896): 豐富的統計應用。
 
 ### Reference 
 * [文學大數據：如何找出暢銷書指紋?解構1500本經典與名作家的寫作祕密](http://www.books.com.tw/products/0010784190):有助於文學文本分析。
