@@ -73,16 +73,21 @@ all.df <- res1$data$data
 url <- "http://data.taipei/opendata/datalist/datasetMeta/download?id=68785231-d6c5-47a1-b001-77eec70bec02&rid=34a4a431-f04d-474a-8e72-8d3f586db3df"
 df <- read.csv(url, fileEncoding = "big5")
 # View(df)
+
+# if mac cannot read data
+GET(url, write_disk("test.csv"))
+df <- read.csv("test.csv", fileEncoding = "big5")
+
 ```
 
 
-## 載入Facebook資料
+## 載入Facebook資料(deprecated after 8/1)
 
 1. 上網搜尋[Graph API Explorer](https://developers.facebook.com/tools/explorer/)，或者直接點選該連結。這是一套facebook所開發的社群資料瀏覽器，目的是便於第三方程式開發者可以透過點選的方式，觀察其所要抓取的資料。
 2. 點選**取得權杖**一路確認。
 3. 複製**存取權杖**後面的所有代碼（Token）至下方token後的雙括號內
 
-```{r}
+```
 token <- "EAACEdEose0cBAGi3VwzDmS6crcGo3MK1TGXcJpWIihc9hN5E4xoXQA8zfpDokJ17D44hFLZCHwOgqpLSgH24Rv3ZBDq8ydLAf0MJYNsW18YfptjhqMNkVS3BRBjURbGQW40bOpXmnLqM7JDjiCLYypaSEB2xHKIfwNjDIjCHSNhXswTawoPVb3WKIlc65hTObuMVJVegZDZD"
 fburl <-
 	sprintf("https://graph.facebook.com/v3.0/DoctorKoWJ?fields=posts&access_token=%s", token)
