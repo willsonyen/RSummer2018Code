@@ -2,7 +2,14 @@
 title: "loading_data"
 author: "Jilung Hsieh"
 date: "2018/7/2"
-output: html_document
+output: 
+  html_document: 
+    number_sections: true
+    highlight: zenburn
+    theme: united
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
