@@ -11,6 +11,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Loading tweet data
 
+* **Question** 當現在載入了他人所蒐集且開放的Trump's tweets後，你會形成什麼樣的假設？你會探討什麼問題？嘗試寫寫看，將來會在後面的課程中產生一份長達數百行的程式碼來分析這份資料。你可以試試看，該範例所問的問題，和你現在所問的問題像不像。
+
+* **Question** 除了想像這份資料可以做什麼分析外，請嘗試執行下列程式碼。請問，下列程式碼的執行結果分別可以回答什麼樣的問題？
+
+
+
 ```{r}
 load(url("http://varianceexplained.org/files/trump_tweets_df.rda"))
 df <- trump_tweets_df

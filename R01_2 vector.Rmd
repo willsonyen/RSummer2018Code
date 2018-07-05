@@ -16,6 +16,36 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Language
+
+## Assignment
+
+* 將右邊的算式或數值指派給左邊的變數，`<-`可以用`=`單等號來取代，但為了避免混淆，在R中一般都用`<-`。
+
+* 在幾乎所有程式語言中，單等號`=`指的是assignment，把右方的算式、值或物件指給左方的變數。而比較兩者相不相等，則用雙等號`==`，例如`1==3-2`。
+
+```{r}
+a <- 1
+b <- c(1, 2, 3, 4)
+c <- c("1", "2", "3", "4")
+d <- c(b, a)
+e <- "abcd"
+```
+
+## comments 註解
+
+* 在程式碼區塊若前面有`#`字號後面跟著空白的話，那代表那行被標示為註解，程式執行時會自動跳過註解不執行。
+
+* 在RStudio中的快速鍵為選取該行程式碼後打`cmd(ctrl)-shift-c`。
+
+```{r}
+# df <- data.frame(a = c(1, 2, 3), b = c(3, 4, 5))
+```
+
+
+
+
+
 # Vector
 * [台灣出口進口貿易資料查詢](http://cus93.trade.gov.tw/FSC3040F/FSC3040F?menuURL=FSC3040F)
 
@@ -48,8 +78,19 @@ length(country)
 # View(country)
 ```
 
+## Prining
+* 只要直接打該變數名稱，該變數的內容就會被列印出來。例如`df`或者是做完數學操作（如加減乘除），而沒有把他assign給新的變數，那就會被列印出來。
+
+```{r}
+df
+# head(paste0(df$發生.現.日期, "-", df$發生時段))
+# test <- head(paste0(df$發生.現.日期, "-", df$發生時段))
+```
+
+
 
 ## Subsetting, filtering
+
 ```{r}
 country[c(5, 3, 1)] # how about country[c(1, 3, 5)]
 country[3:6] # is it equal to country[c(3, 4, 5, 6)]

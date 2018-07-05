@@ -18,6 +18,12 @@ date: "2018-07-05T21:48:51-07:00"
 * [Resource](resource.md)
 * [Assignments](assignments.md)
 
+## 2018-07-06
+* 09:20~11:40 - Lecture
+* 11:40~01:10 - having Lunch and discussing your group assignments 
+* 01:10~03:10 - Lecture
+* 03:20~04:10 - Group discussion and proposing group assignments
+
 
 ## 2018-07-03
 * [R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
