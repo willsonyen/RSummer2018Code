@@ -9,6 +9,7 @@ date: "2018-07-05T21:48:51-07:00"
 * [Facebook Group](https://www.facebook.com/groups/RSummer2018/): Join the group to get the latest information!
 * [Youtube](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B): For personal course review
 * [Google Drive](): to submit slides and docs
+* [Github page](https://r4css.github.io/RSummer2018Code/)
 
 
 ## Links
