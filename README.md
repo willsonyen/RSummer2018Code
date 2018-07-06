@@ -8,7 +8,7 @@
 * [Github page](https://r4css.github.io/RSummer2018Code/)
 
 
-# Links
+## Links
 
 * [Course info](info.md)
 * [Announcement](announcement.md)
@@ -17,12 +17,23 @@
 * [Assignments](assignments.md)
 
 
-# Time table
+## Time table
 
 * 09:20~11:40 - Lecture
 * 11:40~01:10 - Having Lunch and group discussions 
 * 01:10~03:20 - Lecture
 * 03:20~04:10 - Group discussion and proposing group assignments
+
+
+# Today
+
+* [R01_3_dataframe](html/R01_3_dataframe.html)
+* [R01_4_practice_load_and_summarize_tweet_tweet_data](html/R01_4_practice_load_and_summarize_tweet_tweet_data.html)
+* [R02_1_Paid_Maternity_Leave](html/R02_1_Paid_Maternity_Leave.html)
+* [SlideR02. Read csv](https://docs.google.com/presentation/d/e/2PACX-1vTFRVkwdscR3QNdVD6Q8JEKshlORtgdP_DUq19HPjbO6_8nN3ADTEtxuOr_Z28t3HKGdf9_m3icULpO/pub?start=false&loop=false&delayms=3000)
+* [SlideR01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
+
+
 
 
 # rmd -> html
