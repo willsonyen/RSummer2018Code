@@ -9,3 +9,4 @@
 
 # For data
 1. What is density function? what is histogram of data? What can we know by plotting density of a variable or histogram of it?
+2. 何時需要使用`log()`轉換資料？什麼時候應使用`log1p()`而不是直接取`log()`？
