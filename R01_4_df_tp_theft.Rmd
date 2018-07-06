@@ -41,10 +41,6 @@ str(df)
 
 ```
 
-* 這時候我們若以`str(df)`觀察該`df`的結構會發現，文字型態的資料被轉為`Factors`，這是我們所不樂見的。過去統計通常會把文字型態當成類別變數，於是用`Factors`作為資料型態，但資料科學中經常要處理大量的文字資料，此時，我們可以把`read.csv`的一個參數`stringsAsFactors`設為`FALSE`，意味著預設不要將文字的資料轉為Factor而是直接以文字變項來處理。* `stringsAsFactors = FALSE`也是`read.csv()`的參數（parameter、argument）。因為一般讀檔會預設把文字讀為類別變項也就是Factor，但資料分析經常要處理文字資料而不是類別變項，所以會希望預設不要把文字讀取為類別變項，因此要設定`stringsAsFactors = FALSE`。
-
-* 為了避免每次都要打這串參數，可以把它設定為全域參數，可以在程式一開始時便加上`options(stringsAsFactors = FASLE)`，意味著底下所有的函式如果有`stringsAsFactors`這個參數，一律自動設為`FALSE`。
-
 ```{r}
 df <- read.csv("data/tptheft.csv", fileEncoding = "big5", stringsAsFactors = FALSE)
 str(df)

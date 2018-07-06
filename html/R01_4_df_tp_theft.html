@@ -196,10 +196,6 @@ df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="s
 ##  $ 發生.現.日期: int  780210 951016 970609 990407 991013 991024 991116 1000101 1000825 1001116 ...
 ##  $ 發生時段    : chr  &quot;10~12&quot; &quot;19~21&quot; &quot;01~03&quot; &quot;04~06&quot; ...
 ##  $ 發生.現.地點: chr  &quot;台北市中山區新生北路3段31 ~ 60號&quot; &quot;台北市信義區三張里莊敬路341巷1 ~ 30號&quot; &quot;台北市信義區松隆里松山路615巷1 ~ 30號&quot; &quot;台北市萬華區雙園街61 ~ 90號&quot; ...</code></pre>
-<ul>
-<li><p>這時候我們若以<code>str(df)</code>觀察該<code>df</code>的結構會發現，文字型態的資料被轉為<code>Factors</code>，這是我們所不樂見的。過去統計通常會把文字型態當成類別變數，於是用<code>Factors</code>作為資料型態，但資料科學中經常要處理大量的文字資料，此時，我們可以把<code>read.csv</code>的一個參數<code>stringsAsFactors</code>設為<code>FALSE</code>，意味著預設不要將文字的資料轉為Factor而是直接以文字變項來處理。* <code>stringsAsFactors = FALSE</code>也是<code>read.csv()</code>的參數（parameter、argument）。因為一般讀檔會預設把文字讀為類別變項也就是Factor，但資料分析經常要處理文字資料而不是類別變項，所以會希望預設不要把文字讀取為類別變項，因此要設定<code>stringsAsFactors = FALSE</code>。</p></li>
-<li><p>為了避免每次都要打這串參數，可以把它設定為全域參數，可以在程式一開始時便加上<code>options(stringsAsFactors = FASLE)</code>，意味著底下所有的函式如果有<code>stringsAsFactors</code>這個參數，一律自動設為<code>FALSE</code>。</p></li>
-</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/tptheft.csv&quot;</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;big5&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
 <span class="kw">str</span>(df)</code></pre></div>
 <pre><code>## 'data.frame':    1894 obs. of  5 variables:
