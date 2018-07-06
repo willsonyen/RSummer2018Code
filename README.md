@@ -1,4 +1,4 @@
-## Information
+# Information
 
 * TA: 新聞所洪郁雯 r05342005[@]ntu.edu.tw
 * [Dropbox folder](https://www.dropbox.com/sh/w6y20aghioxbahv/AAAJFxtDJKSp98palnRuPMX7a?dl=0): Alternative way to download whole project
@@ -8,7 +8,7 @@
 * [Github page](https://r4css.github.io/RSummer2018Code/)
 
 
-## Links
+# Links
 * [Course info](info.md)
 * [Announcement](announcement.md)
 * [Final Project](finalproject.md)
@@ -16,7 +16,7 @@
 * [Assignments](assignments.md)
 
 
-## 2018-07-06
+# 2018-07-06
 * 09:20~11:40 - Lecture
     * [R01_3_dataframe](html/R01_3_dataframe.html)
     * [R01_4_practice_load_and_summarize_tweet_tweet_data](html/R01_4_practice_load_and_summarize_tweet_tweet_data.html)
@@ -28,7 +28,7 @@
 * 03:20~04:10 - Group discussion and proposing group assignments
 
 
-## 2018-07-03
+# 2018-07-03
 * [R01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
 * [R00. Install](https://docs.google.com/presentation/d/e/2PACX-1vSNj-P2-8cJptSy-eRMKXs4eSNgLgeaCHiF22THEDkmijIXaqFA8U67T3Lp-iR0ibXssD-NHUq5DEG2/pub?start=false&loop=false&delayms=3000)
 * [R00. Course overview](https://docs.google.com/presentation/d/e/2PACX-1vTSSfrUAnwy-mlcA7I3YBj1NeCTZY6z8b--cuyOqtg-p7-GbMmF11JejhGb6sOoogBbaSKMxpYSLcem/pub?start=false&loop=false&delayms=3000)
@@ -37,7 +37,7 @@
 * [R01_2_vector](html/R01_2_vector.html)
 
 
-## Slides
+# Slides
 
 * [R10: Random Forest](https://docs.google.com/presentation/d/e/2PACX-1vQRPmt4H5Pdys7pu7-SvNu7Y5p08OrINCJx-WFEm5PI2OM5k--pwNUUGjNxmGthpE2c66fzyP9Ms9ve/pub?start=false&loop=false&delayms=3000)
 * [R09: SVM](https://docs.google.com/presentation/d/e/2PACX-1vRVudHBYlfrtXZDu7zIdbde3_dB3gIXrl6S0lMSARfRfA__m0TPL-AmQvVMdEIE6BqU6dLgQWJ-QYwP/pub?start=false&loop=false&delayms=3000)
