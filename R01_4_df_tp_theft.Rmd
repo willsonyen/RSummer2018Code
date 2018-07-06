@@ -1,0 +1,209 @@
+---
+title: "Basic: data.frame"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: zenburn
+    theme: united
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+options(stringsAsFactors = FALSE)
+```
+
+
+
+# 載入台北市竊盜案資料
+
+* 直接從網路上載入台北市竊盜案資料
+* `df <- read.csv(url, fileEncoding = "big5")`這行的意思是把上面那個`url`用`read.csv()`這個函式讀取。讀取的同時，由於一般EXCEL為中文編碼`BIG5`，所以該文件八成是該台北市政單位還用EXCEL在編資料，所以要跟程式碼講說，這個網址所指到的檔案編碼為`BIG5`。
+    * `fileEncoding = "big5"`稱為`read.csv()`這個函式的**參數(parameter)。
+* `df`為一個自定義的變數，你愛定成什麼就定成什麼名字，唯獨不能是數字或特殊符號開頭，最好都是用英文開頭。為何命名為`df`是因為他是一個`data.frame`，思考上，他很像一個EXCEL表格。每個欄位(Column)為一個變數，每列(Row)為一筆資料。
+* `<-`的記號稱為Assignment，在程式中，總是將右方的執行結果Assign給左方的變數。當我們在數學式`x = 100 + 4`時，我們做的事情也是將`100 + 4`後的結果Assign給左方的`x`。
+
+```{r}
+
+# url <- "http://data.taipei/opendata/datalist/datasetMeta/download?id=68785231-d6c5-47a1-b001-77eec70bec02&rid=34a4a431-f04d-474a-8e72-8d3f586db3df"
+# df <- read.csv(url, fileEncoding = "big5")
+
+df <- read.csv("data/tptheft.csv", fileEncoding = "big5")
+str(df)
+
+```
+
+* 這時候我們若以`str(df)`觀察該`df`的結構會發現，文字型態的資料被轉為`Factors`，這是我們所不樂見的。過去統計通常會把文字型態當成類別變數，於是用`Factors`作為資料型態，但資料科學中經常要處理大量的文字資料，此時，我們可以把`read.csv`的一個參數`stringsAsFactors`設為`FALSE`，意味著預設不要將文字的資料轉為Factor而是直接以文字變項來處理。* `stringsAsFactors = FALSE`也是`read.csv()`的參數（parameter、argument）。因為一般讀檔會預設把文字讀為類別變項也就是Factor，但資料分析經常要處理文字資料而不是類別變項，所以會希望預設不要把文字讀取為類別變項，因此要設定`stringsAsFactors = FALSE`。
+
+* 為了避免每次都要打這串參數，可以把它設定為全域參數，可以在程式一開始時便加上`options(stringsAsFactors = FASLE)`，意味著底下所有的函式如果有`stringsAsFactors`這個參數，一律自動設為`FALSE`。
+
+```{r}
+df <- read.csv("data/tptheft.csv", fileEncoding = "big5", stringsAsFactors = FALSE)
+str(df)
+```
+
+* **Tips**部分Mac電腦無法使用`read.csv()`從網路上取得資料又轉為`data.frame`，一個可行的辦法是先用`GET(url, write_disk("test.csv"))`將其取回並命名為`test.csv`，之後再用`df <- read.csv("test.csv", fileEncoding = "big5", stringsAsFactors = FALSE)`直接讀取該檔案。
+
+```{r}
+library(httr)
+# GET(url, write_disk("test.csv", overwrite = TRUE))
+# df <- read.csv("test.csv", fileEncoding = "big5", stringsAsFactors = FALSE)
+```
+
+
+
+
+# REV: 觀察資料
+
+* `View(df)` 用RStudio所提供的GUI直接觀看變數
+* `head(df)` 取前面六筆資料（也就是六列的資料來概觀該資料）
+* `class(df)` 印出該
+* `str(df)`
+
+```{r}
+# View(df)
+head(df)	# get first part of the data.frame
+class(df)
+str(df)
+
+summary(df)
+# look up help
+help(summary)
+?summary
+
+```
+
+
+
+## 資料維度
+
+```{r}
+dim(df)
+ncol(df)
+nrow(df)
+length(df)
+```
+
+
+## 觀察df中的變數
+
+* `names(df)`  列出變數名稱
+* `df$發生.現.地點` 顯示該變數內容
+* `df$發生時段` 顯示該變數內容
+* `length(df$發生時段)` 顯示該變數的長度（相當於有幾個）
+
+```{r}
+names(df)
+head(df$發生.現.地點)
+head(df$發生時段)
+length(df$發生時段)
+```
+
+
+
+
+# 整理、清理資料
+
+* 目標：「發生時段」我打算取出前面的數字來代表時間就好，「發生地點」我打算只取出行政區名，其他地址不要。邏輯上，我要把那串字取出第x個字到第y個字，所以要用`substr()`這個函式，或者未來會教到的`stringr::str_sub()`函式。
+* 用`?substr`查詢其用法和意義。相當於`getting sub string since x to y`。
+
+```{r}
+df$time <- substr(df$發生時段, 1, 2)
+df$region <- substr(df$發生.現.地點, 4, 5)
+```
+
+
+# 計數、彙整、摘要
+
+* 我們要回答的第一個數據問題通常是，那XXX的案例有幾個？例如大安區有多少竊盜案？買超過10000元訂單的客戶有多少人？男生和女生會修程式課的個別有多少人？這稱為計數。
+
+
+## Method 1: tapply()
+
+```{r}
+tapply(df$編號, df$time, length)
+tapply(df$編號, df$region, length)
+```
+
+```{r}
+res <- tapply(df$編號, list(df$time, df$region), length)
+class(res)
+# View(res)
+```
+
+
+
+## Method 2: table()
+
+```{r}
+res <- table(df$time, df$region)
+
+# ?table
+# ?with # avoiding to type df repeatedly
+# View(res)
+class(res)
+res
+```
+
+
+## Method 3: dplyr::count()
+
+```{r}
+res5 <- dplyr::count(df, time, region)
+res6 <- tidyr::spread(res5, region, n, fill = 0)
+??dplyr::count
+```
+
+
+## Method 4: aggregate()
+
+
+
+# Plotting
+
+```{r}
+mosaicplot(res)
+mosaicplot(res, main="mosaic plot")
+```
+
+## 無法顯示中文字？
+```{r}
+par(family=('Heiti TC Light'))
+par(family=('STKaiti'))
+mosaicplot(res, main="mosaic plot")
+```
+
+## 想自訂顏色？
+
+```{r}
+# Setting the color by yourself.
+colors <- c('#D0104C', '#DB4D6D', '#E83015',  '#F75C2F',
+            '#E79460', '#E98B2A', '#9B6E23', '#F7C242',
+            '#BEC23F', '#90B44B', '#66BAB7', '#1E88A8')
+par(family=('STKaiti'))
+mosaicplot(res, color=colors, border=0, off = 3,
+		   main="Theft rate of Taipei city (region by hour)")
+```
+
+# Practice
+
+* Check what happens if you swap the time and region in tapply()
+* does it possible to extract month  by substr()?
+* (you may need to search how to extract the last n characters in R)
+
+```{r}
+x <- df$發生.現.日期
+df$month <- substr(x, 3, 4) # is this correct? Try to modify it!
+# res2 <- tapply(df$編號, list(df$month, df$region), length)
+# res2 <- tapply(df$編號, list(df$region, df$month), length)
+# mosaicplot(res2, color=colors, border=0, off = 3, main="Theft rate of Taipei city (region by hour)")
+```
+
