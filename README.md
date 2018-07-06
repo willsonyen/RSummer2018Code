@@ -1,7 +1,3 @@
----
-title: "Calendar"
-date: "2018-07-05T21:48:51-07:00"
----
 ## Information
 
 * TA: 新聞所洪郁雯 r05342005[@]ntu.edu.tw
