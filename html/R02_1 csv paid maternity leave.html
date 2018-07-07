@@ -509,25 +509,15 @@ m05&lt;-<span class="st"> </span>m5[m5<span class="op">$</span><span class="st">
 </div>
 <div id="by-dplyr" class="section level1">
 <h1><span class="header-section-number">10</span> by dplyr</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
-<pre><code>## Warning: package 'dplyr' was built under R version 3.4.2</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m55 &lt;-<span class="st"> </span>ldata <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+m55 &lt;-<span class="st"> </span>ldata <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">select</span>(iso3, <span class="kw">contains</span>(<span class="st">&quot;matleave&quot;</span>), <span class="op">-</span><span class="kw">contains</span>(<span class="st">&quot;wrr&quot;</span>)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate_if</span>(is.numeric, <span class="cf">function</span>(x){<span class="kw">ifelse</span>(<span class="kw">is.na</span>(x), <span class="dv">0</span>, x)}) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(matleave_<span class="dv">13</span><span class="op">==</span><span class="dv">5</span>, matleave_<span class="dv">95</span><span class="op">==</span><span class="dv">5</span>)</code></pre></div>
 <div id="more-gather-to-long-form" class="section level2">
 <h2><span class="header-section-number">10.1</span> More: gather() to long-form</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)</code></pre></div>
-<pre><code>## Warning: package 'tidyr' was built under R version 3.4.3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Gather 2:20 column to a new variable &quot;year&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+<span class="co"># Gather 2:20 column to a new variable &quot;year&quot;</span>
 <span class="co"># Name level data as &quot;degree&quot;</span>
 long_form &lt;-<span class="st"> </span><span class="kw">gather</span>(matleave, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;degree&quot;</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">20</span>)</code></pre></div>
 </div>
@@ -535,11 +525,9 @@ long_form &lt;-<span class="st"> </span><span class="kw">gather</span>(matleave,
 <div id="drawing-worldmap" class="section level1">
 <h1><span class="header-section-number">11</span> Drawing worldmap</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;rworldmap&quot;)</span>
-<span class="kw">library</span>(rworldmap)<span class="co"># drawing worldmap</span></code></pre></div>
-<pre><code>## Loading required package: sp</code></pre>
-<pre><code>## ### Welcome to rworldmap ###</code></pre>
-<pre><code>## For a short introduction type :   vignette('rworldmap')</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select cols</span>
+<span class="kw">library</span>(rworldmap)<span class="co"># drawing worldmap</span>
+
+<span class="co"># select cols</span>
 mdata &lt;-<span class="st"> </span>ldata[,<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">24</span>)]
 
 <span class="co"># join your data with the world map data</span>
@@ -629,16 +617,9 @@ res &lt;-<span class="st"> </span><span class="kw">data.frame</span>(num, averag
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">byregion &lt;-<span class="st"> </span><span class="kw">aggregate</span>(tdata[,<span class="dv">6</span><span class="op">:</span><span class="dv">24</span>], <span class="dt">by=</span><span class="kw">list</span>(tdata<span class="op">$</span>region), mean)
 <span class="co"># View(byregion)</span>
 byregion.sd &lt;-<span class="st"> </span><span class="kw">aggregate</span>(tdata[,<span class="dv">6</span><span class="op">:</span><span class="dv">24</span>], <span class="dt">by=</span><span class="kw">list</span>(tdata<span class="op">$</span>region), sd)
-?aggregate</code></pre></div>
-<pre><code>## Help on topic 'aggregate' was found in the following packages:
-## 
-##   Package               Library
-##   stats                 /Library/Frameworks/R.framework/Versions/3.4/Resources/library
-##   sp                    /Library/Frameworks/R.framework/Versions/3.4/Resources/library
-## 
-## 
-## Using the first match ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(byregion)</code></pre></div>
+?aggregate
+
+<span class="kw">head</span>(byregion)</code></pre></div>
 <pre><code>##                      Group.1 matleave_95 matleave_96 matleave_97
 ## 1                   Americas    2.171429    2.171429    2.171429
 ## 2        East Asia &amp; Pacific    1.750000    1.750000    1.750000
@@ -715,10 +696,9 @@ matleave &lt;-<span class="st"> </span>ldata <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">gather</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;degree&quot;</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">20</span>) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">degree=</span><span class="dv">0</span>)) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year2=</span><span class="kw">as.POSIXct</span>(<span class="kw">strptime</span>(year, <span class="st">&quot;matleave_%y&quot;</span>))) <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year3 =</span> <span class="kw">strftime</span>(year2, <span class="st">&quot;%Y&quot;</span>))</code></pre></div>
-<pre><code>## Warning in strptime(year, &quot;matleave_%y&quot;): unknown timezone 'zone/tz/2018c.
-## 1.0/zoneinfo/Asia/Taipei'</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matleave <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year3 =</span> <span class="kw">strftime</span>(year2, <span class="st">&quot;%Y&quot;</span>))
+
+matleave <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span>
 <span class="st">    </span><span class="kw">aes</span>(year3, degree) <span class="op">+</span>
 <span class="st">    </span><span class="kw">facet_grid</span>(iso3<span class="op">~</span>.) <span class="op">+</span>

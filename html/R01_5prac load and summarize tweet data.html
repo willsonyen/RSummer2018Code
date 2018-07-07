@@ -162,50 +162,19 @@ hist(df$nchar, breaks= 1000)</code></pre>
 
 # View(df)
 head(df)</code></pre>
-<pre><code>## Warning in as.POSIXlt.POSIXct(x, tz): unknown timezone 'zone/tz/2018c.1.0/
-## zoneinfo/Asia/Taipei'</code></pre>
-<pre><code>##                                                                                                                                         text
-## 1                                                                        My economic policy speech will be carried live at 12:15 P.M. Enjoy!
-## 2                         Join me in Fayetteville, North Carolina tomorrow evening at 6pm. Tickets now available at: https://t.co/Z80d4MYIg8
-## 3                                                                           #ICYMI: &quot;Will Media Apologize to Trump?&quot; https://t.co/ia7rKBmioA
-## 4     Michael Morell, the lightweight former Acting Director of C.I.A., and a man who has made serious bad calls, is a total Clinton flunky!
-## 5    The media is going crazy. They totally distort so many things on purpose. Crimea, nuclear, &quot;the baby&quot; and so much more. Very dishonest!
-## 6 I see where Mayor Stephanie Rawlings-Blake of Baltimore is pushing Crooked hard. Look at the job she has done in Baltimore. She is a joke!
-##   favorited favoriteCount replyToSN             created truncated
-## 1     FALSE          9214      &lt;NA&gt; 2016-08-08 15:20:44     FALSE
-## 2     FALSE          6981      &lt;NA&gt; 2016-08-08 13:28:20     FALSE
-## 3     FALSE         15724      &lt;NA&gt; 2016-08-08 00:05:54     FALSE
-## 4     FALSE         19837      &lt;NA&gt; 2016-08-07 23:09:08     FALSE
-## 5     FALSE         34051      &lt;NA&gt; 2016-08-07 21:31:46     FALSE
-## 6     FALSE         29831      &lt;NA&gt; 2016-08-07 13:49:29     FALSE
-##   replyToSID                 id replyToUID
-## 1         NA 762669882571980801       &lt;NA&gt;
-## 2         NA 762641595439190016       &lt;NA&gt;
-## 3         NA 762439658911338496       &lt;NA&gt;
-## 4         NA 762425371874557952       &lt;NA&gt;
-## 5         NA 762400869858115588       &lt;NA&gt;
-## 6         NA 762284533341417472       &lt;NA&gt;
-##                                                                           statusSource
-## 1 &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
-## 2   &lt;a href=&quot;http://twitter.com/download/iphone&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;
-## 3   &lt;a href=&quot;http://twitter.com/download/iphone&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;
-## 4 &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
-## 5 &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
-## 6 &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
-##        screenName retweetCount isRetweet retweeted longitude latitude
-## 1 realDonaldTrump         3107     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-## 2 realDonaldTrump         2390     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-## 3 realDonaldTrump         6691     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-## 4 realDonaldTrump         6402     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-## 5 realDonaldTrump        11717     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-## 6 realDonaldTrump         9892     FALSE     FALSE      &lt;NA&gt;     &lt;NA&gt;
-##   nchar
-## 1    67
-## 2   114
-## 3    64
-## 4   134
-## 5   135
-## 6   138</code></pre>
+<pre><code>## # A tibble: 6 x 17
+##   text     favorited favoriteCount replyToSN created             truncated
+##   &lt;chr&gt;    &lt;lgl&gt;             &lt;dbl&gt; &lt;chr&gt;     &lt;dttm&gt;              &lt;lgl&gt;    
+## 1 My econ… FALSE             9214. &lt;NA&gt;      2016-08-08 15:20:44 FALSE    
+## 2 Join me… FALSE             6981. &lt;NA&gt;      2016-08-08 13:28:20 FALSE    
+## 3 &quot;#ICYMI… FALSE            15724. &lt;NA&gt;      2016-08-08 00:05:54 FALSE    
+## 4 Michael… FALSE            19837. &lt;NA&gt;      2016-08-07 23:09:08 FALSE    
+## 5 &quot;The me… FALSE            34051. &lt;NA&gt;      2016-08-07 21:31:46 FALSE    
+## 6 I see w… FALSE            29831. &lt;NA&gt;      2016-08-07 13:49:29 FALSE    
+## # ... with 11 more variables: replyToSID &lt;lgl&gt;, id &lt;chr&gt;,
+## #   replyToUID &lt;chr&gt;, statusSource &lt;chr&gt;, screenName &lt;chr&gt;,
+## #   retweetCount &lt;dbl&gt;, isRetweet &lt;lgl&gt;, retweeted &lt;lgl&gt;, longitude &lt;chr&gt;,
+## #   latitude &lt;chr&gt;, nchar &lt;int&gt;</code></pre>
 <pre class="r"><code>class(df)</code></pre>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>str(df)</code></pre>
@@ -322,54 +291,8 @@ head(df)</code></pre>
 ##  [958] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [969] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ##  [980] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [991] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1002] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1013] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1024] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1035] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1046] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1057] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1068] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1079] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1090] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1101] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1112] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1123] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1134] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1156] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1167] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1178] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1189] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1200] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1211] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1222] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1233] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1244] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1255] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1266] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1277] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1288] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1299] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1310] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1321] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1332] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1343] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1354] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1365] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1376] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1387] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1398] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1409] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1420] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1431] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1442] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1453] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1464] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1475] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1486] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1497] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [1508] FALSE FALSE FALSE FALSE FALSE</code></pre>
+##  [991] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 512 entries ]</code></pre>
 <pre class="r"><code>class(df$favoriteCount)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>class(df)</code></pre>
