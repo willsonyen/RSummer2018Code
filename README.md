@@ -38,13 +38,13 @@
 
 # HTML
 
-* [0_install_pkgs](0_install_pkgs.html)
-* [R01_1 loading data](R01_1 loading data.html)
-* [R01_2 vector](R01_2 vector.html)
-* [R01_3 dataframe import export](R01_3 dataframe import export.html)
-* [R01_4 dataframe tp theft](R01_4 dataframe tp theft.html)
-* [R01_5prac load and summarize tweet data](R01_5prac load and summarize tweet data.html)
-* [R02_1 csv paid maternity leave](R02_1 csv paid maternity leave.html)
+* [0_install_pkgs](html/0_install_pkgs.html)
+* [R01_1 loading data](html/R01_1 loading data.html)
+* [R01_2 vector](html/R01_2 vector.html)
+* [R01_3 dataframe import export](html/R01_3 dataframe import export.html)
+* [R01_4 dataframe tp theft](html/R01_4 dataframe tp theft.html)
+* [R01_5prac load and summarize tweet data](html/R01_5prac load and summarize tweet data.html)
+* [R02_1 csv paid maternity leave](html/R02_1 csv paid maternity leave.html)
 
 
 # Slides

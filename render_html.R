@@ -9,5 +9,5 @@ for(file in files){
 
 html_files <- list.files("html/")
 for(fname in html_files){
-    message(sprintf("* [%s](%s)", substr(fname, 1, nchar(fname)-5), fname))
+    message(sprintf("* [%s](html/%s)", substr(fname, 1, nchar(fname)-5), fname))
 }
