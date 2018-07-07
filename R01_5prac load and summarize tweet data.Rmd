@@ -2,7 +2,14 @@
 title: "Loading tweets from rda"
 author: "Jilung Hsieh"
 date: "2018/7/3"
-output: html_document
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}

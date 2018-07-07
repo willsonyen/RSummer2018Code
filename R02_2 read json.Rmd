@@ -1,0 +1,447 @@
+---
+title: "Read JSON"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# “cerulean”, “journal”, “flatly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”
+```
+
+# JSON
+
+## 定義
+
+* JSON（JavaScript Object Notation）是一種資料的儲存與表示方法。資料可儲存格式有很多種，如XML、JSON、CSV等常見格式。例如政府開放資料的紫外線資料http://data.gov.tw/node/6076就包含這三類資料格式。資料格式不同，用來存取資料的程式碼就會不同。
+
+* CSV擅長儲存表格型態的二維資料，或者需要用長列表的型態儲存樹狀資料，JSON和XML則擅長儲存樹狀、階層或高維度資料。XML除了可以標示階層和欄位外，還易於設計類別。
+
+## 格式
+
+* JSON格式利用兩個記號來紀錄資料的結構。
+    * `{}` 為無序的欄位名稱到欄位值的對應 unordered key-to-value pair
+    * `[]` 為有序的資料項目 ordered data entry
+
+##範例
+
+* 以下為一個空氣品質開放資料前兩筆資料的JSON版本
+```
+[{"AQI":"78","CO":"0.22","CO_8hr":"0.2","County":"基隆市","NO":"1.1","NO2":"4.7","NOx":"5.8","O3":"54","O3_8hr":"42","PM10":"37","PM10_AVG":"31","PM2.5":"28","PM2.5_AVG":"26","Pollutant":"細懸浮微粒","PublishTime":"2017-10-03 16:00","SiteName":"基隆","SO2":"1.4","Status":"普通","WindDirec":"81","WindSpeed":"2.7"},{"AQI":"78","CO":"0.24","CO_8hr":"0.3","County":"新北市","NO":"1","NO2":"11","NOx":"12","O3":"46","O3_8hr":"40","PM10":"40","PM10_AVG":"39","PM2.5":"25","PM2.5_AVG":"27","Pollutant":"細懸浮微粒","PublishTime":"2017-10-03 16:00","SiteName":"汐止","SO2":"2.6","Status":"普通","WindDirec":"36","WindSpeed":"3"},...
+]
+```
+
+## 觀看JSON格式
+
+* 在瀏覽器上可安裝[JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)、在電腦上可安裝SublimeText及JSON ReIndent外掛，如何安裝可見本課程的[教學影片](https://youtu.be/2M1ww-WTJ2k)
+
+* 在Sublime Text安裝JSON Viewer
+    1. Download sublime text
+    2. Install
+        a. `Tools > Command Palette`
+        b. `install package control`
+        c. `Package Control: Install Package`
+        d. `JSON Reindent`
+    3. Reformat JSON
+        a. `Open JSON file by sublime text`
+	    b. `Tools> Command Palette`
+		c. `JSON Reindent`
+
+
+# 比較JSON與CSV
+
+## 紫外線資料
+
+紫外線指標資料的CSV格式如下：
+```
+SiteName,UVI,PublishAgency,County,WGS84Lon,WGS84Lat,PublishTime
+花蓮,5.59,中央氣象局,花蓮縣,"121,36,48","23,58,30",2015-11-23 12:00
+馬祖,4.49,中央氣象局,連江縣,"119,55,24","26,10,09",2015-11-23 12:00
+高雄,4.39,中央氣象局,高雄市,"120,18,57","22,33,58",2015-11-23 12:00
+玉山,8.14,中央氣象局,南投縣,"120,57,34","23,29,15",2015-11-23 12:00
+臺南,4.45,中央氣象局,臺南市,"120,12,17","22,59,36",2015-11-23 12:00
+```
+
+紫外線資料相對應的JSON格式如下：
+```
+[
+   {	"SiteName": "花蓮",
+	"UVI": "5",
+	"PublishAgency": "中央氣象局",
+	"County": "花蓮縣",
+	"WGS84Lon": "121,36,18",
+	"WGS84Lat": "23,58,37",
+	"PublishTime": "2015-11-23 11:00"
+}, {
+	"SiteName": "馬祖",
+	"UVI": "4",
+	"PublishAgency": "中央氣象局",
+	"County": "連江縣",
+	"WGS84Lon": "119,55,23",
+	"WGS84Lat": "26,10,10",
+	"PublishTime": "2015-11-23 11:00"
+}, {
+	"SiteName": "高雄",
+	"UVI": "4",
+	"PublishAgency": "中央氣象局",
+	"County": "高雄市",
+	"WGS84Lon": "120,18,29",
+	"WGS84Lat": "22,34,04",
+	"PublishTime": "2015-11-23 11:00"
+}
+...
+]
+```
+
+## 空氣品質
+
+CSV格式資料如下，下載自https://data.gov.tw/dataset/6075。
+```
+SiteName,County,AQI,Pollutant,Status,SO2,CO,CO_8hr,O3,O3_8hr,PM10,PM2.5,NO2,NOx,NO,WindSpeed,WindDirec,PublishTime,PM10_AVG,PM2.5_AVG
+麥寮,雲林縣,104,細懸浮微粒,對敏感族群不良,1.9,0.18,0.2,41,50,101,34,3.1,3.6,0.5,5.3,4.5,2017-10-03 16:00,79,37
+關山,臺東縣,33,,良好,,,,,21,,,,,,1,179,2017-10-03 16:00,19,10
+馬公,澎湖縣,55,細懸浮微粒,普通,3.4,0.19,0.2,50,44,37,21,3.2,4.7,1.5,3.4,337,2017-10-03 16:00,28,17
+金門,金門縣,101,細懸浮微粒,對敏感族群不良,2.6,0.21,0.3,54,55,52,32,5,5.9,0.8,4.5,104,2017-10-03 16:00,64,36
+馬祖,連江縣,68,細懸浮微粒,普通,2.3,0.2,0.3,55,50,53,26,,,,5,45,2017-10-03 16:00,47,22
+```
+
+JSON格式資料如下
+```
+[
+    {
+        "SiteName": "二林",
+        "County": "彰化縣",
+        "AQI": "77",
+        "Pollutant": "細懸浮微粒",
+        "Status": "普通",
+        "SO2": "3.7",
+        "CO": "0.19",
+        "CO_8hr": "0.2",
+        "O3": "15",
+        "O3_8hr": "27",
+        "PM10": "64",
+        "PM2.5": "37",
+        "NO2": "8.5",
+        "NOx": "8.8",
+        "NO": "0.3",
+        "WindSpeed": "1",
+        "WindDirec": "171",
+        "PublishTime": "2017-09-27 23:00",
+        "PM10_AVG": "49",
+        "PM2.5_AVG": "26"
+    },
+    {...},
+    {...},
+...
+]
+```
+
+## 就診後同日於同醫院因同疾病再次就診率
+
+* https://data.gov.tw/dataset/18585
+* CSV資料格式
+
+```
+指標名稱,年度季別,分區業務組,縣市別,醫事機構代碼,醫事機構名稱,院所指標值,所屬分區業務組指標值,全國指標值
+就診後同日於同醫院因同疾病再次就診率,101Q4,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0151,0.01060,0.00930
+就診後同日於同醫院因同疾病再次就診率,102Q1,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0147,0.01040,0.00920
+就診後同日於同醫院因同疾病再次就診率,103Q1,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0145,0.01030,0.00920
+就診後同日於同醫院因同疾病再次就診率,100Q2,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0152,0.00990,0.00870
+就診後同日於同醫院因同疾病再次就診率,103Q2,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0143,0.01060,0.00960
+就診後同日於同醫院因同疾病再次就診率,100Q3,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0169,0.01000,0.00880
+就診後同日於同醫院因同疾病再次就診率,103Q3,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0136,0.01040,0.00970
+```
+
+
+* JSON格式
+
+```
+[
+    {
+        "指標名稱": "就診後同日於同醫院因同疾病再次就診率",
+        "年度季別": "105Q3",
+        "分區業務組": "臺北業務組",
+        "縣市別": "臺北市大同區",
+        "醫事機構代碼": "0101090517",
+        "醫事機構名稱": "臺北市立聯合醫院",
+        "院所指標值": "0.0050",
+        "所屬分區業務組指標值": "0.00970",
+        "全國指標值": "0.00930"
+    },
+    {
+        "指標名稱": "就診後同日於同醫院因同疾病再次就診率",
+        "年度季別": "100Q2",
+        "分區業務組": "臺北業務組",
+        "縣市別": "臺北市大同區",
+        "醫事機構代碼": "0101090517",
+        "醫事機構名稱": "臺北市立聯合醫院",
+        "院所指標值": "0.0048",
+        "所屬分區業務組指標值": "0.00990",
+        "全國指標值": "0.00870"
+    },
+」
+```
+
+## 事實上JSON不會排這麼整齊
+
+* 書裡面常看見的JSON。
+```
+[
+    {
+        "SiteName": "二林",
+        "County": "彰化縣",
+        "AQI": "77",
+        "Pollutant": "細懸浮微粒",
+        "Status": "普通",
+        "SO2": "3.7",
+        "CO": "0.19",
+        "CO_8hr": "0.2",
+        "O3": "15",
+        "O3_8hr": "27",
+        "PM10": "64",
+        "PM2.5": "37",
+        "NO2": "8.5",
+        "NOx": "8.8",
+        "NO": "0.3",
+        "WindSpeed": "1",
+        "WindDirec": "171",
+        "PublishTime": "2017-09-27 23:00",
+        "PM10_AVG": "49",
+        "PM2.5_AVG": "26"
+    },
+    {...},
+    {...},
+]
+```
+
+* 實際上的JSON格式
+    * 為何要排這麼密？因為網路資料連一個空白都佔一個空間，空白越少檔案就越小，傳輸就越快。
+    * 那會不會沒空白和換行資料就有錯？JSON格式都是用`{}`和`[]`一層一層包起來，所以有沒有換行不會已錯。
+    
+```
+[{"AQI":"78","CO":"0.22","CO_8hr":"0.2","County":"基隆市","NO":"1.1","NO2":"4.7","NOx":"5.8","O3":"54","O3_8hr":"42","PM10":"37","PM10_AVG":"31","PM2.5":"28","PM2.5_AVG":"26","Pollutant":"細懸浮微粒","PublishTime":"2017-10-03 16:00","SiteName":"基隆","SO2":"1.4","Status":"普通","WindDirec":"81","WindSpeed":"2.7"},{"AQI":"78","CO":"0.24","CO_8hr":"0.3","County":"新北市","NO":"1","NO2":"11","NOx":"12","O3":"46","O3_8hr":"40","PM10":"40","PM10_AVG":"39","PM2.5":"25","PM2.5_AVG":"27","Pollutant":"細懸浮微粒","PublishTime":"2017-10-03 16:00","SiteName":"汐止","SO2":"2.6","Status":"普通","WindDirec":"36","WindSpeed":"3"},...
+]
+```
+
+## 練習：把CSV寫為JSON
+
+* 下列為一個假的CSV資料，嘗試用JSON表示之。
+```
+name, height, weight
+R2-D2, 100, 400
+C-3PO, 180, 500
+```
+
+# 取得網路資料
+
+* `httr`套件用以發送http request取得網頁「**檔案**」，最常用的是`GET()`與`POST()`函式，以及用`content(httprequest, "text")`把抓回來的數據解譯為單純的字串。
+
+* 從網路上取資料共通的過程是，得把檔案給拿回來。拿回來的檔案，不管檔名是什麼，都是文字檔，看裡面的code就知道是CSV或JSON或html。
+之後CSV用`read.csv()`讀，JSON用`fromJSON()`讀、html則要用html parser來剖析。
+
+* 這邊有個重要的觀念是「為何說是取得網頁**檔案**」？這必須要從拜訪網頁的實際操作來理解。所有的網頁，其實就是遠端伺服器上的「檔案」。而瀏覽器（如Chrome、Safari、Firefox等）實際上所做的事情是，用http request是依照網址向遠方伺服器要求取回檔案，當驗證是個合法存取後，伺服器便會將該檔案發送回本地電腦，而瀏覽器便按照這個檔案所寫的內容再向遠端伺服器要必須的檔案（例如圖檔、CSS、JS）。都要回來後，瀏覽器便將這些檔案（主要是HTML、CSS、JS）組成你所看見的網頁。
+
+* *「謎：所以，**拜訪網頁**這種好像到哪裡去遊歷的概念一整個是太過美好的想像，瀏覽器不過是把要的東西抓回本地電腦組成一個假想世界而已，這是多令人傷心的事。**上網**說到底只是機器在你電腦上重構了一個數據世界。你既沒有到哪裡去，實際上也沒人到你這裡來。你與他之間只是被天網交換訊息而已。」*
+
+
+
+# JSON轉成R物件
+
+* `jsonlite`套件是把符合json格式規範的字串轉為R的的物件，視json檔案內容結構而定，會轉為`data.frame`或`list`。
+
+* 正常的情形，但只要是中括號`[]`包著數個`{}`裡面各有成對的key-to-value pairs，那`fromJSON()`這個函式就可以把他們轉為`data.frame`，但如果都是`{}`的話，就會被轉為`list`。
+
+
+
+# 安裝並加載套件。
+
+* 用下方的code來安裝第三方套件，如果你已經安裝過`tidyverse`，這兩個`httr`和`jsonlie`都有被`tidyverse`套件集合收錄，就不需要另行安裝，只需要加載之。
+
+```
+pkgs <- c("jsonlite", "httr")
+pkgs <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
+if(length(pkgs)) install.packages(pkgs)
+```
+
+```{r}
+library(httr)
+library(jsonlite)
+options(stringsAsFactors = F)
+```
+
+
+# Case: 1 Air-Quality
+
+* `fromJSON(content(GET(url), "text", encoding = "utf-8"))`由內到外有三個函式。
+
+    * `httr::GET()`按照指定的url發出GET request把網頁抓回來，如果是個合乎規定存取，就會順利取回該伺服器發的response。
+    
+    * `hrrt::content(response, "text", encoding = "utf-8")` 用`?content`查詢看看`content(response, "text")`的用途。其是把抓回來的檔案，轉為純文字的字串。content()是把抓回來的response解成純文字（JSON本身就是以純文字儲存，只是格式特別而已）。
+
+* `jsonlite::fromJSON()` 因為我們用眼睛看就知道他是個JSON格式的檔案，所以用`fromJSON()`這個函式，把用JSON格式編成的字串轉為R的物件，有可能是`data.frame`或`list`。`fromJSON()`預期會把JSON中`[]`的每一個項目轉為一筆筆的資料，然後把`{}`的pair當成column的變數名稱
+
+
+```{r}
+url <- "http://opendata.epa.gov.tw/ws/Data/REWIQA/?$orderby=SiteName&$skip=0&$top=1000&format=json"
+
+df <- fromJSON(content(GET(url), "text", encoding = "utf-8"))
+str(df)
+```
+
+## GET() 發送請求
+
+* 向該URL的伺服器發送`GET()` request以取得該檔案。若成功取得，他會回覆一個[HTML status code](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status)。如果成功的話就是2開頭的數字例如`200 OK`代表該伺服器接受該請求並開始傳回檔案。
+
+```{r}
+response <- GET(url)
+class(response)
+??httr::GET
+```
+
+
+## httr::content() 將回應資料的轉純文字
+
+* 回應的資料看他的`class`是一個`response`，但如果看Global Environment看來是個`list`，裡面裝載很多資料，而主要核心的內容在`content`這個欄位，但看來是用`binary code`裝起來的，而不是純文字。
+
+* 因此，對於這個抓回來的檔案，我需要用httr::content()幫忙把純文字給解出來。經查詢`help`可得知`content()`後面的參數有三類，其中可以要轉為純文字的就是`content(response, "text")`。因此偵測轉出來的變數會是長度為1的`character`。
+
+```{r}
+text <- content(response, "text", encoding = "utf-8")
+class(text)
+??httr::content
+length(text)
+```
+
+
+## 將JSON格式文字轉為R物件
+
+* 最後是將這個`character`轉為R的物件，也就是data.frame或list。注意，此時text是一個`character`，那是我們知道他是用JSON格式編寫的文字檔，就像我們知道.csv檔是用逗號分隔表示法依樣，JSON就是用層層疊疊的`[]{}`記號來表述資料的結構。
+
+* 並要提醒初學者，`.json`或`.csv`都只是幫助程式初步篩選檔案的副檔名罷了，裡面的究竟是不是個完整的json檔這都要去看、去測。我自然也可以在`.json`的檔案裡頭用逗號分隔模式撰寫，
+
+```{r}
+df <- fromJSON(text)
+?fromJSON
+```
+
+
+# 練習
+
+* 下列這些網路文件應該都是json檔，嘗試把他抓回來看看。
+
+```{r}
+url_rent591 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+url_reHospital <- "http://data.nhi.gov.tw/Datasets/DatasetResource.ashx?rId=A21030000I-E30008-002&ndctype=JSON&ndcnid=18585"
+url_dcard <- "https://www.dcard.tw/_api/forums/girl/posts?popular=true"
+url_pchome <- "http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=X100F&page=1&sort=rnk/dc"
+url_104 <- "https://www.104.com.tw/jobs/search/list?ro=0&keyword=%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90&area=6001001000&order=1&asc=0&kwop=7&page=2&mode=s&jobsource=n104bank1"
+url_ubike <- "http://data.taipei/youbike"
+
+```
+
+# Case 2: ret591: well-formatted by hierarchical
+
+* 第二類是最常會見到的例子，解出來的資料是個很多階層的`list`，通常一筆資料傳回來時多會附加一些metadata，比方說，一共幾筆資料、下一個資料區塊在哪裡，好讓使用者或者本地端的瀏覽器能夠繼續取得下一筆資料。因此，資料通常會在樹狀節點的某一個子節點。以下面的例子來說，就是存在`res$data$data`這個節點中。
+
+
+```{r}
+url_rent591 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+
+res <- fromJSON(content(GET(url_rent591), "text", encoding = "utf-8"))
+
+df <- res$data$data
+
+head(df[,1:10])
+
+# Access the right level of nodes
+# View(res$data$data)
+```
+## (option) 取回資料並寫在硬碟
+
+* 有時候寫爬蟲尤其是在爬會即時更新的資料時，會需要反覆定時地抓資料，這時候通常會先通通抓回來再慢慢合併整理。此時要特別注意如何保持每次抓回來的資料都是獨特的一個資料。以下面的例子來講，因為每次檔名都是一樣的，他會一直覆蓋過去，所以再怎麼抓，都不會是歷時性資料。通常會自動讀取當下時間當成檔名的一部分，這樣就不會重複了。這將在日後youbike的例子中用到。
+
+```{r}
+response <- GET(url_rent591,
+                write_disk("data/rent591_original.json",
+                           overwrite=TRUE))
+
+```
+
+
+
+# Case 3: footRumor: ill-formatted
+
+* 食品闢謠的例子可能是個沒好好編過JSON的單位所編出來的案子，資料很簡單，但卻是一個list裡面有329個data.frame，且每個data.frame只有對腳現有資料，然後每一筆資料就一個data.frame。
+
+```{r}
+# non-typical json, not a [] containing {} pairs
+
+url <- 'http://data.fda.gov.tw/cacheData/159_3.json'
+safefood <- fromJSON(content(GET(url),'text'))
+# str(safefood)
+class(safefood)
+class(safefood[[1]])
+dim(safefood[[1]])
+# View(safefood[[1]])
+```
+
+
+## 處理非典型的JSON檔
+
+* 但這時候也不難觀察到其規律性。既然每個data.frame是一筆資料，且資料都是照順序出現在對角線，那我就把data.frame給`unlist()`拆成vector後，把`NA`給移除了，那剩下的就是我們要的資料了。
+
+* 但，由於對整筆資料`unlist()`，那整筆資料會變成一個很長的vector，不過我們知道每五個元素就是一筆資料。所以我可以嘗試用`matrix()`的指令，讓資料每五個就折成一筆資料。
+
+* 程序大致上是
+    1. `safefood.v <- unlist(safefood)` 把資料`unlist()`。
+    2. `safefood.v <- safefood.v[!is.na(safefood.v)]`剔除NA值
+    3. `safefood.m <- matrix(safefood.v, byrow = T, ncol = 5)`照列來折，因為每五個就一筆資料，所以是照列折，然後用`ncol = 5`來指定五個一折。
+    
+* 最後要再交代的是。
+
+
+```{r}
+
+safefood.v <- unlist(safefood)
+head(safefood.v)
+
+# anyNA() to check if NAs still exist
+anyNA(safefood.v)
+
+# (option) check if NAs exist
+head(is.na(safefood.v))
+sum(is.na(safefood.v))
+
+# remove NAs
+safefood.v <- safefood.v[!is.na(safefood.v)]
+# length(safefood.v)
+
+# double-check NAs
+anyNA(safefood.v)
+head(safefood.v)
+
+
+# convert vector to matrix
+safefood.m <- matrix(safefood.v, byrow = T, ncol = 5)
+# ?matrix
+
+# convert matrix to dataframe
+safefood.df <- as.data.frame(safefood.m)
+
+# delete the 4th column
+safefood.df <- safefood.df[-4]
+
+# naming the data.frame
+names(safefood.df) <- c('category', 'question', 'answer', 'timestamp')
+
+```
+
+
