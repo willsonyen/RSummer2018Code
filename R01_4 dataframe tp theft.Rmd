@@ -46,12 +46,12 @@ df <- read.csv("data/tptheft.csv", fileEncoding = "big5", stringsAsFactors = FAL
 str(df)
 ```
 
-* **Tips**部分Mac電腦無法使用`read.csv()`從網路上取得資料又轉為`data.frame`，一個可行的辦法是先用`GET(url, write_disk("test.csv"))`將其取回並命名為`test.csv`，之後再用`df <- read.csv("test.csv", fileEncoding = "big5", stringsAsFactors = FALSE)`直接讀取該檔案。
+* **Tips**部分Mac電腦無法使用`read.csv()`從網路上取得資料又轉為`data.frame`，一個可行的辦法是先用`GET(url, write_disk("data/tptheft.csv"))`將其取回並命名為`data/tptheft.csv`，之後再用`df <- read.csv("data/tptheft.csv", fileEncoding = "big5", stringsAsFactors = FALSE)`直接讀取該檔案。
 
 ```{r}
 library(httr)
-# GET(url, write_disk("test.csv", overwrite = TRUE))
-# df <- read.csv("test.csv", fileEncoding = "big5", stringsAsFactors = FALSE)
+# GET(url, write_disk("data/tptheft.csv", overwrite = TRUE))
+# df <- read.csv("data/tptheft.csv", fileEncoding = "big5", stringsAsFactors = FALSE)
 ```
 
 

@@ -219,14 +219,14 @@ df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(url, <span cla
 <span class="co"># View(df)</span>
 
 <span class="co"># if mac cannot read data</span>
-<span class="kw">GET</span>(url, <span class="kw">write_disk</span>(<span class="st">&quot;test.csv&quot;</span>, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<span class="kw">GET</span>(url, <span class="kw">write_disk</span>(<span class="st">&quot;data/tptheft.csv&quot;</span>, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <pre><code>## Response [http://data.taipei/opendata/datalist/datasetMeta/download?id=68785231-d6c5-47a1-b001-77eec70bec02&amp;rid=34a4a431-f04d-474a-8e72-8d3f586db3df]
-##   Date: 2018-07-07 06:22
+##   Date: 2018-07-07 11:55
 ##   Status: 200
 ##   Content-Type: application/octet-stream;charset=UTF-8
 ##   Size: 123 kB
-## &lt;ON DISK&gt;  /Users/jirlong/Dropbox/Programming/R/RSummer2018Code/test.csv</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;test.csv&quot;</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;big5&quot;</span>)</code></pre></div>
+## &lt;ON DISK&gt;  /Users/jirlong/Dropbox/Programming/R/RSummer2018Code/data/tptheft.csv</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/tptheft.csv&quot;</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;big5&quot;</span>)</code></pre></div>
 </div>
 <div id="facebookdeprecated-after-81" class="section level2">
 <h2><span class="header-section-number">1.6</span> 載入Facebook資料(deprecated after 8/1)</h2>

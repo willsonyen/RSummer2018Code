@@ -83,8 +83,8 @@ df <- read.csv(url, fileEncoding = "big5")
 # View(df)
 
 # if mac cannot read data
-GET(url, write_disk("test.csv", overwrite = TRUE))
-df <- read.csv("test.csv", fileEncoding = "big5")
+GET(url, write_disk("data/tptheft.csv", overwrite = TRUE))
+df <- read.csv("data/tptheft.csv", fileEncoding = "big5")
 
 ```
 

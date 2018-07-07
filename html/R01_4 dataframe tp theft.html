@@ -205,11 +205,11 @@ df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="s
 ##  $ 發生時段    : chr  &quot;10~12&quot; &quot;19~21&quot; &quot;01~03&quot; &quot;04~06&quot; ...
 ##  $ 發生.現.地點: chr  &quot;台北市中山區新生北路3段31 ~ 60號&quot; &quot;台北市信義區三張里莊敬路341巷1 ~ 30號&quot; &quot;台北市信義區松隆里松山路615巷1 ~ 30號&quot; &quot;台北市萬華區雙園街61 ~ 90號&quot; ...</code></pre>
 <ul>
-<li><strong>Tips</strong>部分Mac電腦無法使用<code>read.csv()</code>從網路上取得資料又轉為<code>data.frame</code>，一個可行的辦法是先用<code>GET(url, write_disk(&quot;test.csv&quot;))</code>將其取回並命名為<code>test.csv</code>，之後再用<code>df &lt;- read.csv(&quot;test.csv&quot;, fileEncoding = &quot;big5&quot;, stringsAsFactors = FALSE)</code>直接讀取該檔案。</li>
+<li><strong>Tips</strong>部分Mac電腦無法使用<code>read.csv()</code>從網路上取得資料又轉為<code>data.frame</code>，一個可行的辦法是先用<code>GET(url, write_disk(&quot;data/tptheft.csv&quot;))</code>將其取回並命名為<code>data/tptheft.csv</code>，之後再用<code>df &lt;- read.csv(&quot;data/tptheft.csv&quot;, fileEncoding = &quot;big5&quot;, stringsAsFactors = FALSE)</code>直接讀取該檔案。</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httr)
-<span class="co"># GET(url, write_disk(&quot;test.csv&quot;, overwrite = TRUE))</span>
-<span class="co"># df &lt;- read.csv(&quot;test.csv&quot;, fileEncoding = &quot;big5&quot;, stringsAsFactors = FALSE)</span></code></pre></div>
+<span class="co"># GET(url, write_disk(&quot;data/tptheft.csv&quot;, overwrite = TRUE))</span>
+<span class="co"># df &lt;- read.csv(&quot;data/tptheft.csv&quot;, fileEncoding = &quot;big5&quot;, stringsAsFactors = FALSE)</span></code></pre></div>
 </div>
 <div id="rev-" class="section level1">
 <h1><span class="header-section-number">2</span> REV: 觀察資料</h1>

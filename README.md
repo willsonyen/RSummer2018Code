@@ -10,11 +10,12 @@
 
 ## Links
 
-* [Course info](info.md)
-* [Announcement](announcement.md)
-* [Final Project](finalproject.md)
-* [Resource](resource.md)
-* [Assignments](assignments.md)
+* [Course info](course_info/info.md)
+* [Announcement](course_info/announcement.md)
+* [Final Project](course_info/finalproject.md)
+* [Resource](course_info/resource.md)
+* [Assignments](course_info/assignments.md)
+* [Review Notes](course_info/review_notes.md)
 
 
 ## Time table
@@ -26,14 +27,6 @@
 
 
 # Today
-
-* [R01_3_dataframe](html/R01_3_dataframe.html)
-* [R01_4_practice_load_and_summarize_tweet_tweet_data](html/R01_4_practice_load_and_summarize_tweet_tweet_data.html)
-* [R02_1_Paid_Maternity_Leave](html/R02_1_Paid_Maternity_Leave.html)
-* [SlideR02. Read csv](https://docs.google.com/presentation/d/e/2PACX-1vTFRVkwdscR3QNdVD6Q8JEKshlORtgdP_DUq19HPjbO6_8nN3ADTEtxuOr_Z28t3HKGdf9_m3icULpO/pub?start=false&loop=false&delayms=3000)
-* [SlideR01. R Basic](https://docs.google.com/presentation/d/e/2PACX-1vRjb_W1Vo9-zD9F4FmWOiB6K4ezkF6W64OKcX7bZD6ordKvOT-6LFoGi0le-HzT2ABKudDNhr_qKt2x/pub?start=false&loop=false&delayms=3000&slide=id.g2074c710b4_0_293)
-
-
 
 
 # HTML
