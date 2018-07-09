@@ -31,13 +31,15 @@
 
 # HTML
 
-* [0_install_pkgs](html/0_install_pkgs.html)
+* [R00_install_pkgs](html/R00_install_pkgs.html)
 * [R01_1 loading data](html/R01_1 loading data.html)
 * [R01_2 vector](html/R01_2 vector.html)
 * [R01_3 dataframe import export](html/R01_3 dataframe import export.html)
 * [R01_4 dataframe tp theft](html/R01_4 dataframe tp theft.html)
 * [R01_5prac load and summarize tweet data](html/R01_5prac load and summarize tweet data.html)
 * [R02_1 csv paid maternity leave](html/R02_1 csv paid maternity leave.html)
+* [R02_2 read json](html/R02_2 read json.html)
+* [R03_1_crawler_design_rent591](html/R03_1_crawler_design_rent591.html)
 
 
 # Slides

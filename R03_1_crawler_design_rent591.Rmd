@@ -1,0 +1,248 @@
+---
+title: "R03_1 crawler design"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 爬蟲設計
+
+## 學習資源
+
+* Google slide:  https://docs.google.com/presentation/d/e/2PACX-1vRW84XoB5sFRT1Eg-GrK4smX23qoNkFffz_h8oRU4AIvJAgrrxBn8059_0UeHv_pFBks_Z37vNbLGai/pub?start=false&loop=false&delayms=3000&slide=id.g28a96d7d6c_0_280
+* Youtube: https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B
+
+# 載入套件
+
+```{r}
+library(httr)
+library(jsonlite)
+library(dplyr)
+options(stringsAsFactors = FALSE)
+options(encoding = "UTF-8")
+```
+
+
+# 爬取591租屋網的完整程式碼
+
+* 通常網頁為了加快載入速度並不會一次呈現所有的資料，而是要求使用者點擊下一個頁面、或者使用者往下捲動，觸發頁面載入新的資料。而要撰寫爬蟲程式來爬取所有資料而非第一個頁面的資料時，有幾個重要步驟包含
+    1. 要抓取的目標頁面在哪裡？是什麼格式？是HTML或JSON？
+    2. 將所抓取的資料順利轉為R的data.frame，並產生一個新變數例如`all.df`來存放過程中抓到的所有資料片段。
+    3. 下一筆資料位址在哪裡？順利地抓到他。
+    4. 要抓到什麼時候停？如果知道就寫成for-loop，如果無從得知，也可以用while故意跑到程式當掉，若沒有其他的錯誤，多半是因為抓不到資料的關係，就可以知道什麼時候該停。
+    5. 用for-loop抓取，並將資料合併到前述的資料片段中。
+
+* 在程式碼中有個比較特別的區段是做了一次`res$data$data$cases_id <- as.character(res$data$data$cases_id)`資料型態的轉換，因為有時候在爬取的時候，若有缺漏值，JSON的整數資料會被自動轉為文字，但若沒缺漏值都是數字的話，那就會是整數。因此尤其在爬取有數據的欄位資料時，在`bind_rows()`的時候經常會出現資料形態不一致的錯誤，但這並非資料本身不一致，而是因為某些值的關係被轉為文字，導致文字和整數的變數沒辦法用`bind_rows()`將其黏接起來。
+
+```{r}
+url1 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+res1 <- fromJSON(content(GET(url1), "text"))
+all.df <- res1$data$data
+
+### Detecting last page
+end <- as.numeric(gsub(",", "", res1$records))
+endpage <- end %/% 30
+
+### Modifying urls by page number to get all data
+# for(i in 1:endpage){
+for(i in 1:5){
+    message(i)
+	url <- paste0(url1, "&firstRow=", i*30, "&totalRows=", end)
+	res <- fromJSON(content(GET(url), "text", encoding = "utf-8"))
+	res$data$data$cases_id <- as.character(res$data$data$cases_id)
+	all.df <- bind_rows(all.df, res$data$data) # dplyr::bind_rows()
+}
+
+length(unique(all.df$user_id))
+```
+
+# 案例逐步說明
+
+## 找到第一個資料區塊
+
+* 先用Chrome Dev Tools找到相對應的資料檔，這裡是一個JSON檔，然後回到Chrome Dev Tools的header panel，將該網址複製出來給`url1`。
+* 此時的`content()`函式若沒有加上`encoding = "utf-8"`的話會出現警告（warnings）訊息，但可以不用搭理。
+* 資料被放在`res1$data$data`中。
+* 接下來要將資料指派給一個新的data.frame如下方的`all.df`用以存放過程中抓回的所有資料。
+
+
+
+```{r}
+url1 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+res1 <- fromJSON(content(GET(url1), "text", encoding = "utf-8"))
+
+class(res1$data$data)
+dim(res1$data$data); 
+
+all.df <- res1$data$data
+```
+
+
+
+## 取得第二頁資料
+
+* 通常如果要取得第二頁或下一頁的資料，那就是開著Chrome Dev Tools時，點選下一頁開啟下一個區段的資料。
+* 接下來要做的就是觀察第一頁資料的url和第二頁資料的url的差異。
+    * `url1 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"`
+    * `url2 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1&firstRow=30&totalRows=2563"`
+    * `url3 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1&firstRow=60&totalRows=2563"`
+* 可以看得出來第一頁和第二頁差的就是第二頁資料多了`&firstRow=30&totalRows=2563`這些字。而第三頁是`&firstRow=60&totalRows=2563`，基本上就只有`firstRow`後面的數字有所差異。而且不難看出來，第二頁是`1*30`、第三頁是`2*30`、第四頁就會是`(4-1)*30`依此類推直到碰到最後一筆資料為止。
+* 而停止條件為何呢？停止條件應為上述的`totalRows`後面的數字，那代表查詢結果中一共有多少筆租屋資料，因此把該數字除以30，就可以知道應該抓幾頁。
+
+```{r}
+url2 <- paste0(url1, "&firstRow=30&totalRows=2563")
+res2 <- fromJSON(content(GET(url2), "text"))
+class(res2$data$data)
+dim(res2$data$data)
+```
+
+
+## 合併資料
+
+* 對於新抓回來的資料，通常資料格式和上一個區段的資料都是一樣的。前面有30筆資料，後面又新抓30筆資料，於是要做的事情就是把30+30筆資料整合為60筆。此時，最好用的函式是`dplyr::bind_rows()`。base套件自己有一`rbind()`函式可以把兩個變數相同的data.frame自row黏接再一起，相當於把後者`append`到前者後。但`rbind()`在遇到某一個區段有缺少的變數時，無法自行處理，如果用dplyr::bind_rows()的話，若遇到缺少的變數時，便會自動填為`NA`。
+
+```{r}
+# concatenating res2 data after all.df by row
+# ?dplyr::bind_rows
+all.df <- bind_rows(all.df, res2$data$data)
+nrow(all.df)
+```
+
+## 抓取第三區段資料並合併
+
+```{r}
+url3 <- paste0(url1, "&firstRow=60&totalRows=2563")
+res3 <- fromJSON(content(GET(url3), "text"))
+
+# concatenating res3
+all.df <- bind_rows(all.df, res3$data$data)
+dim(all.df)
+```
+
+## 回顧所需程式碼
+
+* 整併前面所有程式碼，我們不可能為所有區段資料都這麼做，但我們觀察到每抓一個新的區段（30筆）資料，所用的程式碼都一樣，只有`firstRow`後面的數字有改變。
+
+```{r}
+
+
+# 4.  ------------------------------------------
+
+url1 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+res1 <- fromJSON(content(GET(url1), "text"))
+all.df <- res1$data$data
+
+url2 <- paste0(url1, "&firstRow=30&totalRows=2563")
+res2 <- fromJSON(content(GET(url2), "text"))
+all.df <- bind_rows(all.df, res2$data$data)
+
+url3 <- paste0(url1, "&firstRow=60&totalRows=2563")
+res3 <- fromJSON(content(GET(url3), "text"))
+all.df <- bind_rows(all.df, res3$data$data)
+
+url4 <- paste0(url1, "&firstRow=90&totalRows=2563")
+res4 <- fromJSON(content(GET(url4), "text"))
+all.df <- bind_rows(all.df, res4$data$data)
+```
+
+
+## for-loop迴圈控制下載資料
+```{r}
+
+url1 <- "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=2&searchtype=1&region=1"
+res1 <- fromJSON(content(GET(url1), "text"))
+all.df <- res1$data$data
+
+for(i in 1:3){
+	url <- paste0(url1, "&firstRow=", i*30, "&totalRows=2563")
+	res <- fromJSON(content(GET(url), "text"))
+	all.df <- bind_rows(all.df, res$data$data)
+}
+```
+
+
+## 取得停止條件
+
+* 利用回傳的JSON資料取得資料筆數，並將其轉數字後除以每頁的資料筆數30，就可以大致得到一共要撈幾頁。最後把要撈幾頁放在for-loop的停止條件中，並更改所`paste0`的頁數。
+
+```{r}
+res1$records
+# convert character to number
+end <- as.numeric(gsub(",", "", res1$records))
+# calculate the number of end page
+endpage <- end %/% 30
+
+for(i in 1:5){
+	url <- paste0(url1, "&firstRow=", i*30, "&totalRows=", end)
+	res <- fromJSON(content(GET(url), "text"))
+	res$data$data$cases_id <- as.character(res$data$data$cases_id)
+	all.df <- bind_rows(all.df, res$data$data)
+}
+```
+
+
+# 儲存資料為rda（RDATA）或rds檔
+
+* 每次大費周章清理資料後，尤其當資料非常巨大時，總希望下次使用時能夠直接從上次操作所留下來的變數開始。R提供兩種不同的資料暫存格式，一個是`rda(RData)`，另一個是`rds`。`rdata`的優點是可以儲存任意個變數及其資料，`rds`的優點是當我們要把他載入進來時，可以給他一個新的變數名稱，而`rda`就是，之前變數名稱怎麼寫，跑出來就是那個樣子。
+
+```{r} 
+# save single var as rds
+saveRDS(all.df, "data/rent5911018.rds")
+
+# read rds to a new var
+rent591 <- readRDS("data/rent5911018.rds")
+
+# save multiple vars as rdata
+save(all.df, end, endpage, file = "data/rent5911018.rdata")
+
+# remove all vars in global environment
+rm(list=ls())
+
+# loading .rdata will recover original vars
+load("data/rent5911018.rdata")
+```
+
+
+
+# Practice: rbind() vs. bind_rows()
+
+```{r}
+# Practice: why bind_rows() rather than rbind() 
+??bind_rows
+
+
+# Creating 3 data.frames with the same 3 columns, each with 3 data rows.
+# using rbind to combine them
+
+
+# Creating 3 data.frames, each with 3 data rows. 
+# However, the second data.frame only has 2 columns, 
+# while the third data.frame has 3 columns with different names
+# using rbind to combine them to see what happens
+# using dplyr::bind_rows() to combine them 
+```
+
+
+
+# Practice: Find the next chunk and ending condition
+
+```{r}
+# Finding the next page and the end page of the following urls
+url_pchome <- "http://ecshweb.pchome.com.tw/search/v3.3/?q=switch&scope=all"
+url_dcard <- "https://www.dcard.tw/f/relationship"
+url_104 <- "https://www.104.com.tw/jobs/search/?ro=0&keyword=%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90&area=6001001000&order=1&asc=0&kwop=7&page=9&mode=s&jobsource=n104bank1"
+url_cnyes <- "https://news.cnyes.com/api/v3/search?q=%E9%B4%BB%E6%B5%B7"
+```
+
+

@@ -1,0 +1,99 @@
+---
+title: "R03_2 crawler design-decard"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+
+# 11.1 Get the next data: Dcard -------------------------------------------
+
+# The url is the page rendered by JS and json
+# url_dcard <- "https://www.dcard.tw/f/relationship"
+
+# The targeted url
+url <- "https://www.dcard.tw/_api/forums/relationship/posts?popular=true"
+res <- fromJSON(content(GET(url), "text"))
+res$id[30]
+
+url2 <- paste0(url, "&before=", res$id[30])
+res2 <- fromJSON(content(GET(url2), "text", encoding = "utf-8"))
+res2$id[30]
+# 11.2 Get 2nd block of data ----------------------------------------------
+
+# Sample of next url
+next_url <- "https://www.dcard.tw/_api/forums/relationship/posts?popular=true&before=227504873"
+
+# Composing next_url from the latest data res
+next_url <- paste0(url, "&before=", res$id[30])
+next_res <- fromJSON(content(GET(next_url), "text"))
+
+# Binding two consequent data by rows
+res <- rbind(res, next_res)
+
+
+
+# Practice ----------------------------------------------------------------
+
+# How do you get 3 or 4 blocks of data by next_url?
+
+url <- "https://www.dcard.tw/_api/forums/relationship/posts?popular=true"
+res <- fromJSON(content(GET(url), "text"))
+next_url <- paste0(url, "&before=", res$id[30])
+next_res <- fromJSON(content(GET(next_url), "text"))
+res <- rbind(res, next_res)
+
+
+
+
+# Getting 3 blocks
+
+url <- "https://www.dcard.tw/_api/forums/relationship/posts?popular=true"
+res <- fromJSON(content(GET(url), "text"))
+next_url <- paste0(url, "&before=", res$id[30])
+
+next_res <- fromJSON(content(GET(next_url), "text"))
+res <- rbind(res, next_res)
+next_url <- paste0(url, "&before=", next_res$id[30])
+
+next_res <- fromJSON(content(GET(next_url), "text"))
+res <- rbind(res, next_res)
+next_url <- paste0(url, "&before=", next_res$id[30])
+
+next_res <- fromJSON(content(GET(next_url), "text"))
+res <- rbind(res, next_res)
+next_url <- paste0(url, "&before=", next_res$id[30])
+
+
+
+
+
+# 11.3 for(){} to get more blocks of data ---------------------------------
+
+url <- "https://www.dcard.tw/_api/forums/relationship/posts?popular=true"
+res <- fromJSON(content(GET(url), "text"))
+next_url <- paste0(url, "&before=", res$id[30])
+
+for(i in 1:100){
+	next_res <- fromJSON(content(GET(next_url), "text"))
+	res <- bind_rows(res, next_res)
+	next_url <- paste0(url, "&before=", next_res$id[30])
+	# sleep(sample(1:5, 1)) 
+}
+
+```
+

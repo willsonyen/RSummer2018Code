@@ -1,5 +1,6 @@
 files <- list.files(pattern = ".*.Rmd")
-for(file in files){
+files
+for(file in files[11:13]){
     rmarkdown::render(file,
                       output_file = sprintf("html/%s.html", substr(file, 1, nchar(file)-4)))
 }
