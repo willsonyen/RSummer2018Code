@@ -1,0 +1,179 @@
+---
+title: "Read ubike data"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Loading packages
+
+```{r}
+library(httr)
+library(jsonlite)
+options(stringsAsFactors = FALSE)
+
+```
+
+
+
+# Getting web data
+
+```{r}
+url <- "http://data.taipei/youbike"
+ubike.list <- fromJSON(content(GET(url),"text", encoding = "utf-8"))
+
+# take a glance at data
+class(ubike.list) # list
+# head(ubike.list)
+# as.data.frame(ubike.list)
+names(ubike.list)
+head(names(ubike.list$retVal))
+```
+
+
+
+# list -> vector -> matrix -> data.frame 
+
+1. 在做以下轉換前，建議先打開`Environment panel`觀察一下`ubike.list`的結構，雖然他是個層層套疊的list但也可發現資料被放在`retVal`中，且`retVal`中還有401個list，每個list看得出來是一個ubike站，而每個站有14個變數，分別是ubike站的編號、地址、剩餘車輛等等。
+
+2. 資料儲存在`ubike.list$retVal`中，但由於該json檔無任何的`[]`，所以會被全部轉為層層套疊的list，此時可以用`as.data.frame()`或`unlist()`嘗試轉轉看。
+
+3. 用`unlist(x)`不管`x`是什麼型態，都會被轉為vector，在此為一個5614個元素的vector。由於前面已經觀察到，每個ubike站有14個變數，且這14個變數會接續出現在`ubike.v`中，所以等於在`ubike.v`中每14個資料項就是一筆資料。因此，可以利用`matrix()`函式，將一整條vector轉為二維matrix。轉的方法有兩個參數，，因為是每14個資料項為一筆資料，所以是`byrow = T, ncol = 14`。等於是每14個連續的變數折成一筆列上的資料。此時，資料型態為matrix。
+
+4. 最後用`as.data.frame()`將matrix轉為data.frame。
+
+
+```{r}
+# Select the right node and unlist it --> vector
+ubike.v <- unlist(ubike.list$retVal)
+
+# Fold it by a specified width --> matrix
+ubike.m <- matrix(ubike.v, byrow = T, ncol = 14)
+
+# Convert the matrix to dataframe
+ubike.df <- as.data.frame(ubike.m)
+```
+
+
+# Assigning variable names
+* 觀察轉出來的變數名稱，由於是用`unlist()`和`matrix()`拆掉原本的資料結構所產生的data.frame，會發現變數名稱變為V1~V14。
+
+* 但事實上在`ubike.list$retVal`中的每一個list，也就是每一筆資料，都有變數名稱，所以僅需要把某一筆資料的變數名稱取出來指派為整個`ubike.df`的變數名稱即可。
+
+
+```{r}
+# names(ubike.df)
+names(ubike.df) <- names(ubike.list$retVal$`0001`)
+```
+
+
+# Converting character vectors to numeric
+* 一共要轉四個變數，因為讀取回來的資料原本為字元型態，所以需要把經緯度轉為數字。
+* 除此之外，由於我希望計算ubike站滿不滿，因此，我需要ubike站的總車格數`tot`和現有車輛數`sbi`。
+* 通常這種資料欄位的定義會隨著開放資料一起給出來，只要查閱原本的網站即可。
+
+```{r}
+ubike.df$lng <- as.numeric(ubike.df$lng)
+ubike.df$lat <- as.numeric(ubike.df$lat)
+ubike.df$tot <- as.numeric(ubike.df$tot)
+ubike.df$sbi <- as.numeric(ubike.df$sbi)
+```
+
+
+# Creating a new variable
+* 為每個站產生一個`sbi`除以`tot`的新變數，來作為ubike站滿不滿的計量單位。
+
+```{r}
+# ratio <- sbi/tot
+ubike.df$ratio <- ubike.df$sbi / ubike.df$tot
+summary(ubike.df)
+```
+
+# Mapping with ggmap
+
+* 現在我希望把資料描繪在地圖上，這邊使用的是ggmap的套件。
+
+* 首先要設定google map的參數，先打開[google map](https://www.google.com.tw/maps)，縮放到你等一下希望看到的地圖底圖範圍後，複製新的網址列如`https://www.google.com.tw/maps/@25.0353215,121.4916909,12.62z`。這個網址後面的參數包含著經緯度（25.0353215,121.4916909）和地圖的縮放程度（12.62z）。因此你可以把他貼到`get_googlemap()`的函式中。除此之外，尚可以指定地圖種類，自行查詢help（maptype can be terrain, roadmap, satellite, hybrid, or toner-lite）。
+
+* 接下來要用`geom_point()`這個`ggplot2`的函式繪製點圖，一共包含四個參數，用`data`指定資料集、用`aes()`指定x、y軸、用`colour`指定顏色、用`size`指定圓圈的大小。這邊我用圓圈的大小來表示總車格數，所以是`ubike.df$tot`，但如果是原始的`tot`數值可能畫起來會太大，這時後就必須要**自行反覆嘗試**，看看要取`log()`或者取`sqrt()`或者除以某個數值，好讓畫出來的點為適合觀看的大小。最後我多加了一個參數`alpha`讓圈圈半透明。
+
+```{r}
+library(ggplot2)
+library(ggmap)
+
+ggmap(
+	get_googlemap(
+		center=c(121.516898,25.055536),
+		zoom=12,
+		maptype='terrain')) +
+  geom_point(data=ubike.df, 
+  		   aes(x=lng, y=lat), 
+  		   colour='red', 
+  		   size=ubike.df$tot/10, 
+  		   alpha=0.4)
+```
+
+# Assigning color according to ratio levels
+
+* 雖然我已經計算了`ubike.df$ratio`，但此時我仍然沒有對上述ubike站上顏色，因為尚未分類ubike站滿的程度並對應到所要繪製的顏色。
+
+* 在這邊利用if-else條件判斷式來決定顏色。
+
+* 首先是判斷式，我設計一個判斷式是「如果ratio大於0.8就塗成紅色、不然的話，若ratio小於0.2就塗藍色，而其他塗綠色」。
+
+* 但因為是每個`tot`都必須這麼計算，無法直接用`tot`整個變數去做if-else運算並獲得新的值。因此，我把他寫為一個自定義函式`assignColor()`來轉換數值。
+
+* 標準函式的定義結構為`function_name <- function(input_parameter){return(x)}`。`input_parameter`為輸入、`return()`函式會把計算的結果傳出來。若以國高中常用的函式`f(x) = x + 3`來解釋之，那R會寫為`f <- function(x){return(x + 3)}`，在使用的時候打`f(4)`他就會傳回7。
+
+* 因此，我把`ratio`作為參數，然後用if-else條件判斷式來判斷`ratio`的level，然後把我要的顏色給傳回來。由於一共有兩個判斷式，和一個`other`，所以需要多寫一個`else if`。「如果ratio大於0.8就塗成紅色、不然的話，若ratio小於0.2就塗藍色，而其他塗綠色」
+
+* 最後，我需要用一個`sapply()`函式將所有的`ubike.df$ratio`一一送給`assignColor()`去做判斷，再把判斷後的結果指派給新的變數`ubike.df$color`。查詢`sapply()`可得知他的用途為「Apply a Function over a List or Vector」，並有以下說明。而`sapply()`的用法是`new_variable <- sapply(existed_variable, function_name)`，因此要把剛剛設計的函式名稱`assignColor`寫在後頭。
+    * `lapply` returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X.
+    * `sapply` is a user-friendly version and wrapper of lapply by default returning a vector
+
+
+```{r}
+assignColor <- function(ratio){
+  if(ratio > 0.8){
+    return("#FF0000") # red
+  }
+  else if(ratio < 0.2){
+    return("#0000FF") # blue
+  }
+  else{
+    return("#00FF00") # green
+  }
+}
+
+ubike.df$color <- sapply(ubike.df$ratio, assignColor)
+```
+
+
+
+# Recoloring geom_point by ratio
+* 最後，需要做的僅是把新產生的`ubike.df$color`餵給`geom_point()`的顏色作為參數即可。
+```{r}
+ggmap(get_googlemap(center = c(121.516898,25.055536),
+					zoom = 12,
+					maptype = 'terrain')
+	  ) +
+geom_point(data = ubike.df, 
+		   aes(lng, lat), 
+		   colour = ubike.df$color, 
+		   size = ubike.df$tot/10, 
+		   alpha = 0.4)
+```
+

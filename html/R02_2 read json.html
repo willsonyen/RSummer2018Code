@@ -127,68 +127,78 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#json"><span class="toc-section-number">1</span> JSON</a><ul>
-<li><a><span class="toc-section-number">1.1</span> 定義</a></li>
-<li><a><span class="toc-section-number">1.2</span> 格式</a></li>
-<li><a><span class="toc-section-number">1.3</span> 範例</a></li>
-<li><a href="#json"><span class="toc-section-number">1.4</span> 觀看JSON格式</a></li>
+<li><a href="#a"><span class="toc-section-number">1.1</span> <e5><ae>&lt;9a&gt;<e7><be><a9></a></li>
+<li><a href="#f"><span class="toc-section-number">1.2</span> <e6><a0><bc><e5><bc>&lt;8f&gt;</a></li>
+<li><a href="#b"><span class="toc-section-number">1.3</span> <e7><af>&lt;84&gt;<e4><be>&lt;8b&gt;</a></li>
+<li><a href="#c8bjson8f"><span class="toc-section-number">1.4</span> <e8><a7>&lt;80&gt;<e7>&lt;9c&gt;&lt;8b&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;</a></li>
 </ul></li>
-<li><a href="#jsoncsv"><span class="toc-section-number">2</span> 比較JSON與CSV</a><ul>
-<li><a><span class="toc-section-number">2.1</span> 紫外線資料</a></li>
-<li><a><span class="toc-section-number">2.2</span> 空氣品質</a></li>
-<li><a><span class="toc-section-number">2.3</span> 就診後同日於同醫院因同疾病再次就診率</a></li>
-<li><a href="#json"><span class="toc-section-number">2.4</span> 事實上JSON不會排這麼整齊</a></li>
-<li><a href="#csvjson"><span class="toc-section-number">2.5</span> 練習：把CSV寫為JSON</a></li>
+<li><a href="#json8887csv"><span class="toc-section-number">2</span> <e6><af>&lt;94&gt;<e8><bc>&lt;83&gt;JSON<e8>&lt;88&gt;&lt;87&gt;CSV</a><ul>
+<li><a href="#a879699"><span class="toc-section-number">2.1</span> <e7><b4><ab><e5><a4>&lt;96&gt;<e7><b7>&lt;9a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</a></li>
+<li><a href="#section"><span class="toc-section-number">2.2</span> <e7><a9><ba><e6><b0><a3><e5>&lt;93&gt;&lt;81&gt;<e8><b3><aa></a></li>
+<li><a href="#c908c9796908c86999b908c969785868d8e87"><span class="toc-section-number">2.3</span> <e5><b0><b1><e8><a8><ba><e5><be>&lt;8c&gt;<e5>&lt;90&gt;&lt;8c&gt;<e6>&lt;97&gt;<a5><e6>&lt;96&gt;<bc><e5>&lt;90&gt;&lt;8c&gt;<e9>&lt;86&gt;<ab><e9>&lt;99&gt;<a2><e5>&lt;9b&gt;<a0><e5>&lt;90&gt;&lt;8c&gt;<e7>&lt;96&gt;<be><e7>&lt;97&gt;&lt;85&gt;<e5>&lt;86&gt;&lt;8d&gt;<e6><ac><a1><e5><b0><b1><e8><a8><ba><e7>&lt;8e&gt;&lt;87&gt;</a></li>
+<li><a href="#b8ajson8d9c838e928099958a"><span class="toc-section-number">2.4</span> <e4><ba>&lt;8b&gt;<e5><af><a6><e4><b8>&lt;8a&gt;JSON<e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e6>&lt;8e&gt;&lt;92&gt;<e9>&lt;80&gt;&lt;99&gt;<e9><ba><bc><e6>&lt;95&gt;<b4><e9><bd>&lt;8a&gt;</a></li>
+<li><a href="#a8a8acsv82json"><span class="toc-section-number">2.5</span> <e7><b7><b4><e7><bf>&lt;92&gt;<ef><bc>&lt;9a&gt;<e6>&lt;8a&gt;&lt;8a&gt;CSV<e5><af><ab><e7>&lt;82&gt;<ba>JSON</a></li>
 </ul></li>
-<li><a><span class="toc-section-number">3</span> 取得網路資料</a></li>
-<li><a href="#jsonr"><span class="toc-section-number">4</span> JSON轉成R物件</a></li>
-<li><a><span class="toc-section-number">5</span> 安裝並加載套件。</a></li>
+<li><a href="#f9697879699"><span class="toc-section-number">3</span> <e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e7><b6><b2><e8><b7><af><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</a></li>
+<li><a href="#json898890r89"><span class="toc-section-number">4</span> JSON<e8><bd>&lt;89&gt;<e6>&lt;88&gt;&lt;90&gt;R<e7>&lt;89&gt;<a9><e4><bb><b6></a></li>
+<li><a href="#d8a89978082"><span class="toc-section-number">5</span> <e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<e4><b8><a6><e5>&lt;8a&gt;<a0><e8><bc>&lt;89&gt;<e5><a5>&lt;97&gt;<e4><bb><b6><e3>&lt;80&gt;&lt;82&gt;</a></li>
 <li><a href="#case-1-air-quality"><span class="toc-section-number">6</span> Case: 1 Air-Quality</a><ul>
-<li><a href="#get-"><span class="toc-section-number">6.1</span> GET() 發送請求</a></li>
-<li><a href="#httrcontent-"><span class="toc-section-number">6.2</span> httr::content() 將回應資料的轉純文字</a></li>
-<li><a href="#jsonr"><span class="toc-section-number">6.3</span> 將JSON格式文字轉為R物件</a></li>
+<li><a href="#get-9980818b82"><span class="toc-section-number">6.1</span> GET() <e7>&lt;99&gt;<bc><e9>&lt;80&gt;&lt;81&gt;<e8><ab>&lt;8b&gt;<e6><b1>&lt;82&gt;</a></li>
+<li><a href="#httrcontent-879b9e87898796999a848994968797"><span class="toc-section-number">6.2</span> httr::content() <e5><b0>&lt;87&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e6>&lt;87&gt;&lt;89&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><bd>&lt;89&gt;<e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;</a></li>
+<li><a href="#json8f9687978982r89"><span class="toc-section-number">6.3</span> <e5><b0>&lt;87&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;89&gt;<a9><e4><bb><b6></a></li>
 </ul></li>
-<li><a><span class="toc-section-number">7</span> 練習</a></li>
+<li><a href="#section-1"><span class="toc-section-number">7</span> <e7><b7><b4><e7><bf>&lt;92&gt;</a></li>
 <li><a href="#case-2-ret591-well-formatted-by-hierarchical"><span class="toc-section-number">8</span> Case 2: ret591: well-formatted by hierarchical</a><ul>
-<li><a href="#option-"><span class="toc-section-number">8.1</span> (option) 取回資料並寫在硬碟</a></li>
+<li><a href="#option-8f969b9e8796999c9f"><span class="toc-section-number">8.1</span> (option) <e5>&lt;8f&gt;&lt;96&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e4><b8><a6><e5><af><ab><e5>&lt;9c&gt;<a8><e7><a1><ac><e7><a2>&lt;9f&gt;</a></li>
 </ul></li>
 <li><a href="#case-3-footrumor-ill-formatted"><span class="toc-section-number">9</span> Case 3: footRumor: ill-formatted</a><ul>
-<li><a href="#json"><span class="toc-section-number">9.1</span> 處理非典型的JSON檔</a></li>
+<li><a href="#d9e859e8b9a84json94"><span class="toc-section-number">9.1</span> <e8>&lt;99&gt;&lt;95&gt;<e7>&lt;90&gt;&lt;86&gt;<e9>&lt;9d&gt;&lt;9e&gt;<e5>&lt;85&gt;<b8><e5>&lt;9e&gt;&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e6><aa>&lt;94&gt;</a></li>
+</ul></li>
+<li><a href="#more-9995908699829693879699"><span class="toc-section-number">10</span> More-<e8>&lt;99&gt;&lt;95&gt;<e7>&lt;90&gt;&lt;86&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</a><ul>
+<li><a href="#converting-time"><span class="toc-section-number">10.1</span> Converting time</a></li>
+<li><a href="#accessing-time"><span class="toc-section-number">10.2</span> Accessing time</a></li>
+</ul></li>
+<li><a href="#ill-formated---ubike"><span class="toc-section-number">11</span> ill-formated - ubike</a></li>
+<li><a href="#review"><span class="toc-section-number">12</span> Review</a><ul>
+<li><a href="#type-i-well-formatted-json-uvi-aqi-hospital_revisits"><span class="toc-section-number">12.1</span> Type I: Well-formatted JSON: UVI, AQI, Hospital_revisits</a></li>
+<li><a href="#type-ii-hierarchical-json-rent591-facebook-graph-api-google-map"><span class="toc-section-number">12.2</span> Type II: hierarchical JSON: rent591, facebook graph api, google map</a></li>
+<li><a href="#type-iii-ill-formatted-json-food_rumors-ubike"><span class="toc-section-number">12.3</span> Type III: Ill-formatted JSON: food_rumors, ubike</a></li>
 </ul></li>
 </ul>
 </div>
 
 <div id="json" class="section level1">
 <h1><span class="header-section-number">1</span> JSON</h1>
-<div class="section level2">
-<h2><span class="header-section-number">1.1</span> 定義</h2>
+<div id="a" class="section level2">
+<h2><span class="header-section-number">1.1</span> <e5><ae>&lt;9a&gt;<e7><be><a9></h2>
 <ul>
-<li><p>JSON（JavaScript Object Notation）是一種資料的儲存與表示方法。資料可儲存格式有很多種，如XML、JSON、CSV等常見格式。例如政府開放資料的紫外線資料http://data.gov.tw/node/6076就包含這三類資料格式。資料格式不同，用來存取資料的程式碼就會不同。</p></li>
-<li><p>CSV擅長儲存表格型態的二維資料，或者需要用長列表的型態儲存樹狀資料，JSON和XML則擅長儲存樹狀、階層或高維度資料。XML除了可以標示階層和欄位外，還易於設計類別。</p></li>
+<li><p>JSON<ef><bc>&lt;88&gt;JavaScript Object Notation<ef><bc>&lt;89&gt;<e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e7><a8><ae><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e8>&lt;88&gt;&lt;87&gt;<e8><a1><a8><e7><a4><ba><e6>&lt;96&gt;<b9><e6><b3>&lt;95&gt;<e3>&lt;80&gt;&lt;82&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;8f&gt;<af><e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e6>&lt;9c&gt;&lt;89&gt;<e5><be>&lt;88&gt;<e5><a4>&lt;9a&gt;<e7><a8><ae><ef><bc>&lt;8c&gt;<e5><a6>&lt;82&gt;XML<e3>&lt;80&gt;&lt;81&gt;JSON<e3>&lt;80&gt;&lt;81&gt;CSV<e7><ad>&lt;89&gt;<e5><b8><b8><e8><a6>&lt;8b&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><be>&lt;8b&gt;<e5><a6>&lt;82&gt;<e6>&lt;94&gt;<bf><e5><ba>&lt;9c&gt;<e9>&lt;96&gt;&lt;8b&gt;<e6>&lt;94&gt;<be><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><b4><ab><e5><a4>&lt;96&gt;<e7><b7>&lt;9a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<a href="http://data.gov.tw/node/6076" class="uri">http://data.gov.tw/node/6076</a><e5><b0><b1><e5>&lt;8c&gt;&lt;85&gt;<e5>&lt;90&gt;<ab><e9>&lt;80&gt;&lt;99&gt;<e4><b8>&lt;89&gt;<e9><a1>&lt;9e&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e3>&lt;80&gt;&lt;82&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e4><b8>&lt;8d&gt;<e5>&lt;90&gt;&lt;8c&gt;<ef><bc>&lt;8c&gt;<e7>&lt;94&gt;<a8><e4><be>&lt;86&gt;<e5><ad>&lt;98&gt;<e5>&lt;8f&gt;&lt;96&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><a8>&lt;8b&gt;<e5><bc>&lt;8f&gt;<e7><a2><bc><e5><b0><b1><e6>&lt;9c&gt;&lt;83&gt;<e4><b8>&lt;8d&gt;<e5>&lt;90&gt;&lt;8c&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p>CSV<e6>&lt;93&gt;&lt;85&gt;<e9>&lt;95&gt;<b7><e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e8><a1><a8><e6><a0><bc><e5>&lt;9e&gt;&lt;8b&gt;<e6>&lt;85&gt;&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;<e4><ba>&lt;8c&gt;<e7><b6><ad><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e6>&lt;88&gt;&lt;96&gt;<e8>&lt;80&gt;&lt;85&gt;<e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e7>&lt;94&gt;<a8><e9>&lt;95&gt;<b7><e5>&lt;88&gt;&lt;97&gt;<e8><a1><a8><e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;9e&gt;&lt;8b&gt;<e6>&lt;85&gt;&lt;8b&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e6><a8><b9><e7>&lt;8b&gt;&lt;80&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;JSON<e5>&lt;92&gt;&lt;8c&gt;XML<e5>&lt;89&gt;&lt;87&gt;<e6>&lt;93&gt;&lt;85&gt;<e9>&lt;95&gt;<b7><e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e6><a8><b9><e7>&lt;8b&gt;&lt;80&gt;<e3>&lt;80&gt;&lt;81&gt;<e9>&lt;9a&gt;&lt;8e&gt;<e5><b1><a4><e6>&lt;88&gt;&lt;96&gt;<e9><ab>&lt;98&gt;<e7><b6><ad><e5><ba><a6><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;XML<e9>&lt;99&gt;<a4><e4><ba>&lt;86&gt;<e5>&lt;8f&gt;<af><e4><bb><a5><e6><a8>&lt;99&gt;<e7><a4><ba><e9>&lt;9a&gt;&lt;8e&gt;<e5><b1><a4><e5>&lt;92&gt;&lt;8c&gt;<e6><ac>&lt;84&gt;<e4><bd>&lt;8d&gt;<e5><a4>&lt;96&gt;<ef><bc>&lt;8c&gt;<e9>&lt;82&gt;&lt;84&gt;<e6>&lt;98&gt;&lt;93&gt;<e6>&lt;96&gt;<bc><e8><a8><ad><e8><a8>&lt;88&gt;<e9><a1>&lt;9e&gt;<e5>&lt;88&gt;<a5><e3>&lt;80&gt;&lt;82&gt;</p></li>
 </ul>
 </div>
-<div class="section level2">
-<h2><span class="header-section-number">1.2</span> 格式</h2>
+<div id="f" class="section level2">
+<h2><span class="header-section-number">1.2</span> <e6><a0><bc><e5><bc>&lt;8f&gt;</h2>
 <ul>
-<li>JSON格式利用兩個記號來紀錄資料的結構。
+<li>JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e5>&lt;88&gt;<a9><e7>&lt;94&gt;<a8><e5>&lt;85&gt;<a9><e5>&lt;80&gt;&lt;8b&gt;<e8><a8>&lt;98&gt;<e8>&lt;99&gt;&lt;9f&gt;<e4><be>&lt;86&gt;<e7><b4>&lt;80&gt;<e9>&lt;8c&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><b5>&lt;90&gt;<e6><a7>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;
 <ul>
-<li><code>{}</code> 為無序的欄位名稱到欄位值的對應 unordered key-to-value pair</li>
-<li><code>[]</code> 為有序的資料項目 ordered data entry</li>
+<li><code>{}</code> <e7>&lt;82&gt;<ba><e7>&lt;84&gt;<a1><e5><ba>&lt;8f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><ac>&lt;84&gt;<e4><bd>&lt;8d&gt;<e5>&lt;90&gt;&lt;8d&gt;<e7><a8><b1><e5>&lt;88&gt;<b0><e6><ac>&lt;84&gt;<e4><bd>&lt;8d&gt;<e5>&lt;80&gt;<bc><e7>&lt;9a&gt;&lt;84&gt;<e5><b0>&lt;8d&gt;<e6>&lt;87&gt;&lt;89&gt; unordered key-to-value pair</li>
+<li><code>[]</code> <e7>&lt;82&gt;<ba><e6>&lt;9c&gt;&lt;89&gt;<e5><ba>&lt;8f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e9><a0>&lt;85&gt;<e7>&lt;9b&gt;<ae> ordered data entry</li>
 </ul></li>
 </ul>
 </div>
-<div class="section level2">
-<h2><span class="header-section-number">1.3</span> 範例</h2>
+<div id="b" class="section level2">
+<h2><span class="header-section-number">1.3</span> <e7><af>&lt;84&gt;<e4><be>&lt;8b&gt;</h2>
 <ul>
-<li><p>以下為一個空氣品質開放資料前兩筆資料的JSON版本</p>
-<pre><code>[{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.22&quot;,&quot;CO_8hr&quot;:&quot;0.2&quot;,&quot;County&quot;:&quot;基隆市&quot;,&quot;NO&quot;:&quot;1.1&quot;,&quot;NO2&quot;:&quot;4.7&quot;,&quot;NOx&quot;:&quot;5.8&quot;,&quot;O3&quot;:&quot;54&quot;,&quot;O3_8hr&quot;:&quot;42&quot;,&quot;PM10&quot;:&quot;37&quot;,&quot;PM10_AVG&quot;:&quot;31&quot;,&quot;PM2.5&quot;:&quot;28&quot;,&quot;PM2.5_AVG&quot;:&quot;26&quot;,&quot;Pollutant&quot;:&quot;細懸浮微粒&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;基隆&quot;,&quot;SO2&quot;:&quot;1.4&quot;,&quot;Status&quot;:&quot;普通&quot;,&quot;WindDirec&quot;:&quot;81&quot;,&quot;WindSpeed&quot;:&quot;2.7&quot;},{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.24&quot;,&quot;CO_8hr&quot;:&quot;0.3&quot;,&quot;County&quot;:&quot;新北市&quot;,&quot;NO&quot;:&quot;1&quot;,&quot;NO2&quot;:&quot;11&quot;,&quot;NOx&quot;:&quot;12&quot;,&quot;O3&quot;:&quot;46&quot;,&quot;O3_8hr&quot;:&quot;40&quot;,&quot;PM10&quot;:&quot;40&quot;,&quot;PM10_AVG&quot;:&quot;39&quot;,&quot;PM2.5&quot;:&quot;25&quot;,&quot;PM2.5_AVG&quot;:&quot;27&quot;,&quot;Pollutant&quot;:&quot;細懸浮微粒&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;汐止&quot;,&quot;SO2&quot;:&quot;2.6&quot;,&quot;Status&quot;:&quot;普通&quot;,&quot;WindDirec&quot;:&quot;36&quot;,&quot;WindSpeed&quot;:&quot;3&quot;},...
+<li><p><e4><bb><a5><e4><b8>&lt;8b&gt;<e7>&lt;82&gt;<ba><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e7><a9><ba><e6><b0><a3><e5>&lt;93&gt;&lt;81&gt;<e8><b3><aa><e9>&lt;96&gt;&lt;8b&gt;<e6>&lt;94&gt;<be><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;89&gt;&lt;8d&gt;<e5>&lt;85&gt;<a9><e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e7>&lt;89&gt;&lt;88&gt;<e6>&lt;9c&gt;<ac></p>
+<pre><code>[{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.22&quot;,&quot;CO_8hr&quot;:&quot;0.2&quot;,&quot;County&quot;:&quot;&lt;e5&gt;&lt;9f&gt;&lt;ba&gt;&lt;e9&gt;&lt;9a&gt;&lt;86&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&quot;,&quot;NO&quot;:&quot;1.1&quot;,&quot;NO2&quot;:&quot;4.7&quot;,&quot;NOx&quot;:&quot;5.8&quot;,&quot;O3&quot;:&quot;54&quot;,&quot;O3_8hr&quot;:&quot;42&quot;,&quot;PM10&quot;:&quot;37&quot;,&quot;PM10_AVG&quot;:&quot;31&quot;,&quot;PM2.5&quot;:&quot;28&quot;,&quot;PM2.5_AVG&quot;:&quot;26&quot;,&quot;Pollutant&quot;:&quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;&lt;e5&gt;&lt;9f&gt;&lt;ba&gt;&lt;e9&gt;&lt;9a&gt;&lt;86&gt;&quot;,&quot;SO2&quot;:&quot;1.4&quot;,&quot;Status&quot;:&quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,&quot;WindDirec&quot;:&quot;81&quot;,&quot;WindSpeed&quot;:&quot;2.7&quot;},{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.24&quot;,&quot;CO_8hr&quot;:&quot;0.3&quot;,&quot;County&quot;:&quot;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&quot;,&quot;NO&quot;:&quot;1&quot;,&quot;NO2&quot;:&quot;11&quot;,&quot;NOx&quot;:&quot;12&quot;,&quot;O3&quot;:&quot;46&quot;,&quot;O3_8hr&quot;:&quot;40&quot;,&quot;PM10&quot;:&quot;40&quot;,&quot;PM10_AVG&quot;:&quot;39&quot;,&quot;PM2.5&quot;:&quot;25&quot;,&quot;PM2.5_AVG&quot;:&quot;27&quot;,&quot;Pollutant&quot;:&quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;&lt;e6&gt;&lt;b1&gt;&lt;90&gt;&lt;e6&gt;&lt;ad&gt;&lt;a2&gt;&quot;,&quot;SO2&quot;:&quot;2.6&quot;,&quot;Status&quot;:&quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,&quot;WindDirec&quot;:&quot;36&quot;,&quot;WindSpeed&quot;:&quot;3&quot;},...
 ]</code></pre></li>
 </ul>
 </div>
-<div id="json" class="section level2">
-<h2><span class="header-section-number">1.4</span> 觀看JSON格式</h2>
+<div id="c8bjson8f" class="section level2">
+<h2><span class="header-section-number">1.4</span> <e8><a7>&lt;80&gt;<e7>&lt;9c&gt;&lt;8b&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;</h2>
 <ul>
-<li><p>在瀏覽器上可安裝<a href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh">JSON Viewer</a>、在電腦上可安裝SublimeText及JSON ReIndent外掛，如何安裝可見本課程的<a href="https://youtu.be/2M1ww-WTJ2k">教學影片</a></p></li>
-<li>在Sublime Text安裝JSON Viewer
+<li><p><e5>&lt;9c&gt;<a8><e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><e4><b8>&lt;8a&gt;<e5>&lt;8f&gt;<af><e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<a href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh">JSON Viewer</a><e3>&lt;80&gt;&lt;81&gt;<e5>&lt;9c&gt;<a8><e9>&lt;9b&gt;<bb><e8>&lt;85&gt;<a6><e4><b8>&lt;8a&gt;<e5>&lt;8f&gt;<af><e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;SublimeText<e5>&lt;8f&gt;&lt;8a&gt;JSON ReIndent<e5><a4>&lt;96&gt;<e6>&lt;8e&gt;&lt;9b&gt;<ef><bc>&lt;8c&gt;<e5><a6>&lt;82&gt;<e4><bd>&lt;95&gt;<e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<e5>&lt;8f&gt;<af><e8><a6>&lt;8b&gt;<e6>&lt;9c&gt;<ac><e8><aa><b2><e7><a8>&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;<a href="https://youtu.be/2M1ww-WTJ2k"><e6>&lt;95&gt;&lt;99&gt;<e5><ad><b8><e5><bd><b1><e7>&lt;89&gt;&lt;87&gt;</a></p></li>
+<li><e5>&lt;9c&gt;<a8>Sublime Text<e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;JSON Viewer
 <ol style="list-style-type: decimal">
 <li>Download sublime text</li>
 <li>Install
@@ -208,39 +218,39 @@ $(document).ready(function () {
 </ul>
 </div>
 </div>
-<div id="jsoncsv" class="section level1">
-<h1><span class="header-section-number">2</span> 比較JSON與CSV</h1>
-<div class="section level2">
-<h2><span class="header-section-number">2.1</span> 紫外線資料</h2>
-<p>紫外線指標資料的CSV格式如下：</p>
+<div id="json8887csv" class="section level1">
+<h1><span class="header-section-number">2</span> <e6><af>&lt;94&gt;<e8><bc>&lt;83&gt;JSON<e8>&lt;88&gt;&lt;87&gt;CSV</h1>
+<div id="a879699" class="section level2">
+<h2><span class="header-section-number">2.1</span> <e7><b4><ab><e5><a4>&lt;96&gt;<e7><b7>&lt;9a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</h2>
+<p><e7><b4><ab><e5><a4>&lt;96&gt;<e7><b7>&lt;9a&gt;<e6>&lt;8c&gt;&lt;87&gt;<e6><a8>&lt;99&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;CSV<e6><a0><bc><e5><bc>&lt;8f&gt;<e5><a6>&lt;82&gt;<e4><b8>&lt;8b&gt;<ef><bc>&lt;9a&gt;</p>
 <pre><code>SiteName,UVI,PublishAgency,County,WGS84Lon,WGS84Lat,PublishTime
-花蓮,5.59,中央氣象局,花蓮縣,&quot;121,36,48&quot;,&quot;23,58,30&quot;,2015-11-23 12:00
-馬祖,4.49,中央氣象局,連江縣,&quot;119,55,24&quot;,&quot;26,10,09&quot;,2015-11-23 12:00
-高雄,4.39,中央氣象局,高雄市,&quot;120,18,57&quot;,&quot;22,33,58&quot;,2015-11-23 12:00
-玉山,8.14,中央氣象局,南投縣,&quot;120,57,34&quot;,&quot;23,29,15&quot;,2015-11-23 12:00
-臺南,4.45,中央氣象局,臺南市,&quot;120,12,17&quot;,&quot;22,59,36&quot;,2015-11-23 12:00</code></pre>
-<p>紫外線資料相對應的JSON格式如下：</p>
+&lt;e8&gt;&lt;8a&gt;&lt;b1&gt;&lt;e8&gt;&lt;93&gt;&lt;ae&gt;,5.59,&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;,&lt;e8&gt;&lt;8a&gt;&lt;b1&gt;&lt;e8&gt;&lt;93&gt;&lt;ae&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,&quot;121,36,48&quot;,&quot;23,58,30&quot;,2015-11-23 12:00
+&lt;e9&gt;&lt;a6&gt;&lt;ac&gt;&lt;e7&gt;&lt;a5&gt;&lt;96&gt;,4.49,&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;,&lt;e9&gt;&lt;80&gt;&lt;a3&gt;&lt;e6&gt;&lt;b1&gt;&lt;9f&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,&quot;119,55,24&quot;,&quot;26,10,09&quot;,2015-11-23 12:00
+&lt;e9&gt;&lt;ab&gt;&lt;98&gt;&lt;e9&gt;&lt;9b&gt;&lt;84&gt;,4.39,&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;,&lt;e9&gt;&lt;ab&gt;&lt;98&gt;&lt;e9&gt;&lt;9b&gt;&lt;84&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;,&quot;120,18,57&quot;,&quot;22,33,58&quot;,2015-11-23 12:00
+&lt;e7&gt;&lt;8e&gt;&lt;89&gt;&lt;e5&gt;&lt;b1&gt;&lt;b1&gt;,8.14,&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;,&lt;e5&gt;&lt;8d&gt;&lt;97&gt;&lt;e6&gt;&lt;8a&gt;&lt;95&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,&quot;120,57,34&quot;,&quot;23,29,15&quot;,2015-11-23 12:00
+&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8d&gt;&lt;97&gt;,4.45,&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8d&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;,&quot;120,12,17&quot;,&quot;22,59,36&quot;,2015-11-23 12:00</code></pre>
+<p><e7><b4><ab><e5><a4>&lt;96&gt;<e7><b7>&lt;9a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9b&gt;<b8><e5><b0>&lt;8d&gt;<e6>&lt;87&gt;&lt;89&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e5><a6>&lt;82&gt;<e4><b8>&lt;8b&gt;<ef><bc>&lt;9a&gt;</p>
 <pre><code>[
-   {    &quot;SiteName&quot;: &quot;花蓮&quot;,
+   {    &quot;SiteName&quot;: &quot;&lt;e8&gt;&lt;8a&gt;&lt;b1&gt;&lt;e8&gt;&lt;93&gt;&lt;ae&gt;&quot;,
     &quot;UVI&quot;: &quot;5&quot;,
-    &quot;PublishAgency&quot;: &quot;中央氣象局&quot;,
-    &quot;County&quot;: &quot;花蓮縣&quot;,
+    &quot;PublishAgency&quot;: &quot;&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;&quot;,
+    &quot;County&quot;: &quot;&lt;e8&gt;&lt;8a&gt;&lt;b1&gt;&lt;e8&gt;&lt;93&gt;&lt;ae&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&quot;,
     &quot;WGS84Lon&quot;: &quot;121,36,18&quot;,
     &quot;WGS84Lat&quot;: &quot;23,58,37&quot;,
     &quot;PublishTime&quot;: &quot;2015-11-23 11:00&quot;
 }, {
-    &quot;SiteName&quot;: &quot;馬祖&quot;,
+    &quot;SiteName&quot;: &quot;&lt;e9&gt;&lt;a6&gt;&lt;ac&gt;&lt;e7&gt;&lt;a5&gt;&lt;96&gt;&quot;,
     &quot;UVI&quot;: &quot;4&quot;,
-    &quot;PublishAgency&quot;: &quot;中央氣象局&quot;,
-    &quot;County&quot;: &quot;連江縣&quot;,
+    &quot;PublishAgency&quot;: &quot;&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;&quot;,
+    &quot;County&quot;: &quot;&lt;e9&gt;&lt;80&gt;&lt;a3&gt;&lt;e6&gt;&lt;b1&gt;&lt;9f&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&quot;,
     &quot;WGS84Lon&quot;: &quot;119,55,23&quot;,
     &quot;WGS84Lat&quot;: &quot;26,10,10&quot;,
     &quot;PublishTime&quot;: &quot;2015-11-23 11:00&quot;
 }, {
-    &quot;SiteName&quot;: &quot;高雄&quot;,
+    &quot;SiteName&quot;: &quot;&lt;e9&gt;&lt;ab&gt;&lt;98&gt;&lt;e9&gt;&lt;9b&gt;&lt;84&gt;&quot;,
     &quot;UVI&quot;: &quot;4&quot;,
-    &quot;PublishAgency&quot;: &quot;中央氣象局&quot;,
-    &quot;County&quot;: &quot;高雄市&quot;,
+    &quot;PublishAgency&quot;: &quot;&lt;e4&gt;&lt;b8&gt;&lt;ad&gt;&lt;e5&gt;&lt;a4&gt;&lt;ae&gt;&lt;e6&gt;&lt;b0&gt;&lt;a3&gt;&lt;e8&gt;&lt;b1&gt;&lt;a1&gt;&lt;e5&gt;&lt;b1&gt;&lt;80&gt;&quot;,
+    &quot;County&quot;: &quot;&lt;e9&gt;&lt;ab&gt;&lt;98&gt;&lt;e9&gt;&lt;9b&gt;&lt;84&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&quot;,
     &quot;WGS84Lon&quot;: &quot;120,18,29&quot;,
     &quot;WGS84Lat&quot;: &quot;22,34,04&quot;,
     &quot;PublishTime&quot;: &quot;2015-11-23 11:00&quot;
@@ -248,23 +258,23 @@ $(document).ready(function () {
 ...
 ]</code></pre>
 </div>
-<div class="section level2">
-<h2><span class="header-section-number">2.2</span> 空氣品質</h2>
-<p>CSV格式資料如下，下載自https://data.gov.tw/dataset/6075。</p>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">2.2</span> <e7><a9><ba><e6><b0><a3><e5>&lt;93&gt;&lt;81&gt;<e8><b3><aa></h2>
+<p>CSV<e6><a0><bc><e5><bc>&lt;8f&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5><a6>&lt;82&gt;<e4><b8>&lt;8b&gt;<ef><bc>&lt;8c&gt;<e4><b8>&lt;8b&gt;<e8><bc>&lt;89&gt;<e8>&lt;87&gt;<aa><a href="https://data.gov.tw/dataset/6075" class="uri">https://data.gov.tw/dataset/6075</a><e3>&lt;80&gt;&lt;82&gt;</p>
 <pre><code>SiteName,County,AQI,Pollutant,Status,SO2,CO,CO_8hr,O3,O3_8hr,PM10,PM2.5,NO2,NOx,NO,WindSpeed,WindDirec,PublishTime,PM10_AVG,PM2.5_AVG
-麥寮,雲林縣,104,細懸浮微粒,對敏感族群不良,1.9,0.18,0.2,41,50,101,34,3.1,3.6,0.5,5.3,4.5,2017-10-03 16:00,79,37
-關山,臺東縣,33,,良好,,,,,21,,,,,,1,179,2017-10-03 16:00,19,10
-馬公,澎湖縣,55,細懸浮微粒,普通,3.4,0.19,0.2,50,44,37,21,3.2,4.7,1.5,3.4,337,2017-10-03 16:00,28,17
-金門,金門縣,101,細懸浮微粒,對敏感族群不良,2.6,0.21,0.3,54,55,52,32,5,5.9,0.8,4.5,104,2017-10-03 16:00,64,36
-馬祖,連江縣,68,細懸浮微粒,普通,2.3,0.2,0.3,55,50,53,26,,,,5,45,2017-10-03 16:00,47,22</code></pre>
-<p>JSON格式資料如下</p>
+&lt;e9&gt;&lt;ba&gt;&lt;a5&gt;&lt;e5&gt;&lt;af&gt;&lt;ae&gt;,&lt;e9&gt;&lt;9b&gt;&lt;b2&gt;&lt;e6&gt;&lt;9e&gt;&lt;97&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,104,&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;,&lt;e5&gt;&lt;b0&gt;&lt;8d&gt;&lt;e6&gt;&lt;95&gt;&lt;8f&gt;&lt;e6&gt;&lt;84&gt;&lt;9f&gt;&lt;e6&gt;&lt;97&gt;&lt;8f&gt;&lt;e7&gt;&lt;be&gt;&lt;a4&gt;&lt;e4&gt;&lt;b8&gt;&lt;8d&gt;&lt;e8&gt;&lt;89&gt;&lt;af&gt;,1.9,0.18,0.2,41,50,101,34,3.1,3.6,0.5,5.3,4.5,2017-10-03 16:00,79,37
+&lt;e9&gt;&lt;97&gt;&lt;9c&gt;&lt;e5&gt;&lt;b1&gt;&lt;b1&gt;,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e6&gt;&lt;9d&gt;&lt;b1&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,33,,&lt;e8&gt;&lt;89&gt;&lt;af&gt;&lt;e5&gt;&lt;a5&gt;&lt;bd&gt;,,,,,21,,,,,,1,179,2017-10-03 16:00,19,10
+&lt;e9&gt;&lt;a6&gt;&lt;ac&gt;&lt;e5&gt;&lt;85&gt;&lt;ac&gt;,&lt;e6&gt;&lt;be&gt;&lt;8e&gt;&lt;e6&gt;&lt;b9&gt;&lt;96&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,55,&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;,&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;,3.4,0.19,0.2,50,44,37,21,3.2,4.7,1.5,3.4,337,2017-10-03 16:00,28,17
+&lt;e9&gt;&lt;87&gt;&lt;91&gt;&lt;e9&gt;&lt;96&gt;&lt;80&gt;,&lt;e9&gt;&lt;87&gt;&lt;91&gt;&lt;e9&gt;&lt;96&gt;&lt;80&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,101,&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;,&lt;e5&gt;&lt;b0&gt;&lt;8d&gt;&lt;e6&gt;&lt;95&gt;&lt;8f&gt;&lt;e6&gt;&lt;84&gt;&lt;9f&gt;&lt;e6&gt;&lt;97&gt;&lt;8f&gt;&lt;e7&gt;&lt;be&gt;&lt;a4&gt;&lt;e4&gt;&lt;b8&gt;&lt;8d&gt;&lt;e8&gt;&lt;89&gt;&lt;af&gt;,2.6,0.21,0.3,54,55,52,32,5,5.9,0.8,4.5,104,2017-10-03 16:00,64,36
+&lt;e9&gt;&lt;a6&gt;&lt;ac&gt;&lt;e7&gt;&lt;a5&gt;&lt;96&gt;,&lt;e9&gt;&lt;80&gt;&lt;a3&gt;&lt;e6&gt;&lt;b1&gt;&lt;9f&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;,68,&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;,&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;,2.3,0.2,0.3,55,50,53,26,,,,5,45,2017-10-03 16:00,47,22</code></pre>
+<p>JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5><a6>&lt;82&gt;<e4><b8>&lt;8b&gt;</p>
 <pre><code>[
     {
-        &quot;SiteName&quot;: &quot;二林&quot;,
-        &quot;County&quot;: &quot;彰化縣&quot;,
+        &quot;SiteName&quot;: &quot;&lt;e4&gt;&lt;ba&gt;&lt;8c&gt;&lt;e6&gt;&lt;9e&gt;&lt;97&gt;&quot;,
+        &quot;County&quot;: &quot;&lt;e5&gt;&lt;bd&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;96&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&quot;,
         &quot;AQI&quot;: &quot;77&quot;,
-        &quot;Pollutant&quot;: &quot;細懸浮微粒&quot;,
-        &quot;Status&quot;: &quot;普通&quot;,
+        &quot;Pollutant&quot;: &quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,
+        &quot;Status&quot;: &quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,
         &quot;SO2&quot;: &quot;3.7&quot;,
         &quot;CO&quot;: &quot;0.19&quot;,
         &quot;CO_8hr&quot;: &quot;0.2&quot;,
@@ -286,59 +296,59 @@ $(document).ready(function () {
 ...
 ]</code></pre>
 </div>
-<div class="section level2">
-<h2><span class="header-section-number">2.3</span> 就診後同日於同醫院因同疾病再次就診率</h2>
+<div id="c908c9796908c86999b908c969785868d8e87" class="section level2">
+<h2><span class="header-section-number">2.3</span> <e5><b0><b1><e8><a8><ba><e5><be>&lt;8c&gt;<e5>&lt;90&gt;&lt;8c&gt;<e6>&lt;97&gt;<a5><e6>&lt;96&gt;<bc><e5>&lt;90&gt;&lt;8c&gt;<e9>&lt;86&gt;<ab><e9>&lt;99&gt;<a2><e5>&lt;9b&gt;<a0><e5>&lt;90&gt;&lt;8c&gt;<e7>&lt;96&gt;<be><e7>&lt;97&gt;&lt;85&gt;<e5>&lt;86&gt;&lt;8d&gt;<e6><ac><a1><e5><b0><b1><e8><a8><ba><e7>&lt;8e&gt;&lt;87&gt;</h2>
 <ul>
 <li><a href="https://data.gov.tw/dataset/18585" class="uri">https://data.gov.tw/dataset/18585</a></li>
-<li>CSV資料格式</li>
+<li>CSV<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;</li>
 </ul>
-<pre><code>指標名稱,年度季別,分區業務組,縣市別,醫事機構代碼,醫事機構名稱,院所指標值,所屬分區業務組指標值,全國指標值
-就診後同日於同醫院因同疾病再次就診率,101Q4,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0151,0.01060,0.00930
-就診後同日於同醫院因同疾病再次就診率,102Q1,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0147,0.01040,0.00920
-就診後同日於同醫院因同疾病再次就診率,103Q1,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0145,0.01030,0.00920
-就診後同日於同醫院因同疾病再次就診率,100Q2,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0152,0.00990,0.00870
-就診後同日於同醫院因同疾病再次就診率,103Q2,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0143,0.01060,0.00960
-就診後同日於同醫院因同疾病再次就診率,100Q3,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0169,0.01000,0.00880
-就診後同日於同醫院因同疾病再次就診率,103Q3,臺北業務組,新北市新莊區,0131060010,衛生福利部樂生療養院,0.0136,0.01040,0.00970</code></pre>
+<pre><code>&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;,&lt;e5&gt;&lt;b9&gt;&lt;b4&gt;&lt;e5&gt;&lt;ba&gt;&lt;a6&gt;&lt;e5&gt;&lt;ad&gt;&lt;a3&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;,&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;,&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e4&gt;&lt;bb&gt;&lt;a3&gt;&lt;e7&gt;&lt;a2&gt;&lt;bc&gt;,&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;,&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;,&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e5&gt;&lt;b1&gt;&lt;ac&gt;&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;,&lt;e5&gt;&lt;85&gt;&lt;a8&gt;&lt;e5&gt;&lt;9c&gt;&lt;8b&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,101Q4,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0151,0.01060,0.00930
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,102Q1,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0147,0.01040,0.00920
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,103Q1,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0145,0.01030,0.00920
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,100Q2,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0152,0.00990,0.00870
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,103Q2,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0143,0.01060,0.00960
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,100Q3,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0169,0.01000,0.00880
+&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;,103Q3,&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;,&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e8&gt;&lt;8e&gt;&lt;8a&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;,0131060010,&lt;e8&gt;&lt;a1&gt;&lt;9b&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;a6&gt;&lt;8f&gt;&lt;e5&gt;&lt;88&gt;&lt;a9&gt;&lt;e9&gt;&lt;83&gt;&lt;a8&gt;&lt;e6&gt;&lt;a8&gt;&lt;82&gt;&lt;e7&gt;&lt;94&gt;&lt;9f&gt;&lt;e7&gt;&lt;99&gt;&lt;82&gt;&lt;e9&gt;&lt;a4&gt;&lt;8a&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;,0.0136,0.01040,0.00970</code></pre>
 <ul>
-<li>JSON格式</li>
+<li>JSON<e6><a0><bc><e5><bc>&lt;8f&gt;</li>
 </ul>
 <pre><code>[
     {
-        &quot;指標名稱&quot;: &quot;就診後同日於同醫院因同疾病再次就診率&quot;,
-        &quot;年度季別&quot;: &quot;105Q3&quot;,
-        &quot;分區業務組&quot;: &quot;臺北業務組&quot;,
-        &quot;縣市別&quot;: &quot;臺北市大同區&quot;,
-        &quot;醫事機構代碼&quot;: &quot;0101090517&quot;,
-        &quot;醫事機構名稱&quot;: &quot;臺北市立聯合醫院&quot;,
-        &quot;院所指標值&quot;: &quot;0.0050&quot;,
-        &quot;所屬分區業務組指標值&quot;: &quot;0.00970&quot;,
-        &quot;全國指標值&quot;: &quot;0.00930&quot;
+        &quot;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;&quot;: &quot;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;&quot;,
+        &quot;&lt;e5&gt;&lt;b9&gt;&lt;b4&gt;&lt;e5&gt;&lt;ba&gt;&lt;a6&gt;&lt;e5&gt;&lt;ad&gt;&lt;a3&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;&quot;: &quot;105Q3&quot;,
+        &quot;&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&quot;,
+        &quot;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e5&gt;&lt;a4&gt;&lt;a7&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&quot;,
+        &quot;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e4&gt;&lt;bb&gt;&lt;a3&gt;&lt;e7&gt;&lt;a2&gt;&lt;bc&gt;&quot;: &quot;0101090517&quot;,
+        &quot;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e7&gt;&lt;ab&gt;&lt;8b&gt;&lt;e8&gt;&lt;81&gt;&lt;af&gt;&lt;e5&gt;&lt;90&gt;&lt;88&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&quot;,
+        &quot;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.0050&quot;,
+        &quot;&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e5&gt;&lt;b1&gt;&lt;ac&gt;&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.00970&quot;,
+        &quot;&lt;e5&gt;&lt;85&gt;&lt;a8&gt;&lt;e5&gt;&lt;9c&gt;&lt;8b&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.00930&quot;
     },
     {
-        &quot;指標名稱&quot;: &quot;就診後同日於同醫院因同疾病再次就診率&quot;,
-        &quot;年度季別&quot;: &quot;100Q2&quot;,
-        &quot;分區業務組&quot;: &quot;臺北業務組&quot;,
-        &quot;縣市別&quot;: &quot;臺北市大同區&quot;,
-        &quot;醫事機構代碼&quot;: &quot;0101090517&quot;,
-        &quot;醫事機構名稱&quot;: &quot;臺北市立聯合醫院&quot;,
-        &quot;院所指標值&quot;: &quot;0.0048&quot;,
-        &quot;所屬分區業務組指標值&quot;: &quot;0.00990&quot;,
-        &quot;全國指標值&quot;: &quot;0.00870&quot;
+        &quot;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;&quot;: &quot;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e5&gt;&lt;be&gt;&lt;8c&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e6&gt;&lt;97&gt;&lt;a5&gt;&lt;e6&gt;&lt;96&gt;&lt;bc&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e5&gt;&lt;9b&gt;&lt;a0&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e7&gt;&lt;96&gt;&lt;be&gt;&lt;e7&gt;&lt;97&gt;&lt;85&gt;&lt;e5&gt;&lt;86&gt;&lt;8d&gt;&lt;e6&gt;&lt;ac&gt;&lt;a1&gt;&lt;e5&gt;&lt;b0&gt;&lt;b1&gt;&lt;e8&gt;&lt;a8&gt;&lt;ba&gt;&lt;e7&gt;&lt;8e&gt;&lt;87&gt;&quot;,
+        &quot;&lt;e5&gt;&lt;b9&gt;&lt;b4&gt;&lt;e5&gt;&lt;ba&gt;&lt;a6&gt;&lt;e5&gt;&lt;ad&gt;&lt;a3&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;&quot;: &quot;100Q2&quot;,
+        &quot;&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&quot;,
+        &quot;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e5&gt;&lt;88&gt;&lt;a5&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e5&gt;&lt;a4&gt;&lt;a7&gt;&lt;e5&gt;&lt;90&gt;&lt;8c&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&quot;,
+        &quot;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e4&gt;&lt;bb&gt;&lt;a3&gt;&lt;e7&gt;&lt;a2&gt;&lt;bc&gt;&quot;: &quot;0101090517&quot;,
+        &quot;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e4&gt;&lt;ba&gt;&lt;8b&gt;&lt;e6&gt;&lt;a9&gt;&lt;9f&gt;&lt;e6&gt;&lt;a7&gt;&lt;8b&gt;&lt;e5&gt;&lt;90&gt;&lt;8d&gt;&lt;e7&gt;&lt;a8&gt;&lt;b1&gt;&quot;: &quot;&lt;e8&gt;&lt;87&gt;&lt;ba&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&lt;e7&gt;&lt;ab&gt;&lt;8b&gt;&lt;e8&gt;&lt;81&gt;&lt;af&gt;&lt;e5&gt;&lt;90&gt;&lt;88&gt;&lt;e9&gt;&lt;86&gt;&lt;ab&gt;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&quot;,
+        &quot;&lt;e9&gt;&lt;99&gt;&lt;a2&gt;&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.0048&quot;,
+        &quot;&lt;e6&gt;&lt;89&gt;&lt;80&gt;&lt;e5&gt;&lt;b1&gt;&lt;ac&gt;&lt;e5&gt;&lt;88&gt;&lt;86&gt;&lt;e5&gt;&lt;8d&gt;&lt;80&gt;&lt;e6&gt;&lt;a5&gt;&lt;ad&gt;&lt;e5&gt;&lt;8b&gt;&lt;99&gt;&lt;e7&gt;&lt;b5&gt;&lt;84&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.00990&quot;,
+        &quot;&lt;e5&gt;&lt;85&gt;&lt;a8&gt;&lt;e5&gt;&lt;9c&gt;&lt;8b&gt;&lt;e6&gt;&lt;8c&gt;&lt;87&gt;&lt;e6&gt;&lt;a8&gt;&lt;99&gt;&lt;e5&gt;&lt;80&gt;&lt;bc&gt;&quot;: &quot;0.00870&quot;
     },
-」</code></pre>
+&lt;e3&gt;&lt;80&gt;&lt;8d&gt;</code></pre>
 </div>
-<div id="json" class="section level2">
-<h2><span class="header-section-number">2.4</span> 事實上JSON不會排這麼整齊</h2>
+<div id="b8ajson8d9c838e928099958a" class="section level2">
+<h2><span class="header-section-number">2.4</span> <e4><ba>&lt;8b&gt;<e5><af><a6><e4><b8>&lt;8a&gt;JSON<e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e6>&lt;8e&gt;&lt;92&gt;<e9>&lt;80&gt;&lt;99&gt;<e9><ba><bc><e6>&lt;95&gt;<b4><e9><bd>&lt;8a&gt;</h2>
 <ul>
-<li><p>書裡面常看見的JSON。</p>
+<li><p><e6>&lt;9b&gt;<b8><e8><a3><a1><e9>&lt;9d&gt;<a2><e5><b8><b8><e7>&lt;9c&gt;&lt;8b&gt;<e8><a6>&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e3>&lt;80&gt;&lt;82&gt;</p>
 <pre><code>[
 {
-    &quot;SiteName&quot;: &quot;二林&quot;,
-    &quot;County&quot;: &quot;彰化縣&quot;,
+    &quot;SiteName&quot;: &quot;&lt;e4&gt;&lt;ba&gt;&lt;8c&gt;&lt;e6&gt;&lt;9e&gt;&lt;97&gt;&quot;,
+    &quot;County&quot;: &quot;&lt;e5&gt;&lt;bd&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;96&gt;&lt;e7&gt;&lt;b8&gt;&lt;a3&gt;&quot;,
     &quot;AQI&quot;: &quot;77&quot;,
-    &quot;Pollutant&quot;: &quot;細懸浮微粒&quot;,
-    &quot;Status&quot;: &quot;普通&quot;,
+    &quot;Pollutant&quot;: &quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,
+    &quot;Status&quot;: &quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,
     &quot;SO2&quot;: &quot;3.7&quot;,
     &quot;CO&quot;: &quot;0.19&quot;,
     &quot;CO_8hr&quot;: &quot;0.2&quot;,
@@ -358,45 +368,45 @@ $(document).ready(function () {
 {...},
 {...},
 ]</code></pre></li>
-<li>實際上的JSON格式
+<li><e5><af><a6><e9>&lt;9a&gt;&lt;9b&gt;<e4><b8>&lt;8a&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;
 <ul>
-<li>為何要排這麼密？因為網路資料連一個空白都佔一個空間，空白越少檔案就越小，傳輸就越快。</li>
-<li>那會不會沒空白和換行資料就有錯？JSON格式都是用<code>{}</code>和<code>[]</code>一層一層包起來，所以有沒有換行不會已錯。</li>
+<li><e7>&lt;82&gt;<ba><e4><bd>&lt;95&gt;<e8><a6>&lt;81&gt;<e6>&lt;8e&gt;&lt;92&gt;<e9>&lt;80&gt;&lt;99&gt;<e9><ba><bc><e5><af>&lt;86&gt;<ef><bc>&lt;9f&gt;<e5>&lt;9b&gt;<a0><e7>&lt;82&gt;<ba><e7><b6><b2><e8><b7><af><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e9>&lt;80&gt;<a3><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e7><a9><ba><e7>&lt;99&gt;<bd><e9>&lt;83&gt;<bd><e4><bd>&lt;94&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e7><a9><ba><e9>&lt;96&gt;&lt;93&gt;<ef><bc>&lt;8c&gt;<e7><a9><ba><e7>&lt;99&gt;<bd><e8><b6>&lt;8a&gt;<e5><b0>&lt;91&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e5><b0><b1><e8><b6>&lt;8a&gt;<e5><b0>&lt;8f&gt;<ef><bc>&lt;8c&gt;<e5>&lt;82&gt;<b3><e8><bc><b8><e5><b0><b1><e8><b6>&lt;8a&gt;<e5><bf><ab><e3>&lt;80&gt;&lt;82&gt;</li>
+<li><e9>&lt;82&gt;<a3><e6>&lt;9c&gt;&lt;83&gt;<e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e6><b2>&lt;92&gt;<e7><a9><ba><e7>&lt;99&gt;<bd><e5>&lt;92&gt;&lt;8c&gt;<e6>&lt;8f&gt;&lt;9b&gt;<e8><a1>&lt;8c&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5><b0><b1><e6>&lt;9c&gt;&lt;89&gt;<e9>&lt;8c&gt;<af><ef><bc>&lt;9f&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8><code>{}</code><e5>&lt;92&gt;&lt;8c&gt;<code>[]</code><e4><b8>&lt;80&gt;<e5><b1><a4><e4><b8>&lt;80&gt;<e5><b1><a4><e5>&lt;8c&gt;&lt;85&gt;<e8><b5><b7><e4><be>&lt;86&gt;<ef><bc>&lt;8c&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><e6>&lt;9c&gt;&lt;89&gt;<e6><b2>&lt;92&gt;<e6>&lt;9c&gt;&lt;89&gt;<e6>&lt;8f&gt;&lt;9b&gt;<e8><a1>&lt;8c&gt;<e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e5><b7><b2><e9>&lt;8c&gt;<af><e3>&lt;80&gt;&lt;82&gt;</li>
 </ul></li>
 </ul>
-<pre><code>[{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.22&quot;,&quot;CO_8hr&quot;:&quot;0.2&quot;,&quot;County&quot;:&quot;基隆市&quot;,&quot;NO&quot;:&quot;1.1&quot;,&quot;NO2&quot;:&quot;4.7&quot;,&quot;NOx&quot;:&quot;5.8&quot;,&quot;O3&quot;:&quot;54&quot;,&quot;O3_8hr&quot;:&quot;42&quot;,&quot;PM10&quot;:&quot;37&quot;,&quot;PM10_AVG&quot;:&quot;31&quot;,&quot;PM2.5&quot;:&quot;28&quot;,&quot;PM2.5_AVG&quot;:&quot;26&quot;,&quot;Pollutant&quot;:&quot;細懸浮微粒&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;基隆&quot;,&quot;SO2&quot;:&quot;1.4&quot;,&quot;Status&quot;:&quot;普通&quot;,&quot;WindDirec&quot;:&quot;81&quot;,&quot;WindSpeed&quot;:&quot;2.7&quot;},{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.24&quot;,&quot;CO_8hr&quot;:&quot;0.3&quot;,&quot;County&quot;:&quot;新北市&quot;,&quot;NO&quot;:&quot;1&quot;,&quot;NO2&quot;:&quot;11&quot;,&quot;NOx&quot;:&quot;12&quot;,&quot;O3&quot;:&quot;46&quot;,&quot;O3_8hr&quot;:&quot;40&quot;,&quot;PM10&quot;:&quot;40&quot;,&quot;PM10_AVG&quot;:&quot;39&quot;,&quot;PM2.5&quot;:&quot;25&quot;,&quot;PM2.5_AVG&quot;:&quot;27&quot;,&quot;Pollutant&quot;:&quot;細懸浮微粒&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;汐止&quot;,&quot;SO2&quot;:&quot;2.6&quot;,&quot;Status&quot;:&quot;普通&quot;,&quot;WindDirec&quot;:&quot;36&quot;,&quot;WindSpeed&quot;:&quot;3&quot;},...
+<pre><code>[{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.22&quot;,&quot;CO_8hr&quot;:&quot;0.2&quot;,&quot;County&quot;:&quot;&lt;e5&gt;&lt;9f&gt;&lt;ba&gt;&lt;e9&gt;&lt;9a&gt;&lt;86&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&quot;,&quot;NO&quot;:&quot;1.1&quot;,&quot;NO2&quot;:&quot;4.7&quot;,&quot;NOx&quot;:&quot;5.8&quot;,&quot;O3&quot;:&quot;54&quot;,&quot;O3_8hr&quot;:&quot;42&quot;,&quot;PM10&quot;:&quot;37&quot;,&quot;PM10_AVG&quot;:&quot;31&quot;,&quot;PM2.5&quot;:&quot;28&quot;,&quot;PM2.5_AVG&quot;:&quot;26&quot;,&quot;Pollutant&quot;:&quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;&lt;e5&gt;&lt;9f&gt;&lt;ba&gt;&lt;e9&gt;&lt;9a&gt;&lt;86&gt;&quot;,&quot;SO2&quot;:&quot;1.4&quot;,&quot;Status&quot;:&quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,&quot;WindDirec&quot;:&quot;81&quot;,&quot;WindSpeed&quot;:&quot;2.7&quot;},{&quot;AQI&quot;:&quot;78&quot;,&quot;CO&quot;:&quot;0.24&quot;,&quot;CO_8hr&quot;:&quot;0.3&quot;,&quot;County&quot;:&quot;&lt;e6&gt;&lt;96&gt;&lt;b0&gt;&lt;e5&gt;&lt;8c&gt;&lt;97&gt;&lt;e5&gt;&lt;b8&gt;&lt;82&gt;&quot;,&quot;NO&quot;:&quot;1&quot;,&quot;NO2&quot;:&quot;11&quot;,&quot;NOx&quot;:&quot;12&quot;,&quot;O3&quot;:&quot;46&quot;,&quot;O3_8hr&quot;:&quot;40&quot;,&quot;PM10&quot;:&quot;40&quot;,&quot;PM10_AVG&quot;:&quot;39&quot;,&quot;PM2.5&quot;:&quot;25&quot;,&quot;PM2.5_AVG&quot;:&quot;27&quot;,&quot;Pollutant&quot;:&quot;&lt;e7&gt;&lt;b4&gt;&lt;b0&gt;&lt;e6&gt;&lt;87&gt;&lt;b8&gt;&lt;e6&gt;&lt;b5&gt;&lt;ae&gt;&lt;e5&gt;&lt;be&gt;&lt;ae&gt;&lt;e7&gt;&lt;b2&gt;&lt;92&gt;&quot;,&quot;PublishTime&quot;:&quot;2017-10-03 16:00&quot;,&quot;SiteName&quot;:&quot;&lt;e6&gt;&lt;b1&gt;&lt;90&gt;&lt;e6&gt;&lt;ad&gt;&lt;a2&gt;&quot;,&quot;SO2&quot;:&quot;2.6&quot;,&quot;Status&quot;:&quot;&lt;e6&gt;&lt;99&gt;&lt;ae&gt;&lt;e9&gt;&lt;80&gt;&lt;9a&gt;&quot;,&quot;WindDirec&quot;:&quot;36&quot;,&quot;WindSpeed&quot;:&quot;3&quot;},...
 ]</code></pre>
 </div>
-<div id="csvjson" class="section level2">
-<h2><span class="header-section-number">2.5</span> 練習：把CSV寫為JSON</h2>
+<div id="a8a8acsv82json" class="section level2">
+<h2><span class="header-section-number">2.5</span> <e7><b7><b4><e7><bf>&lt;92&gt;<ef><bc>&lt;9a&gt;<e6>&lt;8a&gt;&lt;8a&gt;CSV<e5><af><ab><e7>&lt;82&gt;<ba>JSON</h2>
 <ul>
-<li><p>下列為一個假的CSV資料，嘗試用JSON表示之。</p>
+<li><p><e4><b8>&lt;8b&gt;<e5>&lt;88&gt;&lt;97&gt;<e7>&lt;82&gt;<ba><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;81&gt;&lt;87&gt;<e7>&lt;9a&gt;&lt;84&gt;CSV<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e5>&lt;98&gt;&lt;97&gt;<e8><a9><a6><e7>&lt;94&gt;<a8>JSON<e8><a1><a8><e7><a4><ba><e4><b9>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;</p>
 <pre><code>name, height, weight
 R2-D2, 100, 400
 C-3PO, 180, 500</code></pre></li>
 </ul>
 </div>
 </div>
-<div class="section level1">
-<h1><span class="header-section-number">3</span> 取得網路資料</h1>
+<div id="f9697879699" class="section level1">
+<h1><span class="header-section-number">3</span> <e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e7><b6><b2><e8><b7><af><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</h1>
 <ul>
-<li><p><code>httr</code>套件用以發送http request取得網頁「<strong>檔案</strong>」，最常用的是<code>GET()</code>與<code>POST()</code>函式，以及用<code>content(httprequest, &quot;text&quot;)</code>把抓回來的數據解譯為單純的字串。</p></li>
-<li><p>從網路上取資料共通的過程是，得把檔案給拿回來。拿回來的檔案，不管檔名是什麼，都是文字檔，看裡面的code就知道是CSV或JSON或html。 之後CSV用<code>read.csv()</code>讀，JSON用<code>fromJSON()</code>讀、html則要用html parser來剖析。</p></li>
-<li><p>這邊有個重要的觀念是「為何說是取得網頁<strong>檔案</strong>」？這必須要從拜訪網頁的實際操作來理解。所有的網頁，其實就是遠端伺服器上的「檔案」。而瀏覽器（如Chrome、Safari、Firefox等）實際上所做的事情是，用http request是依照網址向遠方伺服器要求取回檔案，當驗證是個合法存取後，伺服器便會將該檔案發送回本地電腦，而瀏覽器便按照這個檔案所寫的內容再向遠端伺服器要必須的檔案（例如圖檔、CSS、JS）。都要回來後，瀏覽器便將這些檔案（主要是HTML、CSS、JS）組成你所看見的網頁。</p></li>
-<li><p><em>「謎：所以，<strong>拜訪網頁</strong>這種好像到哪裡去遊歷的概念一整個是太過美好的想像，瀏覽器不過是把要的東西抓回本地電腦組成一個假想世界而已，這是多令人傷心的事。<strong>上網</strong>說到底只是機器在你電腦上重構了一個數據世界。你既沒有到哪裡去，實際上也沒人到你這裡來。你與他之間只是被天網交換訊息而已。」</em></p></li>
+<li><p><code>httr</code><e5><a5>&lt;97&gt;<e4><bb><b6><e7>&lt;94&gt;<a8><e4><bb><a5><e7>&lt;99&gt;<bc><e9>&lt;80&gt;&lt;81&gt;http request<e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e7><b6><b2><e9><a0>&lt;81&gt;<e3>&lt;80&gt;&lt;8c&gt;<strong><e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;</strong><e3>&lt;80&gt;&lt;8d&gt;<ef><bc>&lt;8c&gt;<e6>&lt;9c&gt;&lt;80&gt;<e5><b8><b8><e7>&lt;94&gt;<a8><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;98&gt;<af><code>GET()</code><e8>&lt;88&gt;&lt;87&gt;<code>POST()</code><e5>&lt;87&gt;<bd><e5><bc>&lt;8f&gt;<ef><bc>&lt;8c&gt;<e4><bb><a5><e5>&lt;8f&gt;&lt;8a&gt;<e7>&lt;94&gt;<a8><code>content(httprequest, &quot;text&quot;)</code><e6>&lt;8a&gt;&lt;8a&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;95&gt;<b8><e6>&lt;93&gt;&lt;9a&gt;<e8><a7><a3><e8><ad><af><e7>&lt;82&gt;<ba><e5>&lt;96&gt;<ae><e7><b4>&lt;94&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><ad>&lt;97&gt;<e4><b8><b2><e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e5><be>&lt;9e&gt;<e7><b6><b2><e8><b7><af><e4><b8>&lt;8a&gt;<e5>&lt;8f&gt;&lt;96&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;85&gt;<b1><e9>&lt;80&gt;&lt;9a&gt;<e7>&lt;9a&gt;&lt;84&gt;<e9>&lt;81&gt;&lt;8e&gt;<e7><a8>&lt;8b&gt;<e6>&lt;98&gt;<af><ef><bc>&lt;8c&gt;<e5><be>&lt;97&gt;<e6>&lt;8a&gt;&lt;8a&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e7><b5><a6><e6>&lt;8b&gt;<bf><e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;<e6>&lt;8b&gt;<bf><e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;8c&gt;<e4><b8>&lt;8d&gt;<e7><ae><a1><e6><aa>&lt;94&gt;<e5>&lt;90&gt;&lt;8d&gt;<e6>&lt;98&gt;<af><e4><bb>&lt;80&gt;<e9><ba><bc><ef><bc>&lt;8c&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e6><aa>&lt;94&gt;<ef><bc>&lt;8c&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e8><a3><a1><e9>&lt;9d&gt;<a2><e7>&lt;9a&gt;&lt;84&gt;code<e5><b0><b1><e7>&lt;9f&gt;<a5><e9>&lt;81&gt;&lt;93&gt;<e6>&lt;98&gt;<af>CSV<e6>&lt;88&gt;&lt;96&gt;JSON<e6>&lt;88&gt;&lt;96&gt;html<e3>&lt;80&gt;&lt;82&gt; <e4><b9>&lt;8b&gt;<e5><be>&lt;8c&gt;CSV<e7>&lt;94&gt;<a8><code>read.csv()</code><e8><ae>&lt;80&gt;<ef><bc>&lt;8c&gt;JSON<e7>&lt;94&gt;<a8><code>fromJSON()</code><e8><ae>&lt;80&gt;<e3>&lt;80&gt;&lt;81&gt;html<e5>&lt;89&gt;&lt;87&gt;<e8><a6>&lt;81&gt;<e7>&lt;94&gt;<a8>html parser<e4><be>&lt;86&gt;<e5>&lt;89&gt;&lt;96&gt;<e6>&lt;9e&gt;&lt;90&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e9>&lt;80&gt;&lt;99&gt;<e9>&lt;82&gt;&lt;8a&gt;<e6>&lt;9c&gt;&lt;89&gt;<e5>&lt;80&gt;&lt;8b&gt;<e9>&lt;87&gt;&lt;8d&gt;<e8><a6>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><a7>&lt;80&gt;<e5><bf><b5><e6>&lt;98&gt;<af><e3>&lt;80&gt;&lt;8c&gt;<e7>&lt;82&gt;<ba><e4><bd>&lt;95&gt;<e8><aa><aa><e6>&lt;98&gt;<af><e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e7><b6><b2><e9><a0>&lt;81&gt;<strong><e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;</strong><e3>&lt;80&gt;&lt;8d&gt;<ef><bc>&lt;9f&gt;<e9>&lt;80&gt;&lt;99&gt;<e5><bf>&lt;85&gt;<e9><a0>&lt;88&gt;<e8><a6>&lt;81&gt;<e5><be>&lt;9e&gt;<e6>&lt;8b&gt;&lt;9c&gt;<e8><a8><aa><e7><b6><b2><e9><a0>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><af><a6><e9>&lt;9a&gt;&lt;9b&gt;<e6>&lt;93&gt;&lt;8d&gt;<e4><bd>&lt;9c&gt;<e4><be>&lt;86&gt;<e7>&lt;90&gt;&lt;86&gt;<e8><a7><a3><e3>&lt;80&gt;&lt;82&gt;<e6>&lt;89&gt;&lt;80&gt;<e6>&lt;9c&gt;&lt;89&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><b6><b2><e9><a0>&lt;81&gt;<ef><bc>&lt;8c&gt;<e5>&lt;85&gt;<b6><e5><af><a6><e5><b0><b1><e6>&lt;98&gt;<af><e9>&lt;81&gt;<a0><e7><ab><af><e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e4><b8>&lt;8a&gt;<e7>&lt;9a&gt;&lt;84&gt;<e3>&lt;80&gt;&lt;8c&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e3>&lt;80&gt;&lt;8d&gt;<e3>&lt;80&gt;&lt;82&gt;<e8>&lt;80&gt;&lt;8c&gt;<e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><ef><bc>&lt;88&gt;<e5><a6>&lt;82&gt;Chrome<e3>&lt;80&gt;&lt;81&gt;Safari<e3>&lt;80&gt;&lt;81&gt;Firefox<e7><ad>&lt;89&gt;<ef><bc>&lt;89&gt;<e5><af><a6><e9>&lt;9a&gt;&lt;9b&gt;<e4><b8>&lt;8a&gt;<e6>&lt;89&gt;&lt;80&gt;<e5>&lt;81&gt;&lt;9a&gt;<e7>&lt;9a&gt;&lt;84&gt;<e4><ba>&lt;8b&gt;<e6>&lt;83&gt;&lt;85&gt;<e6>&lt;98&gt;<af><ef><bc>&lt;8c&gt;<e7>&lt;94&gt;<a8>http request<e6>&lt;98&gt;<af><e4><be>&lt;9d&gt;<e7>&lt;85&gt;<a7><e7><b6><b2><e5>&lt;9d&gt;&lt;80&gt;<e5>&lt;90&gt;&lt;91&gt;<e9>&lt;81&gt;<a0><e6>&lt;96&gt;<b9><e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e8><a6>&lt;81&gt;<e6><b1>&lt;82&gt;<e5>&lt;8f&gt;&lt;96&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;8c&gt;<e7>&lt;95&gt;<b6><e9><a9>&lt;97&gt;<e8><ad>&lt;89&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;90&gt;&lt;88&gt;<e6><b3>&lt;95&gt;<e5><ad>&lt;98&gt;<e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;8c&gt;<ef><bc>&lt;8c&gt;<e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e4><be><bf><e6>&lt;9c&gt;&lt;83&gt;<e5><b0>&lt;87&gt;<e8><a9><b2><e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e7>&lt;99&gt;<bc><e9>&lt;80&gt;&lt;81&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e6>&lt;9c&gt;<ac><e5>&lt;9c&gt;<b0><e9>&lt;9b&gt;<bb><e8>&lt;85&gt;<a6><ef><bc>&lt;8c&gt;<e8>&lt;80&gt;&lt;8c&gt;<e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><e4><be><bf><e6>&lt;8c&gt;&lt;89&gt;<e7>&lt;85&gt;<a7><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e6>&lt;89&gt;&lt;80&gt;<e5><af><ab><e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;85&gt;<a7><e5><ae><b9><e5>&lt;86&gt;&lt;8d&gt;<e5>&lt;90&gt;&lt;91&gt;<e9>&lt;81&gt;<a0><e7><ab><af><e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e8><a6>&lt;81&gt;<e5><bf>&lt;85&gt;<e9><a0>&lt;88&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;88&gt;<e4><be>&lt;8b&gt;<e5><a6>&lt;82&gt;<e5>&lt;9c&gt;&lt;96&gt;<e6><aa>&lt;94&gt;<e3>&lt;80&gt;&lt;81&gt;CSS<e3>&lt;80&gt;&lt;81&gt;JS<ef><bc>&lt;89&gt;<e3>&lt;80&gt;&lt;82&gt;<e9>&lt;83&gt;<bd><e8><a6>&lt;81&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e5><be>&lt;8c&gt;<ef><bc>&lt;8c&gt;<e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><e4><be><bf><e5><b0>&lt;87&gt;<e9>&lt;80&gt;&lt;99&gt;<e4><ba>&lt;9b&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;88&gt;<e4><b8><bb><e8><a6>&lt;81&gt;<e6>&lt;98&gt;<af>HTML<e3>&lt;80&gt;&lt;81&gt;CSS<e3>&lt;80&gt;&lt;81&gt;JS<ef><bc>&lt;89&gt;<e7><b5>&lt;84&gt;<e6>&lt;88&gt;&lt;90&gt;<e4><bd><a0><e6>&lt;89&gt;&lt;80&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e8><a6>&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><b6><b2><e9><a0>&lt;81&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><em><e3>&lt;80&gt;&lt;8c&gt;<e8><ac>&lt;8e&gt;<ef><bc>&lt;9a&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><ef><bc>&lt;8c&gt;<strong><e6>&lt;8b&gt;&lt;9c&gt;<e8><a8><aa><e7><b6><b2><e9><a0>&lt;81&gt;</strong><e9>&lt;80&gt;&lt;99&gt;<e7><a8><ae><e5><a5><bd><e5>&lt;83&gt;&lt;8f&gt;<e5>&lt;88&gt;<b0><e5>&lt;93&gt;<aa><e8><a3><a1><e5>&lt;8e&gt;<bb><e9>&lt;81&gt;&lt;8a&gt;<e6><ad><b7><e7>&lt;9a&gt;&lt;84&gt;<e6><a6>&lt;82&gt;<e5><bf><b5><e4><b8>&lt;80&gt;<e6>&lt;95&gt;<b4><e5>&lt;80&gt;&lt;8b&gt;<e6>&lt;98&gt;<af><e5><a4><aa><e9>&lt;81&gt;&lt;8e&gt;<e7><be>&lt;8e&gt;<e5><a5><bd><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;83&gt;<b3><e5>&lt;83&gt;&lt;8f&gt;<ef><bc>&lt;8c&gt;<e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><e4><b8>&lt;8d&gt;<e9>&lt;81&gt;&lt;8e&gt;<e6>&lt;98&gt;<af><e6>&lt;8a&gt;&lt;8a&gt;<e8><a6>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;9d&gt;<b1><e8><a5><bf><e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e6>&lt;9c&gt;<ac><e5>&lt;9c&gt;<b0><e9>&lt;9b&gt;<bb><e8>&lt;85&gt;<a6><e7><b5>&lt;84&gt;<e6>&lt;88&gt;&lt;90&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;81&gt;&lt;87&gt;<e6>&lt;83&gt;<b3><e4><b8>&lt;96&gt;<e7>&lt;95&gt;&lt;8c&gt;<e8>&lt;80&gt;&lt;8c&gt;<e5><b7><b2><ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;99&gt;<e6>&lt;98&gt;<af><e5><a4>&lt;9a&gt;<e4><bb><a4><e4><ba><ba><e5>&lt;82&gt;<b7><e5><bf>&lt;83&gt;<e7>&lt;9a&gt;&lt;84&gt;<e4><ba>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;<strong><e4><b8>&lt;8a&gt;<e7><b6><b2></strong><e8><aa><aa><e5>&lt;88&gt;<b0><e5><ba>&lt;95&gt;<e5>&lt;8f&gt;<aa><e6>&lt;98&gt;<af><e6><a9>&lt;9f&gt;<e5>&lt;99&gt;<a8><e5>&lt;9c&gt;<a8><e4><bd><a0><e9>&lt;9b&gt;<bb><e8>&lt;85&gt;<a6><e4><b8>&lt;8a&gt;<e9>&lt;87&gt;&lt;8d&gt;<e6><a7>&lt;8b&gt;<e4><ba>&lt;86&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e6>&lt;95&gt;<b8><e6>&lt;93&gt;&lt;9a&gt;<e4><b8>&lt;96&gt;<e7>&lt;95&gt;&lt;8c&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><bd><a0><e6>&lt;97&gt;<a2><e6><b2>&lt;92&gt;<e6>&lt;9c&gt;&lt;89&gt;<e5>&lt;88&gt;<b0><e5>&lt;93&gt;<aa><e8><a3><a1><e5>&lt;8e&gt;<bb><ef><bc>&lt;8c&gt;<e5><af><a6><e9>&lt;9a&gt;&lt;9b&gt;<e4><b8>&lt;8a&gt;<e4><b9>&lt;9f&gt;<e6><b2>&lt;92&gt;<e4><ba><ba><e5>&lt;88&gt;<b0><e4><bd><a0><e9>&lt;80&gt;&lt;99&gt;<e8><a3><a1><e4><be>&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><bd><a0><e8>&lt;88&gt;&lt;87&gt;<e4><bb>&lt;96&gt;<e4><b9>&lt;8b&gt;<e9>&lt;96&gt;&lt;93&gt;<e5>&lt;8f&gt;<aa><e6>&lt;98&gt;<af><e8><a2><ab><e5><a4><a9><e7><b6><b2><e4><ba><a4><e6>&lt;8f&gt;&lt;9b&gt;<e8><a8>&lt;8a&gt;<e6>&lt;81&gt;<af><e8>&lt;80&gt;&lt;8c&gt;<e5><b7><b2><e3>&lt;80&gt;&lt;82&gt;<e3>&lt;80&gt;&lt;8d&gt;</em></p></li>
 </ul>
 </div>
-<div id="jsonr" class="section level1">
-<h1><span class="header-section-number">4</span> JSON轉成R物件</h1>
+<div id="json898890r89" class="section level1">
+<h1><span class="header-section-number">4</span> JSON<e8><bd>&lt;89&gt;<e6>&lt;88&gt;&lt;90&gt;R<e7>&lt;89&gt;<a9><e4><bb><b6></h1>
 <ul>
-<li><p><code>jsonlite</code>套件是把符合json格式規範的字串轉為R的的物件，視json檔案內容結構而定，會轉為<code>data.frame</code>或<code>list</code>。</p></li>
-<li><p>正常的情形，但只要是中括號<code>[]</code>包著數個<code>{}</code>裡面各有成對的key-to-value pairs，那<code>fromJSON()</code>這個函式就可以把他們轉為<code>data.frame</code>，但如果都是<code>{}</code>的話，就會被轉為<code>list</code>。</p></li>
+<li><p><code>jsonlite</code><e5><a5>&lt;97&gt;<e4><bb><b6><e6>&lt;98&gt;<af><e6>&lt;8a&gt;&lt;8a&gt;<e7><ac><a6><e5>&lt;90&gt;&lt;88&gt;json<e6><a0><bc><e5><bc>&lt;8f&gt;<e8><a6>&lt;8f&gt;<e7><af>&lt;84&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><ad>&lt;97&gt;<e4><b8><b2><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;89&gt;<a9><e4><bb><b6><ef><bc>&lt;8c&gt;<e8><a6>&lt;96&gt;json<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e5>&lt;85&gt;<a7><e5><ae><b9><e7><b5>&lt;90&gt;<e6><a7>&lt;8b&gt;<e8>&lt;80&gt;&lt;8c&gt;<e5><ae>&lt;9a&gt;<ef><bc>&lt;8c&gt;<e6>&lt;9c&gt;&lt;83&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><code>data.frame</code><e6>&lt;88&gt;&lt;96&gt;<code>list</code><e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e6><ad><a3><e5><b8><b8><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;83&gt;&lt;85&gt;<e5><bd><a2><ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e5>&lt;8f&gt;<aa><e8><a6>&lt;81&gt;<e6>&lt;98&gt;<af><e4><b8><ad><e6>&lt;8b&gt;<ac><e8>&lt;99&gt;&lt;9f&gt;<code>[]</code><e5>&lt;8c&gt;&lt;85&gt;<e8>&lt;91&gt;&lt;97&gt;<e6>&lt;95&gt;<b8><e5>&lt;80&gt;&lt;8b&gt;<code>{}</code><e8><a3><a1><e9>&lt;9d&gt;<a2><e5>&lt;90&gt;&lt;84&gt;<e6>&lt;9c&gt;&lt;89&gt;<e6>&lt;88&gt;&lt;90&gt;<e5><b0>&lt;8d&gt;<e7>&lt;9a&gt;&lt;84&gt;key-to-value pairs<ef><bc>&lt;8c&gt;<e9>&lt;82&gt;<a3><code>fromJSON()</code><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;87&gt;<bd><e5><bc>&lt;8f&gt;<e5><b0><b1><e5>&lt;8f&gt;<af><e4><bb><a5><e6>&lt;8a&gt;&lt;8a&gt;<e4><bb>&lt;96&gt;<e5>&lt;80&gt;&lt;91&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><code>data.frame</code><ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e5><a6>&lt;82&gt;<e6>&lt;9e&gt;&lt;9c&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><code>{}</code><e7>&lt;9a&gt;&lt;84&gt;<e8><a9><b1><ef><bc>&lt;8c&gt;<e5><b0><b1><e6>&lt;9c&gt;&lt;83&gt;<e8><a2><ab><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><code>list</code><e3>&lt;80&gt;&lt;82&gt;</p></li>
 </ul>
 </div>
-<div class="section level1">
-<h1><span class="header-section-number">5</span> 安裝並加載套件。</h1>
+<div id="d8a89978082" class="section level1">
+<h1><span class="header-section-number">5</span> <e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<e4><b8><a6><e5>&lt;8a&gt;<a0><e8><bc>&lt;89&gt;<e5><a5>&lt;97&gt;<e4><bb><b6><e3>&lt;80&gt;&lt;82&gt;</h1>
 <ul>
-<li>用下方的code來安裝第三方套件，如果你已經安裝過<code>tidyverse</code>，這兩個<code>httr</code>和<code>jsonlie</code>都有被<code>tidyverse</code>套件集合收錄，就不需要另行安裝，只需要加載之。</li>
+<li><e7>&lt;94&gt;<a8><e4><b8>&lt;8b&gt;<e6>&lt;96&gt;<b9><e7>&lt;9a&gt;&lt;84&gt;code<e4><be>&lt;86&gt;<e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<e7><ac><ac><e4><b8>&lt;89&gt;<e6>&lt;96&gt;<b9><e5><a5>&lt;97&gt;<e4><bb><b6><ef><bc>&lt;8c&gt;<e5><a6>&lt;82&gt;<e6>&lt;9e&gt;&lt;9c&gt;<e4><bd><a0><e5><b7><b2><e7><b6>&lt;93&gt;<e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<e9>&lt;81&gt;&lt;8e&gt;<code>tidyverse</code><ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;99&gt;<e5>&lt;85&gt;<a9><e5>&lt;80&gt;&lt;8b&gt;<code>httr</code><e5>&lt;92&gt;&lt;8c&gt;<code>jsonlie</code><e9>&lt;83&gt;<bd><e6>&lt;9c&gt;&lt;89&gt;<e8><a2><ab><code>tidyverse</code><e5><a5>&lt;97&gt;<e4><bb><b6><e9>&lt;9b&gt;&lt;86&gt;<e5>&lt;90&gt;&lt;88&gt;<e6>&lt;94&gt;<b6><e9>&lt;8c&gt;&lt;84&gt;<ef><bc>&lt;8c&gt;<e5><b0><b1><e4><b8>&lt;8d&gt;<e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e5>&lt;8f&gt;<a6><e8><a1>&lt;8c&gt;<e5><ae>&lt;89&gt;<e8><a3>&lt;9d&gt;<ef><bc>&lt;8c&gt;<e5>&lt;8f&gt;<aa><e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e5>&lt;8a&gt;<a0><e8><bc>&lt;89&gt;<e4><b9>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre><code>pkgs &lt;- c(&quot;jsonlite&quot;, &quot;httr&quot;)
 pkgs &lt;- pkgs[!(pkgs %in% installed.packages()[,&quot;Package&quot;])]
@@ -408,57 +418,55 @@ options(stringsAsFactors = F)</code></pre>
 <div id="case-1-air-quality" class="section level1">
 <h1><span class="header-section-number">6</span> Case: 1 Air-Quality</h1>
 <ul>
-<li><p><code>fromJSON(content(GET(url), &quot;text&quot;, encoding = &quot;utf-8&quot;))</code>由內到外有三個函式。</p>
+<li><p><code>fromJSON(content(GET(url), &quot;text&quot;, encoding = &quot;utf-8&quot;))</code><e7>&lt;94&gt;<b1><e5>&lt;85&gt;<a7><e5>&lt;88&gt;<b0><e5><a4>&lt;96&gt;<e6>&lt;9c&gt;&lt;89&gt;<e4><b8>&lt;89&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;87&gt;<bd><e5><bc>&lt;8f&gt;<e3>&lt;80&gt;&lt;82&gt;</p>
 <ul>
-<li><p><code>httr::GET()</code>按照指定的url發出GET request把網頁抓回來，如果是個合乎規定存取，就會順利取回該伺服器發的response。</p></li>
-<li><p><code>hrrt::content(response, &quot;text&quot;, encoding = &quot;utf-8&quot;)</code> 用<code>?content</code>查詢看看<code>content(response, &quot;text&quot;)</code>的用途。其是把抓回來的檔案，轉為純文字的字串。content()是把抓回來的response解成純文字（JSON本身就是以純文字儲存，只是格式特別而已）。</p></li>
+<li><p><code>httr::GET()</code><e6>&lt;8c&gt;&lt;89&gt;<e7>&lt;85&gt;<a7><e6>&lt;8c&gt;&lt;87&gt;<e5><ae>&lt;9a&gt;<e7>&lt;9a&gt;&lt;84&gt;url<e7>&lt;99&gt;<bc><e5>&lt;87&gt;<ba>GET request<e6>&lt;8a&gt;&lt;8a&gt;<e7><b6><b2><e9><a0>&lt;81&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<ef><bc>&lt;8c&gt;<e5><a6>&lt;82&gt;<e6>&lt;9e&gt;&lt;9c&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;90&gt;&lt;88&gt;<e4><b9>&lt;8e&gt;<e8><a6>&lt;8f&gt;<e5><ae>&lt;9a&gt;<e5><ad>&lt;98&gt;<e5>&lt;8f&gt;&lt;96&gt;<ef><bc>&lt;8c&gt;<e5><b0><b1><e6>&lt;9c&gt;&lt;83&gt;<e9><a0>&lt;86&gt;<e5>&lt;88&gt;<a9><e5>&lt;8f&gt;&lt;96&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e8><a9><b2><e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e7>&lt;99&gt;<bc><e7>&lt;9a&gt;&lt;84&gt;response<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><code>hrrt::content(response, &quot;text&quot;, encoding = &quot;utf-8&quot;)</code> <e7>&lt;94&gt;<a8><code>?content</code><e6>&lt;9f&gt;<a5><e8><a9><a2><e7>&lt;9c&gt;&lt;8b&gt;<e7>&lt;9c&gt;&lt;8b&gt;<code>content(response, &quot;text&quot;)</code><e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;94&gt;<a8><e9>&lt;80&gt;&lt;94&gt;<e3>&lt;80&gt;&lt;82&gt;<e5>&lt;85&gt;<b6><e6>&lt;98&gt;<af><e6>&lt;8a&gt;&lt;8a&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;8c&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><ad>&lt;97&gt;<e4><b8><b2><e3>&lt;80&gt;&lt;82&gt;content()<e6>&lt;98&gt;<af><e6>&lt;8a&gt;&lt;8a&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;response<e8><a7><a3><e6>&lt;88&gt;&lt;90&gt;<e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<ef><bc>&lt;88&gt;JSON<e6>&lt;9c&gt;<ac><e8><ba><ab><e5><b0><b1><e6>&lt;98&gt;<af><e4><bb><a5><e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<ef><bc>&lt;8c&gt;<e5>&lt;8f&gt;<aa><e6>&lt;98&gt;<af><e6><a0><bc><e5><bc>&lt;8f&gt;<e7>&lt;89&gt;<b9><e5>&lt;88&gt;<a5><e8>&lt;80&gt;&lt;8c&gt;<e5><b7><b2><ef><bc>&lt;89&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
 </ul></li>
-<li><p><code>jsonlite::fromJSON()</code> 因為我們用眼睛看就知道他是個JSON格式的檔案，所以用<code>fromJSON()</code>這個函式，把用JSON格式編成的字串轉為R的物件，有可能是<code>data.frame</code>或<code>list</code>。<code>fromJSON()</code>預期會把JSON中<code>[]</code>的每一個項目轉為一筆筆的資料，然後把<code>{}</code>的pair當成column的變數名稱</p></li>
+<li><p><code>jsonlite::fromJSON()</code> <e5>&lt;9b&gt;<a0><e7>&lt;82&gt;<ba><e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e7>&lt;94&gt;<a8><e7>&lt;9c&gt;<bc><e7>&lt;9d&gt;&lt;9b&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e5><b0><b1><e7>&lt;9f&gt;<a5><e9>&lt;81&gt;&lt;93&gt;<e4><bb>&lt;96&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;8c&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><e7>&lt;94&gt;<a8><code>fromJSON()</code><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;87&gt;<bd><e5><bc>&lt;8f&gt;<ef><bc>&lt;8c&gt;<e6>&lt;8a&gt;&lt;8a&gt;<e7>&lt;94&gt;<a8>JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e7><b7><a8><e6>&lt;88&gt;&lt;90&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><ad>&lt;97&gt;<e4><b8><b2><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;89&gt;<a9><e4><bb><b6><ef><bc>&lt;8c&gt;<e6>&lt;9c&gt;&lt;89&gt;<e5>&lt;8f&gt;<af><e8>&lt;83&gt;<bd><e6>&lt;98&gt;<af><code>data.frame</code><e6>&lt;88&gt;&lt;96&gt;<code>list</code><e3>&lt;80&gt;&lt;82&gt;<code>fromJSON()</code><e9><a0>&lt;90&gt;<e6>&lt;9c&gt;&lt;9f&gt;<e6>&lt;9c&gt;&lt;83&gt;<e6>&lt;8a&gt;&lt;8a&gt;JSON<e4><b8><ad><code>[]</code><e7>&lt;9a&gt;&lt;84&gt;<e6><af>&lt;8f&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e9><a0>&lt;85&gt;<e7>&lt;9b&gt;<ae><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e7><ad>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e7>&lt;84&gt;<b6><e5><be>&lt;8c&gt;<e6>&lt;8a&gt;&lt;8a&gt;<code>{}</code><e7>&lt;9a&gt;&lt;84&gt;pair<e7>&lt;95&gt;<b6><e6>&lt;88&gt;&lt;90&gt;column<e7>&lt;9a&gt;&lt;84&gt;<e8><ae>&lt;8a&gt;<e6>&lt;95&gt;<b8><e5>&lt;90&gt;&lt;8d&gt;<e7><a8><b1></p></li>
 </ul>
 <pre class="r"><code>url &lt;- &quot;http://opendata.epa.gov.tw/ws/Data/REWIQA/?$orderby=SiteName&amp;$skip=0&amp;$top=1000&amp;format=json&quot;
 
-df &lt;- fromJSON(content(GET(url), &quot;text&quot;, encoding = &quot;utf-8&quot;))</code></pre>
-<pre><code>## Warning in strptime(x, fmt, tz = &quot;GMT&quot;): unknown timezone 'zone/tz/2018c.
-## 1.0/zoneinfo/Asia/Taipei'</code></pre>
-<pre class="r"><code>str(df)</code></pre>
+df &lt;- fromJSON(content(GET(url), &quot;text&quot;, encoding = &quot;utf-8&quot;))
+str(df)</code></pre>
 <pre><code>## 'data.frame':    77 obs. of  22 variables:
-##  $ SiteName   : chr  &quot;基隆&quot; &quot;汐止&quot; &quot;萬里&quot; &quot;新店&quot; ...
-##  $ County     : chr  &quot;基隆市&quot; &quot;新北市&quot; &quot;新北市&quot; &quot;新北市&quot; ...
-##  $ AQI        : chr  &quot;39&quot; &quot;28&quot; &quot;34&quot; &quot;33&quot; ...
+##  $ SiteName   : chr  &quot;&lt;U+57FA&gt;&lt;U+9686&gt;&quot; &quot;&lt;U+6C50&gt;&lt;U+6B62&gt;&quot; &quot;&lt;U+842C&gt;&lt;U+91CC&gt;&quot; &quot;&lt;U+65B0&gt;&lt;U+5E97&gt;&quot; ...
+##  $ County     : chr  &quot;&lt;U+57FA&gt;&lt;U+9686&gt;&lt;U+5E02&gt;&quot; &quot;&lt;U+65B0&gt;&lt;U+5317&gt;&lt;U+5E02&gt;&quot; &quot;&lt;U+65B0&gt;&lt;U+5317&gt;&lt;U+5E02&gt;&quot; &quot;&lt;U+65B0&gt;&lt;U+5317&gt;&lt;U+5E02&gt;&quot; ...
+##  $ AQI        : chr  &quot;21&quot; &quot;14&quot; &quot;30&quot; &quot;40&quot; ...
 ##  $ Pollutant  : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
-##  $ Status     : chr  &quot;良好&quot; &quot;良好&quot; &quot;良好&quot; &quot;良好&quot; ...
-##  $ SO2        : chr  &quot;1.2&quot; &quot;2.2&quot; &quot;3.3&quot; &quot;1.9&quot; ...
-##  $ CO         : chr  &quot;0.33&quot; &quot;0.45&quot; &quot;0.17&quot; &quot;0.17&quot; ...
-##  $ CO_8hr     : chr  &quot;0.4&quot; &quot;0.6&quot; &quot;0.2&quot; &quot;0.3&quot; ...
-##  $ O3         : chr  &quot;3.7&quot; &quot;4.1&quot; &quot;9.3&quot; &quot;13&quot; ...
-##  $ O3_8hr     : chr  &quot;9&quot; &quot;8&quot; &quot;17&quot; &quot;13&quot; ...
-##  $ PM10       : chr  &quot;22&quot; &quot;21&quot; &quot;18&quot; &quot;30&quot; ...
-##  $ PM2.5      : chr  &quot;11&quot; &quot;3&quot; &quot;8&quot; &quot;9&quot; ...
-##  $ NO2        : chr  &quot;16&quot; &quot;15&quot; &quot;12&quot; &quot;3.4&quot; ...
-##  $ NOx        : chr  &quot;18&quot; &quot;23&quot; &quot;13&quot; &quot;5&quot; ...
-##  $ NO         : chr  &quot;2&quot; &quot;7.5&quot; &quot;0.7&quot; &quot;1.5&quot; ...
-##  $ WindSpeed  : chr  &quot;0.6&quot; &quot;1&quot; &quot;3.6&quot; &quot;1.5&quot; ...
-##  $ WindDirec  : chr  &quot;283&quot; &quot;55&quot; &quot;219&quot; &quot;181&quot; ...
-##  $ PublishTime: chr  &quot;2018-07-08 02:00&quot; &quot;2018-07-08 02:00&quot; &quot;2018-07-08 02:00&quot; &quot;2018-07-08 02:00&quot; ...
-##  $ PM2.5_AVG  : chr  &quot;12&quot; &quot;9&quot; &quot;11&quot; &quot;10&quot; ...
-##  $ PM10_AVG   : chr  &quot;21&quot; &quot;26&quot; &quot;25&quot; &quot;24&quot; ...
+##  $ Status     : chr  &quot;&lt;U+826F&gt;&lt;U+597D&gt;&quot; &quot;&lt;U+826F&gt;&lt;U+597D&gt;&quot; &quot;&lt;U+826F&gt;&lt;U+597D&gt;&quot; &quot;&lt;U+826F&gt;&lt;U+597D&gt;&quot; ...
+##  $ SO2        : chr  &quot;1.5&quot; &quot;2.6&quot; &quot;2.9&quot; &quot;2&quot; ...
+##  $ CO         : chr  &quot;0.2&quot; &quot;0.26&quot; &quot;0.11&quot; &quot;0.38&quot; ...
+##  $ CO_8hr     : chr  &quot;0.1&quot; &quot;0.2&quot; &quot;0.1&quot; &quot;0.2&quot; ...
+##  $ O3         : chr  &quot;8.9&quot; &quot;15&quot; &quot;12&quot; &quot;14&quot; ...
+##  $ O3_8hr     : chr  &quot;7&quot; &quot;7&quot; &quot;8&quot; &quot;7&quot; ...
+##  $ PM10       : chr  &quot;17&quot; &quot;18&quot; &quot;24&quot; &quot;22&quot; ...
+##  $ PM2.5      : chr  &quot;8&quot; &quot;7&quot; &quot;9&quot; &quot;14&quot; ...
+##  $ NO2        : chr  &quot;4.1&quot; &quot;10&quot; &quot;3.6&quot; &quot;9.7&quot; ...
+##  $ NOx        : chr  &quot;8.8&quot; &quot;19&quot; &quot;8.1&quot; &quot;19&quot; ...
+##  $ NO         : chr  &quot;4.6&quot; &quot;8.6&quot; &quot;4.5&quot; &quot;8.8&quot; ...
+##  $ WindSpeed  : chr  &quot;2&quot; &quot;1.4&quot; &quot;4.1&quot; &quot;2.8&quot; ...
+##  $ WindDirec  : chr  &quot;108&quot; &quot;11&quot; &quot;79&quot; &quot;139&quot; ...
+##  $ PublishTime: chr  &quot;2018-07-09 09:00&quot; &quot;2018-07-09 09:00&quot; &quot;2018-07-09 09:00&quot; &quot;2018-07-09 09:00&quot; ...
+##  $ PM2.5_AVG  : chr  &quot;7&quot; &quot;4&quot; &quot;9&quot; &quot;12&quot; ...
+##  $ PM10_AVG   : chr  &quot;14&quot; &quot;15&quot; &quot;16&quot; &quot;24&quot; ...
 ##  $ Latitude   : chr  &quot;25.129167&quot; &quot;25.067131&quot; &quot;25.179667&quot; &quot;24.977222&quot; ...
 ##  $ Longitude  : chr  &quot;121.760056&quot; &quot;121.6423&quot; &quot;121.689881&quot; &quot;121.537778&quot; ...</code></pre>
-<div id="get-" class="section level2">
-<h2><span class="header-section-number">6.1</span> GET() 發送請求</h2>
+<div id="get-9980818b82" class="section level2">
+<h2><span class="header-section-number">6.1</span> GET() <e7>&lt;99&gt;<bc><e9>&lt;80&gt;&lt;81&gt;<e8><ab>&lt;8b&gt;<e6><b1>&lt;82&gt;</h2>
 <ul>
-<li>向該URL的伺服器發送<code>GET()</code> request以取得該檔案。若成功取得，他會回覆一個<a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status">HTML status code</a>。如果成功的話就是2開頭的數字例如<code>200 OK</code>代表該伺服器接受該請求並開始傳回檔案。</li>
+<li><e5>&lt;90&gt;&lt;91&gt;<e8><a9><b2>URL<e7>&lt;9a&gt;&lt;84&gt;<e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e7>&lt;99&gt;<bc><e9>&lt;80&gt;&lt;81&gt;<code>GET()</code> request<e4><bb><a5><e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e8><a9><b2><e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e3>&lt;80&gt;&lt;82&gt;<e8>&lt;8b&gt;<a5><e6>&lt;88&gt;&lt;90&gt;<e5>&lt;8a&gt;&lt;9f&gt;<e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<ef><bc>&lt;8c&gt;<e4><bb>&lt;96&gt;<e6>&lt;9c&gt;&lt;83&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e8><a6>&lt;86&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status">HTML status code</a><e3>&lt;80&gt;&lt;82&gt;<e5><a6>&lt;82&gt;<e6>&lt;9e&gt;&lt;9c&gt;<e6>&lt;88&gt;&lt;90&gt;<e5>&lt;8a&gt;&lt;9f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><a9><b1><e5><b0><b1><e6>&lt;98&gt;<af>2<e9>&lt;96&gt;&lt;8b&gt;<e9><a0><ad><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;95&gt;<b8><e5><ad>&lt;97&gt;<e4><be>&lt;8b&gt;<e5><a6>&lt;82&gt;<code>200 OK</code><e4><bb><a3><e8><a1><a8><e8><a9><b2><e4><bc><ba><e6>&lt;9c&gt;&lt;8d&gt;<e5>&lt;99&gt;<a8><e6>&lt;8e&gt;<a5><e5>&lt;8f&gt;&lt;97&gt;<e8><a9><b2><e8><ab>&lt;8b&gt;<e6><b1>&lt;82&gt;<e4><b8><a6><e9>&lt;96&gt;&lt;8b&gt;<e5><a7>&lt;8b&gt;<e5>&lt;82&gt;<b3><e5>&lt;9b&gt;&lt;9e&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre class="r"><code>response &lt;- GET(url)
 class(response)</code></pre>
 <pre><code>## [1] &quot;response&quot;</code></pre>
 <pre class="r"><code>??httr::GET</code></pre>
 </div>
-<div id="httrcontent-" class="section level2">
-<h2><span class="header-section-number">6.2</span> httr::content() 將回應資料的轉純文字</h2>
+<div id="httrcontent-879b9e87898796999a848994968797" class="section level2">
+<h2><span class="header-section-number">6.2</span> httr::content() <e5><b0>&lt;87&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e6>&lt;87&gt;&lt;89&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><bd>&lt;89&gt;<e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;</h2>
 <ul>
-<li><p>回應的資料看他的<code>class</code>是一個<code>response</code>，但如果看Global Environment看來是個<code>list</code>，裡面裝載很多資料，而主要核心的內容在<code>content</code>這個欄位，但看來是用<code>binary code</code>裝起來的，而不是純文字。</p></li>
-<li><p>因此，對於這個抓回來的檔案，我需要用httr::content()幫忙把純文字給解出來。經查詢<code>help</code>可得知<code>content()</code>後面的參數有三類，其中可以要轉為純文字的就是<code>content(response, &quot;text&quot;)</code>。因此偵測轉出來的變數會是長度為1的<code>character</code>。</p></li>
+<li><p><e5>&lt;9b&gt;&lt;9e&gt;<e6>&lt;87&gt;&lt;89&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e4><bb>&lt;96&gt;<e7>&lt;9a&gt;&lt;84&gt;<code>class</code><e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<code>response</code><ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e5><a6>&lt;82&gt;<e6>&lt;9e&gt;&lt;9c&gt;<e7>&lt;9c&gt;&lt;8b&gt;Global Environment<e7>&lt;9c&gt;&lt;8b&gt;<e4><be>&lt;86&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<code>list</code><ef><bc>&lt;8c&gt;<e8><a3><a1><e9>&lt;9d&gt;<a2><e8><a3>&lt;9d&gt;<e8><bc>&lt;89&gt;<e5><be>&lt;88&gt;<e5><a4>&lt;9a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e8>&lt;80&gt;&lt;8c&gt;<e4><b8><bb><e8><a6>&lt;81&gt;<e6><a0><b8><e5><bf>&lt;83&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;85&gt;<a7><e5><ae><b9><e5>&lt;9c&gt;<a8><code>content</code><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e6><ac>&lt;84&gt;<e4><bd>&lt;8d&gt;<ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e4><be>&lt;86&gt;<e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8><code>binary code</code><e8><a3>&lt;9d&gt;<e8><b5><b7><e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<ef><bc>&lt;8c&gt;<e8>&lt;80&gt;&lt;8c&gt;<e4><b8>&lt;8d&gt;<e6>&lt;98&gt;<af><e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e5>&lt;9b&gt;<a0><e6><ad><a4><ef><bc>&lt;8c&gt;<e5><b0>&lt;8d&gt;<e6>&lt;96&gt;<bc><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<ef><bc>&lt;8c&gt;<e6>&lt;88&gt;&lt;91&gt;<e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e7>&lt;94&gt;<a8>httr::content()<e5><b9><ab><e5><bf>&lt;99&gt;<e6>&lt;8a&gt;&lt;8a&gt;<e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e7><b5><a6><e8><a7><a3><e5>&lt;87&gt;<ba><e4><be>&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;<e7><b6>&lt;93&gt;<e6>&lt;9f&gt;<a5><e8><a9><a2><code>help</code><e5>&lt;8f&gt;<af><e5><be>&lt;97&gt;<e7>&lt;9f&gt;<a5><code>content()</code><e5><be>&lt;8c&gt;<e9>&lt;9d&gt;<a2><e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;8f&gt;&lt;83&gt;<e6>&lt;95&gt;<b8><e6>&lt;9c&gt;&lt;89&gt;<e4><b8>&lt;89&gt;<e9><a1>&lt;9e&gt;<ef><bc>&lt;8c&gt;<e5>&lt;85&gt;<b6><e4><b8><ad><e5>&lt;8f&gt;<af><e4><bb><a5><e8><a6>&lt;81&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba><e7><b4>&lt;94&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><b0><b1><e6>&lt;98&gt;<af><code>content(response, &quot;text&quot;)</code><e3>&lt;80&gt;&lt;82&gt;<e5>&lt;9b&gt;<a0><e6><ad><a4><e5>&lt;81&gt;<b5><e6><b8><ac><e8><bd>&lt;89&gt;<e5>&lt;87&gt;<ba><e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><ae>&lt;8a&gt;<e6>&lt;95&gt;<b8><e6>&lt;9c&gt;&lt;83&gt;<e6>&lt;98&gt;<af><e9>&lt;95&gt;<b7><e5><ba><a6><e7>&lt;82&gt;<ba>1<e7>&lt;9a&gt;&lt;84&gt;<code>character</code><e3>&lt;80&gt;&lt;82&gt;</p></li>
 </ul>
 <pre class="r"><code>text &lt;- content(response, &quot;text&quot;, encoding = &quot;utf-8&quot;)
 class(text)</code></pre>
@@ -467,20 +475,20 @@ class(text)</code></pre>
 length(text)</code></pre>
 <pre><code>## [1] 1</code></pre>
 </div>
-<div id="jsonr" class="section level2">
-<h2><span class="header-section-number">6.3</span> 將JSON格式文字轉為R物件</h2>
+<div id="json8f9687978982r89" class="section level2">
+<h2><span class="header-section-number">6.3</span> <e5><b0>&lt;87&gt;JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;89&gt;<a9><e4><bb><b6></h2>
 <ul>
-<li><p>最後是將這個<code>character</code>轉為R的物件，也就是data.frame或list。注意，此時text是一個<code>character</code>，那是我們知道他是用JSON格式編寫的文字檔，就像我們知道.csv檔是用逗號分隔表示法依樣，JSON就是用層層疊疊的<code>[]{}</code>記號來表述資料的結構。</p></li>
-<li><p>並要提醒初學者，<code>.json</code>或<code>.csv</code>都只是幫助程式初步篩選檔案的副檔名罷了，裡面的究竟是不是個完整的json檔這都要去看、去測。我自然也可以在<code>.json</code>的檔案裡頭用逗號分隔模式撰寫，</p></li>
+<li><p><e6>&lt;9c&gt;&lt;80&gt;<e5><be>&lt;8c&gt;<e6>&lt;98&gt;<af><e5><b0>&lt;87&gt;<e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<code>character</code><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;89&gt;<a9><e4><bb><b6><ef><bc>&lt;8c&gt;<e4><b9>&lt;9f&gt;<e5><b0><b1><e6>&lt;98&gt;<af>data.frame<e6>&lt;88&gt;&lt;96&gt;list<e3>&lt;80&gt;&lt;82&gt;<e6><b3><a8><e6>&lt;84&gt;&lt;8f&gt;<ef><bc>&lt;8c&gt;<e6><ad><a4><e6>&lt;99&gt;&lt;82&gt;text<e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<code>character</code><ef><bc>&lt;8c&gt;<e9>&lt;82&gt;<a3><e6>&lt;98&gt;<af><e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e7>&lt;9f&gt;<a5><e9>&lt;81&gt;&lt;93&gt;<e4><bb>&lt;96&gt;<e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8>JSON<e6><a0><bc><e5><bc>&lt;8f&gt;<e7><b7><a8><e5><af><ab><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e6><aa>&lt;94&gt;<ef><bc>&lt;8c&gt;<e5><b0><b1><e5>&lt;83&gt;&lt;8f&gt;<e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e7>&lt;9f&gt;<a5><e9>&lt;81&gt;&lt;93&gt;.csv<e6><aa>&lt;94&gt;<e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8><e9>&lt;80&gt;&lt;97&gt;<e8>&lt;99&gt;&lt;9f&gt;<e5>&lt;88&gt;&lt;86&gt;<e9>&lt;9a&gt;&lt;94&gt;<e8><a1><a8><e7><a4><ba><e6><b3>&lt;95&gt;<e4><be>&lt;9d&gt;<e6><a8><a3><ef><bc>&lt;8c&gt;JSON<e5><b0><b1><e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8><e5><b1><a4><e5><b1><a4><e7>&lt;96&gt;&lt;8a&gt;<e7>&lt;96&gt;&lt;8a&gt;<e7>&lt;9a&gt;&lt;84&gt;<code>[]{}</code><e8><a8>&lt;98&gt;<e8>&lt;99&gt;&lt;9f&gt;<e4><be>&lt;86&gt;<e8><a1><a8><e8><bf><b0><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e7><b5>&lt;90&gt;<e6><a7>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e4><b8><a6><e8><a6>&lt;81&gt;<e6>&lt;8f&gt;&lt;90&gt;<e9>&lt;86&gt;&lt;92&gt;<e5>&lt;88&gt;&lt;9d&gt;<e5><ad><b8><e8>&lt;80&gt;&lt;85&gt;<ef><bc>&lt;8c&gt;<code>.json</code><e6>&lt;88&gt;&lt;96&gt;<code>.csv</code><e9>&lt;83&gt;<bd><e5>&lt;8f&gt;<aa><e6>&lt;98&gt;<af><e5><b9><ab><e5>&lt;8a&gt;<a9><e7><a8>&lt;8b&gt;<e5><bc>&lt;8f&gt;<e5>&lt;88&gt;&lt;9d&gt;<e6><ad><a5><e7><af><a9><e9>&lt;81&gt;<b8><e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;89&gt;<af><e6><aa>&lt;94&gt;<e5>&lt;90&gt;&lt;8d&gt;<e7><bd><b7><e4><ba>&lt;86&gt;<ef><bc>&lt;8c&gt;<e8><a3><a1><e9>&lt;9d&gt;<a2><e7>&lt;9a&gt;&lt;84&gt;<e7><a9><b6><e7><ab>&lt;9f&gt;<e6>&lt;98&gt;<af><e4><b8>&lt;8d&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<e5><ae>&lt;8c&gt;<e6>&lt;95&gt;<b4><e7>&lt;9a&gt;&lt;84&gt;json<e6><aa>&lt;94&gt;<e9>&lt;80&gt;&lt;99&gt;<e9>&lt;83&gt;<bd><e8><a6>&lt;81&gt;<e5>&lt;8e&gt;<bb><e7>&lt;9c&gt;&lt;8b&gt;<e3>&lt;80&gt;&lt;81&gt;<e5>&lt;8e&gt;<bb><e6><b8><ac><e3>&lt;80&gt;&lt;82&gt;<e6>&lt;88&gt;&lt;91&gt;<e8>&lt;87&gt;<aa><e7>&lt;84&gt;<b6><e4><b9>&lt;9f&gt;<e5>&lt;8f&gt;<af><e4><bb><a5><e5>&lt;9c&gt;<a8><code>.json</code><e7>&lt;9a&gt;&lt;84&gt;<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e8><a3><a1><e9><a0><ad><e7>&lt;94&gt;<a8><e9>&lt;80&gt;&lt;97&gt;<e8>&lt;99&gt;&lt;9f&gt;<e5>&lt;88&gt;&lt;86&gt;<e9>&lt;9a&gt;&lt;94&gt;<e6><a8><a1><e5><bc>&lt;8f&gt;<e6>&lt;92&gt;<b0><e5><af><ab><ef><bc>&lt;8c&gt;</p></li>
 </ul>
 <pre class="r"><code>df &lt;- fromJSON(text)
 ?fromJSON</code></pre>
 </div>
 </div>
-<div class="section level1">
-<h1><span class="header-section-number">7</span> 練習</h1>
+<div id="section-1" class="section level1">
+<h1><span class="header-section-number">7</span> <e7><b7><b4><e7><bf>&lt;92&gt;</h1>
 <ul>
-<li>下列這些網路文件應該都是json檔，嘗試把他抓回來看看。</li>
+<li><e4><b8>&lt;8b&gt;<e5>&lt;88&gt;&lt;97&gt;<e9>&lt;80&gt;&lt;99&gt;<e4><ba>&lt;9b&gt;<e7><b6><b2><e8><b7><af><e6>&lt;96&gt;&lt;87&gt;<e4><bb><b6><e6>&lt;87&gt;&lt;89&gt;<e8><a9><b2><e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af>json<e6><aa>&lt;94&gt;<ef><bc>&lt;8c&gt;<e5>&lt;98&gt;&lt;97&gt;<e8><a9><a6><e6>&lt;8a&gt;&lt;8a&gt;<e4><bb>&lt;96&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre class="r"><code>url_rent591 &lt;- &quot;https://rent.591.com.tw/home/search/rsList?is_new_list=1&amp;type=1&amp;kind=2&amp;searchtype=1&amp;region=1&quot;
 url_reHospital &lt;- &quot;http://data.nhi.gov.tw/Datasets/DatasetResource.ashx?rId=A21030000I-E30008-002&amp;ndctype=JSON&amp;ndcnid=18585&quot;
@@ -492,7 +500,7 @@ url_ubike &lt;- &quot;http://data.taipei/youbike&quot;</code></pre>
 <div id="case-2-ret591-well-formatted-by-hierarchical" class="section level1">
 <h1><span class="header-section-number">8</span> Case 2: ret591: well-formatted by hierarchical</h1>
 <ul>
-<li>第二類是最常會見到的例子，解出來的資料是個很多階層的<code>list</code>，通常一筆資料傳回來時多會附加一些metadata，比方說，一共幾筆資料、下一個資料區塊在哪裡，好讓使用者或者本地端的瀏覽器能夠繼續取得下一筆資料。因此，資料通常會在樹狀節點的某一個子節點。以下面的例子來說，就是存在<code>res$data$data</code>這個節點中。</li>
+<li><e7><ac><ac><e4><ba>&lt;8c&gt;<e9><a1>&lt;9e&gt;<e6>&lt;98&gt;<af><e6>&lt;9c&gt;&lt;80&gt;<e5><b8><b8><e6>&lt;9c&gt;&lt;83&gt;<e8><a6>&lt;8b&gt;<e5>&lt;88&gt;<b0><e7>&lt;9a&gt;&lt;84&gt;<e4><be>&lt;8b&gt;<e5><ad>&lt;90&gt;<ef><bc>&lt;8c&gt;<e8><a7><a3><e5>&lt;87&gt;<ba><e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<e5><be>&lt;88&gt;<e5><a4>&lt;9a&gt;<e9>&lt;9a&gt;&lt;8e&gt;<e5><b1><a4><e7>&lt;9a&gt;&lt;84&gt;<code>list</code><ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;82&gt;<b3><e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e6>&lt;99&gt;&lt;82&gt;<e5><a4>&lt;9a&gt;<e6>&lt;9c&gt;&lt;83&gt;<e9>&lt;99&gt;&lt;84&gt;<e5>&lt;8a&gt;<a0><e4><b8>&lt;80&gt;<e4><ba>&lt;9b&gt;metadata<ef><bc>&lt;8c&gt;<e6><af>&lt;94&gt;<e6>&lt;96&gt;<b9><e8><aa><aa><ef><bc>&lt;8c&gt;<e4><b8>&lt;80&gt;<e5>&lt;85&gt;<b1><e5><b9><be><e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;81&gt;<e4><b8>&lt;8b&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;8d&gt;&lt;80&gt;<e5><a1>&lt;8a&gt;<e5>&lt;9c&gt;<a8><e5>&lt;93&gt;<aa><e8><a3><a1><ef><bc>&lt;8c&gt;<e5><a5><bd><e8><ae>&lt;93&gt;<e4><bd><bf><e7>&lt;94&gt;<a8><e8>&lt;80&gt;&lt;85&gt;<e6>&lt;88&gt;&lt;96&gt;<e8>&lt;80&gt;&lt;85&gt;<e6>&lt;9c&gt;<ac><e5>&lt;9c&gt;<b0><e7><ab><af><e7>&lt;9a&gt;&lt;84&gt;<e7>&lt;80&gt;&lt;8f&gt;<e8><a6><bd><e5>&lt;99&gt;<a8><e8>&lt;83&gt;<bd><e5><a4><a0><e7><b9><bc><e7><ba>&lt;8c&gt;<e5>&lt;8f&gt;&lt;96&gt;<e5><be>&lt;97&gt;<e4><b8>&lt;8b&gt;<e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;<e5>&lt;9b&gt;<a0><e6><ad><a4><ef><bc>&lt;8c&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><e6>&lt;9c&gt;&lt;83&gt;<e5>&lt;9c&gt;<a8><e6><a8><b9><e7>&lt;8b&gt;&lt;80&gt;<e7><af>&lt;80&gt;<e9><bb>&lt;9e&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;9f&gt;&lt;90&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5><ad>&lt;90&gt;<e7><af>&lt;80&gt;<e9><bb>&lt;9e&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><bb><a5><e4><b8>&lt;8b&gt;<e9>&lt;9d&gt;<a2><e7>&lt;9a&gt;&lt;84&gt;<e4><be>&lt;8b&gt;<e5><ad>&lt;90&gt;<e4><be>&lt;86&gt;<e8><aa><aa><ef><bc>&lt;8c&gt;<e5><b0><b1><e6>&lt;98&gt;<af><e5><ad>&lt;98&gt;<e5>&lt;9c&gt;<a8><code>res$data$data</code><e9>&lt;80&gt;&lt;99&gt;<e5>&lt;80&gt;&lt;8b&gt;<e7><af>&lt;80&gt;<e9><bb>&lt;9e&gt;<e4><b8><ad><e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre class="r"><code>url_rent591 &lt;- &quot;https://rent.591.com.tw/home/search/rsList?is_new_list=1&amp;type=1&amp;kind=2&amp;searchtype=1&amp;region=1&quot;
 
@@ -502,25 +510,25 @@ df &lt;- res$data$data
 
 head(df[,1:10])</code></pre>
 <pre><code>##        id user_id                    address type post_id regionid
-## 1 6485304  266409       興隆路一段83巷Engl..    1 6485304        1
-## 2 6514887   84138        光復北路120巷Serv..    1 6514887        1
-## 3 6525415 1911092 指南路三段政治大學旁，獨..    1 6525415        1
-## 4 6480714  517479       寶興街80巷高級裝潢..    1 6480714        1
-## 5 6537310  480175 光復南路W110套房Rentinga..    1 6537310        1
-## 6 6526237  396535 嘉興街超安靜採光好交通便..    1 6526237        1
+## 1 6531477  364081       &lt;U+57FA&gt;&lt;U+9686&gt;&lt;U+8DEF&gt;&lt;U+4E00&gt;&lt;U+6BB5&gt;11&lt;U+5DF7&gt;&lt;U+8FD1&gt;&lt;U+5E02&gt;..    1 6531477        1
+## 2 6457790 1231817       &lt;U+524D&gt;&lt;U+6E2F&gt;&lt;U+8857&gt;&lt;U+5168&gt;&lt;U+65B0&gt;&lt;U+528D&gt;&lt;U+6F6D&gt;&lt;U+7AD9&gt;IK..    1 6457790        1
+## 3 6469743 1596648        &lt;U+5FA9&gt;&lt;U+8208&gt;&lt;U+5317&gt;&lt;U+8DEF&gt;231&lt;U+5DF7&gt;&lt;U+5168&gt;&lt;U+65B0&gt;..    1 6469743        1
+## 4 6530152  438502       &lt;U+4E2D&gt;&lt;U+5357&gt;&lt;U+8857&gt;74&lt;U+5DF7&gt;&lt;U+5357&gt;&lt;U+8EDF&gt;&lt;U+3001&gt;&lt;U+4E2D&gt;..    1 6530152        1
+## 5 6515731  611850 &lt;U+9E97&gt;&lt;U+5C71&gt;&lt;U+8857&gt;62&lt;U+5DF7&gt;&lt;U+78A7&gt;&lt;U+6E56&gt;&lt;U+7554&gt;&lt;U+5225&gt;&lt;U+5885&gt;&lt;U+5927&gt;&lt;U+5957&gt;..    1 6515731        1
+## 6 6522393 1423097  &lt;U+7F85&gt;&lt;U+65AF&gt;&lt;U+798F&gt;&lt;U+8DEF&gt;&lt;U+4E8C&gt;&lt;U+6BB5&gt;8&lt;U+5DF7&gt;&lt;U+4EAB&gt;&lt;U+53D7&gt;&lt;U+751F&gt;&lt;U+6D3B&gt;..    1 6522393        1
 ##   sectionid streetid room area
-## 1        12    25985    0  9.0
-## 2         4    26170    0  7.0
-## 3        12    25948   99 11.5
-## 4         6    26350    0  6.0
-## 5         7    26211   99 16.0
-## 6         7    26247    0  7.0</code></pre>
+## 1         7    26237    0  6.0
+## 2         8    25499   99  8.0
+## 3         4    26188    0  7.0
+## 4        11    26253   99  5.0
+## 5        10    25914    0 15.0
+## 6         1    25860    0  8.5</code></pre>
 <pre class="r"><code># Access the right level of nodes
 # View(res$data$data)</code></pre>
-<div id="option-" class="section level2">
-<h2><span class="header-section-number">8.1</span> (option) 取回資料並寫在硬碟</h2>
+<div id="option-8f969b9e8796999c9f" class="section level2">
+<h2><span class="header-section-number">8.1</span> (option) <e5>&lt;8f&gt;&lt;96&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e4><b8><a6><e5><af><ab><e5>&lt;9c&gt;<a8><e7><a1><ac><e7><a2>&lt;9f&gt;</h2>
 <ul>
-<li>有時候寫爬蟲尤其是在爬會即時更新的資料時，會需要反覆定時地抓資料，這時候通常會先通通抓回來再慢慢合併整理。此時要特別注意如何保持每次抓回來的資料都是獨特的一個資料。以下面的例子來講，因為每次檔名都是一樣的，他會一直覆蓋過去，所以再怎麼抓，都不會是歷時性資料。通常會自動讀取當下時間當成檔名的一部分，這樣就不會重複了。這將在日後youbike的例子中用到。</li>
+<li><e6>&lt;9c&gt;&lt;89&gt;<e6>&lt;99&gt;&lt;82&gt;<e5>&lt;80&gt;&lt;99&gt;<e5><af><ab><e7>&lt;88&gt;<ac><e8>&lt;9f&gt;<b2><e5><b0><a4><e5>&lt;85&gt;<b6><e6>&lt;98&gt;<af><e5>&lt;9c&gt;<a8><e7>&lt;88&gt;<ac><e6>&lt;9c&gt;&lt;83&gt;<e5>&lt;8d&gt;<b3><e6>&lt;99&gt;&lt;82&gt;<e6>&lt;9b&gt;<b4><e6>&lt;96&gt;<b0><e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6>&lt;99&gt;&lt;82&gt;<ef><bc>&lt;8c&gt;<e6>&lt;9c&gt;&lt;83&gt;<e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e5>&lt;8f&gt;&lt;8d&gt;<e8><a6>&lt;86&gt;<e5><ae>&lt;9a&gt;<e6>&lt;99&gt;&lt;82&gt;<e5>&lt;9c&gt;<b0><e6>&lt;8a&gt;&lt;93&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;99&gt;<e6>&lt;99&gt;&lt;82&gt;<e5>&lt;80&gt;&lt;99&gt;<e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><e6>&lt;9c&gt;&lt;83&gt;<e5>&lt;85&gt;&lt;88&gt;<e9>&lt;80&gt;&lt;9a&gt;<e9>&lt;80&gt;&lt;9a&gt;<e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e5>&lt;86&gt;&lt;8d&gt;<e6>&lt;85&gt;<a2><e6>&lt;85&gt;<a2><e5>&lt;90&gt;&lt;88&gt;<e4><bd><b5><e6>&lt;95&gt;<b4><e7>&lt;90&gt;&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;<e6><ad><a4><e6>&lt;99&gt;&lt;82&gt;<e8><a6>&lt;81&gt;<e7>&lt;89&gt;<b9><e5>&lt;88&gt;<a5><e6><b3><a8><e6>&lt;84&gt;&lt;8f&gt;<e5><a6>&lt;82&gt;<e4><bd>&lt;95&gt;<e4><bf>&lt;9d&gt;<e6>&lt;8c&gt;&lt;81&gt;<e6><af>&lt;8f&gt;<e6><ac><a1><e6>&lt;8a&gt;&lt;93&gt;<e5>&lt;9b&gt;&lt;9e&gt;<e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e7>&lt;8d&gt;<a8><e7>&lt;89&gt;<b9><e7>&lt;9a&gt;&lt;84&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><bb><a5><e4><b8>&lt;8b&gt;<e9>&lt;9d&gt;<a2><e7>&lt;9a&gt;&lt;84&gt;<e4><be>&lt;8b&gt;<e5><ad>&lt;90&gt;<e4><be>&lt;86&gt;<e8><ac>&lt;9b&gt;<ef><bc>&lt;8c&gt;<e5>&lt;9b&gt;<a0><e7>&lt;82&gt;<ba><e6><af>&lt;8f&gt;<e6><ac><a1><e6><aa>&lt;94&gt;<e5>&lt;90&gt;&lt;8d&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e6><a8><a3><e7>&lt;9a&gt;&lt;84&gt;<ef><bc>&lt;8c&gt;<e4><bb>&lt;96&gt;<e6>&lt;9c&gt;&lt;83&gt;<e4><b8>&lt;80&gt;<e7>&lt;9b&gt;<b4><e8><a6>&lt;86&gt;<e8>&lt;93&gt;&lt;8b&gt;<e9>&lt;81&gt;&lt;8e&gt;<e5>&lt;8e&gt;<bb><ef><bc>&lt;8c&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><e5>&lt;86&gt;&lt;8d&gt;<e6>&lt;80&gt;&lt;8e&gt;<e9><ba><bc><e6>&lt;8a&gt;&lt;93&gt;<ef><bc>&lt;8c&gt;<e9>&lt;83&gt;<bd><e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e6>&lt;98&gt;<af><e6><ad><b7><e6>&lt;99&gt;&lt;82&gt;<e6>&lt;80&gt;<a7><e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;<e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><e6>&lt;9c&gt;&lt;83&gt;<e8>&lt;87&gt;<aa><e5>&lt;8b&gt;&lt;95&gt;<e8><ae>&lt;80&gt;<e5>&lt;8f&gt;&lt;96&gt;<e7>&lt;95&gt;<b6><e4><b8>&lt;8b&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e7>&lt;95&gt;<b6><e6>&lt;88&gt;&lt;90&gt;<e6><aa>&lt;94&gt;<e5>&lt;90&gt;&lt;8d&gt;<e7>&lt;9a&gt;&lt;84&gt;<e4><b8>&lt;80&gt;<e9>&lt;83&gt;<a8><e5>&lt;88&gt;&lt;86&gt;<ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;99&gt;<e6><a8><a3><e5><b0><b1><e4><b8>&lt;8d&gt;<e6>&lt;9c&gt;&lt;83&gt;<e9>&lt;87&gt;&lt;8d&gt;<e8><a4>&lt;87&gt;<e4><ba>&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;<e9>&lt;80&gt;&lt;99&gt;<e5><b0>&lt;87&gt;<e5>&lt;9c&gt;<a8><e6>&lt;97&gt;<a5><e5><be>&lt;8c&gt;youbike<e7>&lt;9a&gt;&lt;84&gt;<e4><be>&lt;8b&gt;<e5><ad>&lt;90&gt;<e4><b8><ad><e7>&lt;94&gt;<a8><e5>&lt;88&gt;<b0><e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre class="r"><code>response &lt;- GET(url_rent591,
                 write_disk(&quot;data/rent591_original.json&quot;,
@@ -530,7 +538,7 @@ head(df[,1:10])</code></pre>
 <div id="case-3-footrumor-ill-formatted" class="section level1">
 <h1><span class="header-section-number">9</span> Case 3: footRumor: ill-formatted</h1>
 <ul>
-<li>食品闢謠的例子可能是個沒好好編過JSON的單位所編出來的案子，資料很簡單，但卻是一個list裡面有329個data.frame，且每個data.frame只有對腳現有資料，然後每一筆資料就一個data.frame。</li>
+<li><e9><a3>&lt;9f&gt;<e5>&lt;93&gt;&lt;81&gt;<e9>&lt;97&gt;<a2><e8><ac><a0><e7>&lt;9a&gt;&lt;84&gt;<e4><be>&lt;8b&gt;<e5><ad>&lt;90&gt;<e5>&lt;8f&gt;<af><e8>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e5>&lt;80&gt;&lt;8b&gt;<e6><b2>&lt;92&gt;<e5><a5><bd><e5><a5><bd><e7><b7><a8><e9>&lt;81&gt;&lt;8e&gt;JSON<e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;96&gt;<ae><e4><bd>&lt;8d&gt;<e6>&lt;89&gt;&lt;80&gt;<e7><b7><a8><e5>&lt;87&gt;<ba><e4><be>&lt;86&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6><a1>&lt;88&gt;<e5><ad>&lt;90&gt;<ef><bc>&lt;8c&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5><be>&lt;88&gt;<e7><b0><a1><e5>&lt;96&gt;<ae><ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e5>&lt;8d&gt;<bb><e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;list<e8><a3><a1><e9>&lt;9d&gt;<a2><e6>&lt;9c&gt;&lt;89&gt;329<e5>&lt;80&gt;&lt;8b&gt;data.frame<ef><bc>&lt;8c&gt;<e4><b8>&lt;94&gt;<e6><af>&lt;8f&gt;<e5>&lt;80&gt;&lt;8b&gt;data.frame<e5>&lt;8f&gt;<aa><e6>&lt;9c&gt;&lt;89&gt;<e5><b0>&lt;8d&gt;<e8>&lt;85&gt;<b3><e7>&lt;8f&gt;<be><e6>&lt;9c&gt;&lt;89&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e7>&lt;84&gt;<b6><e5><be>&lt;8c&gt;<e6><af>&lt;8f&gt;<e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5><b0><b1><e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;data.frame<e3>&lt;80&gt;&lt;82&gt;</li>
 </ul>
 <pre class="r"><code># non-typical json, not a [] containing {} pairs
 
@@ -545,29 +553,29 @@ class(safefood)</code></pre>
 <pre class="r"><code>dim(safefood[[1]])</code></pre>
 <pre><code>## [1] 5 5</code></pre>
 <pre class="r"><code># View(safefood[[1]])</code></pre>
-<div id="json" class="section level2">
-<h2><span class="header-section-number">9.1</span> 處理非典型的JSON檔</h2>
+<div id="d9e859e8b9a84json94" class="section level2">
+<h2><span class="header-section-number">9.1</span> <e8>&lt;99&gt;&lt;95&gt;<e7>&lt;90&gt;&lt;86&gt;<e9>&lt;9d&gt;&lt;9e&gt;<e5>&lt;85&gt;<b8><e5>&lt;9e&gt;&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;JSON<e6><aa>&lt;94&gt;</h2>
 <ul>
-<li><p>但這時候也不難觀察到其規律性。既然每個data.frame是一筆資料，且資料都是照順序出現在對角線，那我就把data.frame給<code>unlist()</code>拆成vector後，把<code>NA</code>給移除了，那剩下的就是我們要的資料了。</p></li>
-<li><p>但，由於對整筆資料<code>unlist()</code>，那整筆資料會變成一個很長的vector，不過我們知道每五個元素就是一筆資料。所以我可以嘗試用<code>matrix()</code>的指令，讓資料每五個就折成一筆資料。</p></li>
-<li>程序大致上是
+<li><p><e4><bd>&lt;86&gt;<e9>&lt;80&gt;&lt;99&gt;<e6>&lt;99&gt;&lt;82&gt;<e5>&lt;80&gt;&lt;99&gt;<e4><b9>&lt;9f&gt;<e4><b8>&lt;8d&gt;<e9>&lt;9b&gt;<a3><e8><a7>&lt;80&gt;<e5><af>&lt;9f&gt;<e5>&lt;88&gt;<b0><e5>&lt;85&gt;<b6><e8><a6>&lt;8f&gt;<e5><be>&lt;8b&gt;<e6>&lt;80&gt;<a7><e3>&lt;80&gt;&lt;82&gt;<e6>&lt;97&gt;<a2><e7>&lt;84&gt;<b6><e6><af>&lt;8f&gt;<e5>&lt;80&gt;&lt;8b&gt;data.frame<e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e4><b8>&lt;94&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e9>&lt;83&gt;<bd><e6>&lt;98&gt;<af><e7>&lt;85&gt;<a7><e9><a0>&lt;86&gt;<e5><ba>&lt;8f&gt;<e5>&lt;87&gt;<ba><e7>&lt;8f&gt;<be><e5>&lt;9c&gt;<a8><e5><b0>&lt;8d&gt;<e8><a7>&lt;92&gt;<e7><b7>&lt;9a&gt;<ef><bc>&lt;8c&gt;<e9>&lt;82&gt;<a3><e6>&lt;88&gt;&lt;91&gt;<e5><b0><b1><e6>&lt;8a&gt;&lt;8a&gt;data.frame<e7><b5><a6><code>unlist()</code><e6>&lt;8b&gt;&lt;86&gt;<e6>&lt;88&gt;&lt;90&gt;vector<e5><be>&lt;8c&gt;<ef><bc>&lt;8c&gt;<e6>&lt;8a&gt;&lt;8a&gt;<code>NA</code><e7><b5><a6><e7><a7><bb><e9>&lt;99&gt;<a4><e4><ba>&lt;86&gt;<ef><bc>&lt;8c&gt;<e9>&lt;82&gt;<a3><e5>&lt;89&gt;<a9><e4><b8>&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5><b0><b1><e6>&lt;98&gt;<af><e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e8><a6>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e4><ba>&lt;86&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p><e4><bd>&lt;86&gt;<ef><bc>&lt;8c&gt;<e7>&lt;94&gt;<b1><e6>&lt;96&gt;<bc><e5><b0>&lt;8d&gt;<e6>&lt;95&gt;<b4><e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<code>unlist()</code><ef><bc>&lt;8c&gt;<e9>&lt;82&gt;<a3><e6>&lt;95&gt;<b4><e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6>&lt;9c&gt;&lt;83&gt;<e8><ae>&lt;8a&gt;<e6>&lt;88&gt;&lt;90&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5><be>&lt;88&gt;<e9>&lt;95&gt;<b7><e7>&lt;9a&gt;&lt;84&gt;vector<ef><bc>&lt;8c&gt;<e4><b8>&lt;8d&gt;<e9>&lt;81&gt;&lt;8e&gt;<e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e7>&lt;9f&gt;<a5><e9>&lt;81&gt;&lt;93&gt;<e6><af>&lt;8f&gt;<e4><ba>&lt;94&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;85&gt;&lt;83&gt;<e7><b4><a0><e5><b0><b1><e6>&lt;98&gt;<af><e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><e6>&lt;88&gt;&lt;91&gt;<e5>&lt;8f&gt;<af><e4><bb><a5><e5>&lt;98&gt;&lt;97&gt;<e8><a9><a6><e7>&lt;94&gt;<a8><code>matrix()</code><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;8c&gt;&lt;87&gt;<e4><bb><a4><ef><bc>&lt;8c&gt;<e8><ae>&lt;93&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e6><af>&lt;8f&gt;<e4><ba>&lt;94&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5><b0><b1><e6>&lt;8a&gt;&lt;98&gt;<e6>&lt;88&gt;&lt;90&gt;<e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><e7><a8>&lt;8b&gt;<e5><ba>&lt;8f&gt;<e5><a4><a7><e8>&lt;87&gt;<b4><e4><b8>&lt;8a&gt;<e6>&lt;98&gt;<af>
 <ol style="list-style-type: decimal">
-<li><code>safefood.v &lt;- unlist(safefood)</code> 把資料<code>unlist()</code>。</li>
-<li><code>safefood.v &lt;- safefood.v[!is.na(safefood.v)]</code>剔除NA值</li>
-<li><code>safefood.m &lt;- matrix(safefood.v, byrow = T, ncol = 5)</code>照列來折，因為每五個就一筆資料，所以是照列折，然後用<code>ncol = 5</code>來指定五個一折。</li>
+<li><code>safefood.v &lt;- unlist(safefood)</code> <e6>&lt;8a&gt;&lt;8a&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<code>unlist()</code><e3>&lt;80&gt;&lt;82&gt;</li>
+<li><code>safefood.v &lt;- safefood.v[!is.na(safefood.v)]</code><e5>&lt;89&gt;&lt;94&gt;<e9>&lt;99&gt;<a4>NA<e5>&lt;80&gt;<bc></li>
+<li><code>safefood.m &lt;- matrix(safefood.v, byrow = T, ncol = 5)</code><e7>&lt;85&gt;<a7><e5>&lt;88&gt;&lt;97&gt;<e4><be>&lt;86&gt;<e6>&lt;8a&gt;&lt;98&gt;<ef><bc>&lt;8c&gt;<e5>&lt;9b&gt;<a0><e7>&lt;82&gt;<ba><e6><af>&lt;8f&gt;<e4><ba>&lt;94&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5><b0><b1><e4><b8>&lt;80&gt;<e7><ad>&lt;86&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e6>&lt;89&gt;&lt;80&gt;<e4><bb><a5><e6>&lt;98&gt;<af><e7>&lt;85&gt;<a7><e5>&lt;88&gt;&lt;97&gt;<e6>&lt;8a&gt;&lt;98&gt;<ef><bc>&lt;8c&gt;<e7>&lt;84&gt;<b6><e5><be>&lt;8c&gt;<e7>&lt;94&gt;<a8><code>ncol = 5</code><e4><be>&lt;86&gt;<e6>&lt;8c&gt;&lt;87&gt;<e5><ae>&lt;9a&gt;<e4><ba>&lt;94&gt;<e5>&lt;80&gt;&lt;8b&gt;<e4><b8>&lt;80&gt;<e6>&lt;8a&gt;&lt;98&gt;<e3>&lt;80&gt;&lt;82&gt;</li>
 </ol></li>
-<li><p>最後要再交代的是。</p></li>
+<li><p><e6>&lt;9c&gt;&lt;80&gt;<e5><be>&lt;8c&gt;<e8><a6>&lt;81&gt;<e5>&lt;86&gt;&lt;8d&gt;<e4><ba><a4><e4><bb><a3><e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;98&gt;<af><e3>&lt;80&gt;&lt;82&gt;</p></li>
 </ul>
 <pre class="r"><code>safefood.v &lt;- unlist(safefood)
 head(safefood.v)</code></pre>
-<pre><code>##  分類1  分類2  分類3  分類4  分類5  標題1 
-## &quot;食品&quot;     NA     NA     NA     NA     NA</code></pre>
+<pre><code>##  &lt;U+5206&gt;&lt;U+985E&gt;1  &lt;U+5206&gt;&lt;U+985E&gt;2  &lt;U+5206&gt;&lt;U+985E&gt;3  &lt;U+5206&gt;&lt;U+985E&gt;4  &lt;U+5206&gt;&lt;U+985E&gt;5  &lt;U+6A19&gt;&lt;U+984C&gt;1 
+## &quot;&lt;U+98DF&gt;&lt;U+54C1&gt;&quot;     NA     NA     NA     NA     NA</code></pre>
 <pre class="r"><code># anyNA() to check if NAs still exist
 anyNA(safefood.v)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code># (option) check if NAs exist
 head(is.na(safefood.v))</code></pre>
-<pre><code>## 分類1 分類2 分類3 分類4 分類5 標題1 
+<pre><code>## &lt;U+5206&gt;&lt;U+985E&gt;1 &lt;U+5206&gt;&lt;U+985E&gt;2 &lt;U+5206&gt;&lt;U+985E&gt;3 &lt;U+5206&gt;&lt;U+985E&gt;4 &lt;U+5206&gt;&lt;U+985E&gt;5 &lt;U+6A19&gt;&lt;U+984C&gt;1 
 ## FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <pre class="r"><code>sum(is.na(safefood.v))</code></pre>
 <pre><code>## [1] 6580</code></pre>
@@ -579,18 +587,18 @@ safefood.v &lt;- safefood.v[!is.na(safefood.v)]
 anyNA(safefood.v)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>head(safefood.v)</code></pre>
-<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      分類1 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &quot;食品&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      標題2 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           &quot;都說香腸不能和養樂多一起吃，會致癌，是真的嗎？&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      內容3 
-## &quot;解答： 網路盛傳香腸和養樂多不能一起食用，會產生致癌物而導致癌症。 (1) 市售香腸、火腿、培根等加工肉品，在製造過程中大多會添加「亞硝酸鹽」及「硝酸鹽」為保色劑，除維持產品色澤外，更可抑制肉毒桿菌的生長而保存食物，防止肉毒中毒事件的發生。 (2) 依據「食品添加物使用範圍及限量暨規格標準」，第(五)類保色劑之亞硝酸鹽類或硝酸鹽類，可用於肉製品及魚肉製品，用量以NO2殘留量計為0.07g/kg以下，業者如果依照使用規範使用硝酸鹽及亞硝酸鹽，尚不致對消費者造成健康危害。 (3) 建議民眾要飲食均衡，透過不同的食物來源，攝取各種營養，降低煙燻或鹽醃的魚肉類等攝取頻率，以保持身體健康。 參考資料： 食品添加物使用範圍及限量暨規格標準：http://consumer.fda.gov.tw/Law/FoodAdditivesList.aspx?nodeID=521 (另開視窗)&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  附檔連結4 
+<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      &lt;U+5206&gt;&lt;U+985E&gt;1 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &quot;&lt;U+98DF&gt;&lt;U+54C1&gt;&quot; 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      &lt;U+6A19&gt;&lt;U+984C&gt;2 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           &quot;&lt;U+90FD&gt;&lt;U+8AAA&gt;&lt;U+9999&gt;&lt;U+8178&gt;&lt;U+4E0D&gt;&lt;U+80FD&gt;&lt;U+548C&gt;&lt;U+990A&gt;&lt;U+6A02&gt;&lt;U+591A&gt;&lt;U+4E00&gt;&lt;U+8D77&gt;&lt;U+5403&gt;&lt;U+FF0C&gt;&lt;U+6703&gt;&lt;U+81F4&gt;&lt;U+764C&gt;&lt;U+FF0C&gt;&lt;U+662F&gt;&lt;U+771F&gt;&lt;U+7684&gt;&lt;U+55CE&gt;&lt;U+FF1F&gt;&quot; 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      &lt;U+5167&gt;&lt;U+5BB9&gt;3 
+## &quot;&lt;U+89E3&gt;&lt;U+7B54&gt;&lt;U+FF1A&gt; &lt;U+7DB2&gt;&lt;U+8DEF&gt;&lt;U+76DB&gt;&lt;U+50B3&gt;&lt;U+9999&gt;&lt;U+8178&gt;&lt;U+548C&gt;&lt;U+990A&gt;&lt;U+6A02&gt;&lt;U+591A&gt;&lt;U+4E0D&gt;&lt;U+80FD&gt;&lt;U+4E00&gt;&lt;U+8D77&gt;&lt;U+98DF&gt;&lt;U+7528&gt;&lt;U+FF0C&gt;&lt;U+6703&gt;&lt;U+7522&gt;&lt;U+751F&gt;&lt;U+81F4&gt;&lt;U+764C&gt;&lt;U+7269&gt;&lt;U+800C&gt;&lt;U+5C0E&gt;&lt;U+81F4&gt;&lt;U+764C&gt;&lt;U+75C7&gt;&lt;U+3002&gt; (1) &lt;U+5E02&gt;&lt;U+552E&gt;&lt;U+9999&gt;&lt;U+8178&gt;&lt;U+3001&gt;&lt;U+706B&gt;&lt;U+817F&gt;&lt;U+3001&gt;&lt;U+57F9&gt;&lt;U+6839&gt;&lt;U+7B49&gt;&lt;U+52A0&gt;&lt;U+5DE5&gt;&lt;U+8089&gt;&lt;U+54C1&gt;&lt;U+FF0C&gt;&lt;U+5728&gt;&lt;U+88FD&gt;&lt;U+9020&gt;&lt;U+904E&gt;&lt;U+7A0B&gt;&lt;U+4E2D&gt;&lt;U+5927&gt;&lt;U+591A&gt;&lt;U+6703&gt;&lt;U+6DFB&gt;&lt;U+52A0&gt;&lt;U+300C&gt;&lt;U+4E9E&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+300D&gt;&lt;U+53CA&gt;&lt;U+300C&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+300D&gt;&lt;U+70BA&gt;&lt;U+4FDD&gt;&lt;U+8272&gt;&lt;U+5291&gt;&lt;U+FF0C&gt;&lt;U+9664&gt;&lt;U+7DAD&gt;&lt;U+6301&gt;&lt;U+7522&gt;&lt;U+54C1&gt;&lt;U+8272&gt;&lt;U+6FA4&gt;&lt;U+5916&gt;&lt;U+FF0C&gt;&lt;U+66F4&gt;&lt;U+53EF&gt;&lt;U+6291&gt;&lt;U+5236&gt;&lt;U+8089&gt;&lt;U+6BD2&gt;&lt;U+687F&gt;&lt;U+83CC&gt;&lt;U+7684&gt;&lt;U+751F&gt;&lt;U+9577&gt;&lt;U+800C&gt;&lt;U+4FDD&gt;&lt;U+5B58&gt;&lt;U+98DF&gt;&lt;U+7269&gt;&lt;U+FF0C&gt;&lt;U+9632&gt;&lt;U+6B62&gt;&lt;U+8089&gt;&lt;U+6BD2&gt;&lt;U+4E2D&gt;&lt;U+6BD2&gt;&lt;U+4E8B&gt;&lt;U+4EF6&gt;&lt;U+7684&gt;&lt;U+767C&gt;&lt;U+751F&gt;&lt;U+3002&gt; (2) &lt;U+4F9D&gt;&lt;U+64DA&gt;&lt;U+300C&gt;&lt;U+98DF&gt;&lt;U+54C1&gt;&lt;U+6DFB&gt;&lt;U+52A0&gt;&lt;U+7269&gt;&lt;U+4F7F&gt;&lt;U+7528&gt;&lt;U+7BC4&gt;&lt;U+570D&gt;&lt;U+53CA&gt;&lt;U+9650&gt;&lt;U+91CF&gt;&lt;U+66A8&gt;&lt;U+898F&gt;&lt;U+683C&gt;&lt;U+6A19&gt;&lt;U+6E96&gt;&lt;U+300D&gt;&lt;U+FF0C&gt;&lt;U+7B2C&gt;(&lt;U+4E94&gt;)&lt;U+985E&gt;&lt;U+4FDD&gt;&lt;U+8272&gt;&lt;U+5291&gt;&lt;U+4E4B&gt;&lt;U+4E9E&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+985E&gt;&lt;U+6216&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+985E&gt;&lt;U+FF0C&gt;&lt;U+53EF&gt;&lt;U+7528&gt;&lt;U+65BC&gt;&lt;U+8089&gt;&lt;U+88FD&gt;&lt;U+54C1&gt;&lt;U+53CA&gt;&lt;U+9B5A&gt;&lt;U+8089&gt;&lt;U+88FD&gt;&lt;U+54C1&gt;&lt;U+FF0C&gt;&lt;U+7528&gt;&lt;U+91CF&gt;&lt;U+4EE5&gt;NO2&lt;U+6B98&gt;&lt;U+7559&gt;&lt;U+91CF&gt;&lt;U+8A08&gt;&lt;U+70BA&gt;0.07g/kg&lt;U+4EE5&gt;&lt;U+4E0B&gt;&lt;U+FF0C&gt;&lt;U+696D&gt;&lt;U+8005&gt;&lt;U+5982&gt;&lt;U+679C&gt;&lt;U+4F9D&gt;&lt;U+7167&gt;&lt;U+4F7F&gt;&lt;U+7528&gt;&lt;U+898F&gt;&lt;U+7BC4&gt;&lt;U+4F7F&gt;&lt;U+7528&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+53CA&gt;&lt;U+4E9E&gt;&lt;U+785D&gt;&lt;U+9178&gt;&lt;U+9E7D&gt;&lt;U+FF0C&gt;&lt;U+5C1A&gt;&lt;U+4E0D&gt;&lt;U+81F4&gt;&lt;U+5C0D&gt;&lt;U+6D88&gt;&lt;U+8CBB&gt;&lt;U+8005&gt;&lt;U+9020&gt;&lt;U+6210&gt;&lt;U+5065&gt;&lt;U+5EB7&gt;&lt;U+5371&gt;&lt;U+5BB3&gt;&lt;U+3002&gt; (3) &lt;U+5EFA&gt;&lt;U+8B70&gt;&lt;U+6C11&gt;&lt;U+773E&gt;&lt;U+8981&gt;&lt;U+98F2&gt;&lt;U+98DF&gt;&lt;U+5747&gt;&lt;U+8861&gt;&lt;U+FF0C&gt;&lt;U+900F&gt;&lt;U+904E&gt;&lt;U+4E0D&gt;&lt;U+540C&gt;&lt;U+7684&gt;&lt;U+98DF&gt;&lt;U+7269&gt;&lt;U+4F86&gt;&lt;U+6E90&gt;&lt;U+FF0C&gt;&lt;U+651D&gt;&lt;U+53D6&gt;&lt;U+5404&gt;&lt;U+7A2E&gt;&lt;U+71DF&gt;&lt;U+990A&gt;&lt;U+FF0C&gt;&lt;U+964D&gt;&lt;U+4F4E&gt;&lt;U+7159&gt;&lt;U+71FB&gt;&lt;U+6216&gt;&lt;U+9E7D&gt;&lt;U+9183&gt;&lt;U+7684&gt;&lt;U+9B5A&gt;&lt;U+8089&gt;&lt;U+985E&gt;&lt;U+7B49&gt;&lt;U+651D&gt;&lt;U+53D6&gt;&lt;U+983B&gt;&lt;U+7387&gt;&lt;U+FF0C&gt;&lt;U+4EE5&gt;&lt;U+4FDD&gt;&lt;U+6301&gt;&lt;U+8EAB&gt;&lt;U+9AD4&gt;&lt;U+5065&gt;&lt;U+5EB7&gt;&lt;U+3002&gt; &lt;U+53C3&gt;&lt;U+8003&gt;&lt;U+8CC7&gt;&lt;U+6599&gt;&lt;U+FF1A&gt; &lt;U+98DF&gt;&lt;U+54C1&gt;&lt;U+6DFB&gt;&lt;U+52A0&gt;&lt;U+7269&gt;&lt;U+4F7F&gt;&lt;U+7528&gt;&lt;U+7BC4&gt;&lt;U+570D&gt;&lt;U+53CA&gt;&lt;U+9650&gt;&lt;U+91CF&gt;&lt;U+66A8&gt;&lt;U+898F&gt;&lt;U+683C&gt;&lt;U+6A19&gt;&lt;U+6E96&gt;&lt;U+FF1A&gt;http://consumer.fda.gov.tw/Law/FoodAdditivesList.aspx?nodeID=521 (&lt;U+53E6&gt;&lt;U+958B&gt;&lt;U+8996&gt;&lt;U+7A97&gt;)&quot; 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  &lt;U+9644&gt;&lt;U+6A94&gt;&lt;U+9023&gt;&lt;U+7D50&gt;4 
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         &quot;&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  發布日期5 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  &lt;U+767C&gt;&lt;U+5E03&gt;&lt;U+65E5&gt;&lt;U+671F&gt;5 
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               &quot;11 30 2015&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      分類1 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &quot;藥品&quot;</code></pre>
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      &lt;U+5206&gt;&lt;U+985E&gt;1 
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &quot;&lt;U+85E5&gt;&lt;U+54C1&gt;&quot;</code></pre>
 <pre class="r"><code># convert vector to matrix
 safefood.m &lt;- matrix(safefood.v, byrow = T, ncol = 5)
 # ?matrix
@@ -603,6 +611,294 @@ safefood.df &lt;- safefood.df[-4]
 
 # naming the data.frame
 names(safefood.df) &lt;- c('category', 'question', 'answer', 'timestamp')</code></pre>
+</div>
+</div>
+<div id="more-9995908699829693879699" class="section level1">
+<h1><span class="header-section-number">10</span> More-<e8>&lt;99&gt;&lt;95&gt;<e7>&lt;90&gt;&lt;86&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;</h1>
+<ul>
+<li><p><e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e8><a2><ab><e8><ae>&lt;80&gt;<e5>&lt;8f&gt;&lt;96&gt;<e5>&lt;87&gt;<ba><e4><be>&lt;86&gt;<e6>&lt;99&gt;&lt;82&gt;<ef><bc>&lt;8c&gt;<e6><af>&lt;94&gt;<e6>&lt;96&gt;<b9><e8><aa><aa><code>2018-07-01 23:59:59</code><e9>&lt;90&gt;<b5><e5><ae>&lt;9a&gt;<e6>&lt;98&gt;<af><e7>&lt;94&gt;<a8><e5><ad>&lt;97&gt;<e4><b8><b2><e4><b9>&lt;9f&gt;<e5><b0><b1><e6>&lt;98&gt;<af><e5><ad>&lt;97&gt;<e5>&lt;85&gt;&lt;83&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;96&gt;<b9><e5><bc>&lt;8f&gt;<e5><ad>&lt;98&gt;<e3>&lt;80&gt;&lt;82&gt;<e4><bd>&lt;86&gt;<e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e7><b6>&lt;93&gt;<e5><b8><b8><e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e6>&lt;8a&gt;&lt;8a&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e7>&lt;95&gt;<b6><e6>&lt;88&gt;&lt;90&gt;<e8><ae>&lt;8a&gt;<e6>&lt;95&gt;<b8><e4><be>&lt;86&gt;<e9>&lt;81&gt;&lt;8b&gt;<e7><ae>&lt;97&gt;<ef><bc>&lt;8c&gt;<e6><af>&lt;94&gt;<e6>&lt;96&gt;<b9><e8><aa><aa><ef><bc>&lt;8c&gt;<e6>&lt;88&gt;&lt;91&gt;<e8><a6>&lt;81&gt;<e7><ae>&lt;97&gt;<e5>&lt;87&gt;<ba><e8>&lt;87&gt;&lt;89&gt;<e6>&lt;9b&gt;<b8><e7><b2>&lt;89&gt;<e7><b5><b2><e7>&lt;9a&gt;&lt;84&gt;<e9>&lt;80&gt;&lt;90&gt;<e9>&lt;80&gt;<b1><e6>&lt;8c&gt;&lt;89&gt;<e8><ae>&lt;9a&gt;<e6>&lt;95&gt;<b8><e3>&lt;80&gt;&lt;81&gt;<e9>&lt;80&gt;&lt;90&gt;<e6>&lt;9c&gt;&lt;88&gt;<e7>&lt;99&gt;<bc><e5><b1>&lt;95&gt;<e7><ad>&lt;89&gt;<e3>&lt;80&gt;&lt;82&gt;<e9>&lt;80&gt;&lt;99&gt;<e6>&lt;99&gt;&lt;82&gt;<e5>&lt;80&gt;&lt;99&gt;<ef><bc>&lt;8c&gt;<e6>&lt;88&gt;&lt;91&gt;<e5>&lt;80&gt;&lt;91&gt;<e9>&lt;9c&gt;&lt;80&gt;<e8><a6>&lt;81&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;<e5>&lt;87&gt;<bd><e5><bc>&lt;8f&gt;<e6>&lt;8a&gt;&lt;8a&gt;<e6>&lt;96&gt;&lt;87&gt;<e5><ad>&lt;97&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>R<e7>&lt;9a&gt;&lt;84&gt;<e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e7>&lt;89&gt;<a9><e4><bb><b6><e3>&lt;80&gt;&lt;82&gt;</p></li>
+<li><p>R <e6>&lt;9c&gt;&lt;89&gt;POSIXlt<e5>&lt;92&gt;&lt;8c&gt;POSIXct<e5>&lt;85&gt;<a9><e7><a8><ae><e6>&lt;99&gt;&lt;82&gt;<e9>&lt;96&gt;&lt;93&gt;<e6><a0><bc><e5><bc>&lt;8f&gt;<e3>&lt;80&gt;&lt;82&gt; <a href="https://www.r-bloggers.com/whats-the-difference-between-posixct-and-posixlt/" class="uri">https://www.r-bloggers.com/whats-the-difference-between-posixct-and-posixlt/</a></p></li>
+</ul>
+<pre><code>%Y Year as 2017
+%m Month as decimal number (01&lt;e2&gt;&lt;80&gt;&lt;93&gt;12).
+%d Day of the month as decimal number (01&lt;e2&gt;&lt;80&gt;&lt;93&gt;31).
+
+%H Hours
+%M Minute as 00&lt;e2&gt;&lt;80&gt;&lt;93&gt;59.
+%S Second as 00-59
+
+%w Weekday as decimal number (0&lt;e2&gt;&lt;80&gt;&lt;93&gt;6, Sunday is 0).
+%a Abbreviated weekday name in the current locale
+%b Abbreviated month name in the current locale on this platform
+</code></pre>
+<div id="converting-time" class="section level2">
+<h2><span class="header-section-number">10.1</span> Converting time</h2>
+<pre class="r"><code># convert strings to time objects by specified format
+safefood.df$ltime &lt;- strptime(safefood.df$timestamp, &quot;%m %e %Y&quot;)
+class(safefood.df$ltime)</code></pre>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;POSIXlt&quot; &quot;POSIXt&quot; 
+
+# convert to POSIXct
+safefood.df$ctime &lt;- as.POSIXct(safefood.df$ltime) # POSIXct
+class(safefood.df$ctime)</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;POSIXct&quot; &quot;POSIXt&quot;
+class(as.Date(&quot;2017-01-01&quot;))</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;Date&quot;
+class(as.POSIXct(&quot;2017-01-08&quot;))</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;POSIXct&quot; &quot;POSIXt&quot;
+class(Sys.time())</code></pre>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+</div>
+<div id="accessing-time" class="section level2">
+<h2><span class="header-section-number">10.2</span> Accessing time</h2>
+<pre class="r"><code># format time object to string
+time.str &lt;- format(safefood.df$ctime, &quot;%m-%d-%Y&quot;)
+class(time.str)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;character&quot;
+# Accessing time
+safefood.df$ltime$mday      # $wday, $yday, $zone, $hour, $month</code></pre>
+<pre><code>##   [1] 30  7 15 17 24 24 25  7 14 27 27 27 27 27 27  7  7 13 13 13 13 13 27
+##  [24] 27 30 30  1  1  8  8 10 14 16 17 22 25 29 29 31 31  5 31 31 31  7 25
+##  [47]  2  7 21  4  4  4  4  5 13 24 24 27  1  9  9 22 29 12 19 26  3 10 17
+##  [70] 21 28 25 25 25 25 25 25 25 25 25 29 29 30 30 22 23 29 29 29 29 29 29
+##  [93] 29 29 31 28  5 12 16 23 19 26  2  7  7 16 22 30 27  4  7 13 18 21 27
+## [116]  4  8 18 25 23  1 29  8 13 13 13 13 13 13 15 20 20 20 20 20 28 28 28
+## [139] 28 28 28 28 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11
+## [162] 11 11 11 11 11 11 11 11 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25
+## [185] 25 25  2  8 11 16 19 23 26 31 12 15 22 26 11 14 17 21 25 29 31  4  7
+## [208] 14 18 21 27 24  7 14 20 24 22  1  6 10 16 27 31  6 10 13 17 20 27 29
+## [231]  4 11 17 24 28 31 10 13 17 14 18 22 27  1  1  6  8 14 20 26 29  3  9
+## [254] 12 18 23  2 31  6  7 11 14 14 18 21 25 28 26  3 11  5  9 17 19 23 26
+## [277] 24 30  2  6  8 13 15 20 23 27  4 30  7  8 14 20 26 28  3  9 15 18 24
+## [300] 26  1  7  9 13 19 26  8 11 18 25  1 15 18 22 25  2  7  8 10 11  9 14
+## [323] 16 21 23 24 28 29 30</code></pre>
+<pre class="r"><code>months(safefood.df$ctime)       # weekdays()</code></pre>
+<pre><code>##   [1] &quot;11&lt;U+6708&gt;&quot; &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot; 
+##  [11] &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot; 
+##  [21] &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot;
+##  [31] &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot;
+##  [41] &quot;1&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot;
+##  [51] &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot; 
+##  [61] &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+##  [71] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+##  [81] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot; 
+##  [91] &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot;
+## [101] &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot;
+## [111] &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot; 
+## [121] &quot;2&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot; 
+## [131] &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot; 
+## [141] &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+## [151] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+## [161] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+## [171] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+## [181] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot; 
+## [191] &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot; 
+## [201] &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot; 
+## [211] &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot; 
+## [221] &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot; 
+## [231] &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;10&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot;
+## [241] &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;11&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot; &quot;12&lt;U+6708&gt;&quot;
+## [251] &quot;12&lt;U+6708&gt;&quot; &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot; 
+## [261] &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;4&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot; 
+## [271] &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;5&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot; 
+## [281] &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;6&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot; 
+## [291] &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;7&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot;  &quot;8&lt;U+6708&gt;&quot; 
+## [301] &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;9&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot;  &quot;1&lt;U+6708&gt;&quot; 
+## [311] &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;2&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot; 
+## [321] &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;  &quot;3&lt;U+6708&gt;&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;12&lt;e6&gt;&lt;9c&gt;&lt;88&gt;&quot; &quot;12&lt;e6&gt;&lt;9c&gt;&lt;88&gt;&quot; &quot;1&lt;e6&gt;&lt;9c&gt;&lt;88&gt;&quot;  &quot;1&lt;e6&gt;&lt;9c&gt;&lt;88&gt;&quot;    
+Sys.setlocale(&quot;LC_ALL&quot;, &quot;C&quot;)</code></pre>
+<pre><code>## [1] &quot;C/C/C/C/C/zh_TW.UTF-8&quot;</code></pre>
+<pre class="r"><code>months(safefood.df$ctime)</code></pre>
+<pre><code>##   [1] &quot;November&quot;  &quot;September&quot; &quot;September&quot; &quot;September&quot; &quot;April&quot;    
+##   [6] &quot;May&quot;       &quot;May&quot;       &quot;June&quot;      &quot;June&quot;      &quot;April&quot;    
+##  [11] &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;April&quot;    
+##  [16] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+##  [21] &quot;May&quot;       &quot;May&quot;       &quot;November&quot;  &quot;November&quot;  &quot;November&quot; 
+##  [26] &quot;November&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot; 
+##  [31] &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot; 
+##  [36] &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot; 
+##  [41] &quot;January&quot;   &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;August&quot;   
+##  [46] &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;October&quot;   &quot;November&quot; 
+##  [51] &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;November&quot; 
+##  [56] &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;March&quot;     &quot;March&quot;    
+##  [61] &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;April&quot;     &quot;April&quot;    
+##  [66] &quot;April&quot;     &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;June&quot;     
+##  [71] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+##  [76] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+##  [81] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;July&quot;     
+##  [86] &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;July&quot;     
+##  [91] &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;July&quot;     
+##  [96] &quot;September&quot; &quot;October&quot;   &quot;October&quot;   &quot;October&quot;   &quot;October&quot;  
+## [101] &quot;October&quot;   &quot;October&quot;   &quot;November&quot;  &quot;November&quot;  &quot;November&quot; 
+## [106] &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;December&quot; 
+## [111] &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot; 
+## [116] &quot;January&quot;   &quot;January&quot;   &quot;January&quot;   &quot;January&quot;   &quot;January&quot;  
+## [121] &quot;February&quot;  &quot;January&quot;   &quot;February&quot;  &quot;May&quot;       &quot;May&quot;      
+## [126] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+## [131] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+## [136] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+## [141] &quot;May&quot;       &quot;May&quot;       &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [146] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [151] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [156] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [161] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [166] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [171] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [176] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [181] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [186] &quot;June&quot;      &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+## [191] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;June&quot;     
+## [196] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;July&quot;      &quot;August&quot;   
+## [201] &quot;August&quot;    &quot;August&quot;    &quot;August&quot;    &quot;August&quot;    &quot;August&quot;   
+## [206] &quot;September&quot; &quot;September&quot; &quot;September&quot; &quot;September&quot; &quot;September&quot;
+## [211] &quot;January&quot;   &quot;January&quot;   &quot;February&quot;  &quot;February&quot;  &quot;February&quot; 
+## [216] &quot;February&quot;  &quot;February&quot;  &quot;March&quot;     &quot;March&quot;     &quot;March&quot;    
+## [221] &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;April&quot;     &quot;April&quot;    
+## [226] &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;September&quot;
+## [231] &quot;October&quot;   &quot;October&quot;   &quot;October&quot;   &quot;October&quot;   &quot;October&quot;  
+## [236] &quot;October&quot;   &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;November&quot; 
+## [241] &quot;November&quot;  &quot;November&quot;  &quot;November&quot;  &quot;December&quot;  &quot;December&quot; 
+## [246] &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot;  &quot;December&quot; 
+## [251] &quot;December&quot;  &quot;January&quot;   &quot;January&quot;   &quot;January&quot;   &quot;January&quot;  
+## [256] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;April&quot;    
+## [261] &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;April&quot;    
+## [266] &quot;April&quot;     &quot;April&quot;     &quot;April&quot;     &quot;May&quot;       &quot;May&quot;      
+## [271] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;May&quot;      
+## [276] &quot;May&quot;       &quot;May&quot;       &quot;May&quot;       &quot;June&quot;      &quot;June&quot;     
+## [281] &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;      &quot;June&quot;     
+## [286] &quot;June&quot;      &quot;July&quot;      &quot;June&quot;      &quot;July&quot;      &quot;July&quot;     
+## [291] &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;July&quot;      &quot;August&quot;   
+## [296] &quot;August&quot;    &quot;August&quot;    &quot;August&quot;    &quot;August&quot;    &quot;August&quot;   
+## [301] &quot;September&quot; &quot;September&quot; &quot;September&quot; &quot;September&quot; &quot;September&quot;
+## [306] &quot;September&quot; &quot;January&quot;   &quot;January&quot;   &quot;January&quot;   &quot;January&quot;  
+## [311] &quot;February&quot;  &quot;February&quot;  &quot;February&quot;  &quot;February&quot;  &quot;February&quot; 
+## [316] &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;March&quot;    
+## [321] &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;March&quot;    
+## [326] &quot;March&quot;     &quot;March&quot;     &quot;March&quot;     &quot;March&quot;</code></pre>
+<pre class="r"><code>    # [1] &quot;December&quot;  &quot;December&quot;  &quot;January&quot;   &quot;January&quot;   &quot;January&quot;
+sort(safefood.df$ctime)     # sort(safefood.df$ltime)</code></pre>
+<pre><code>##   [1] &quot;2015-04-27 GMT&quot; &quot;2015-04-27 GMT&quot; &quot;2015-04-27 GMT&quot; &quot;2015-04-27 GMT&quot;
+##   [5] &quot;2015-04-27 GMT&quot; &quot;2015-04-27 GMT&quot; &quot;2015-05-07 GMT&quot; &quot;2015-05-07 GMT&quot;
+##   [9] &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot;
+##  [13] &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot;
+##  [17] &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-13 GMT&quot; &quot;2015-05-15 GMT&quot;
+##  [21] &quot;2015-05-20 GMT&quot; &quot;2015-05-20 GMT&quot; &quot;2015-05-20 GMT&quot; &quot;2015-05-20 GMT&quot;
+##  [25] &quot;2015-05-20 GMT&quot; &quot;2015-05-28 GMT&quot; &quot;2015-05-28 GMT&quot; &quot;2015-05-28 GMT&quot;
+##  [29] &quot;2015-05-28 GMT&quot; &quot;2015-05-28 GMT&quot; &quot;2015-05-28 GMT&quot; &quot;2015-05-28 GMT&quot;
+##  [33] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [37] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [41] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [45] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [49] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [53] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot;
+##  [57] &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-11 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [61] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [65] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [69] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [73] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [77] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [81] &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot; &quot;2015-06-25 GMT&quot;
+##  [85] &quot;2015-06-25 GMT&quot; &quot;2015-06-29 GMT&quot; &quot;2015-06-29 GMT&quot; &quot;2015-06-30 GMT&quot;
+##  [89] &quot;2015-06-30 GMT&quot; &quot;2015-07-22 GMT&quot; &quot;2015-07-23 GMT&quot; &quot;2015-07-29 GMT&quot;
+##  [93] &quot;2015-07-29 GMT&quot; &quot;2015-07-29 GMT&quot; &quot;2015-07-29 GMT&quot; &quot;2015-07-29 GMT&quot;
+##  [97] &quot;2015-07-29 GMT&quot; &quot;2015-07-29 GMT&quot; &quot;2015-07-29 GMT&quot; &quot;2015-07-31 GMT&quot;
+## [101] &quot;2015-07-31 GMT&quot; &quot;2015-07-31 GMT&quot; &quot;2015-07-31 GMT&quot; &quot;2015-08-07 GMT&quot;
+## [105] &quot;2015-08-25 GMT&quot; &quot;2015-09-02 GMT&quot; &quot;2015-09-07 GMT&quot; &quot;2015-09-15 GMT&quot;
+## [109] &quot;2015-09-17 GMT&quot; &quot;2015-10-07 GMT&quot; &quot;2015-10-21 GMT&quot; &quot;2015-11-04 GMT&quot;
+## [113] &quot;2015-11-04 GMT&quot; &quot;2015-11-04 GMT&quot; &quot;2015-11-04 GMT&quot; &quot;2015-11-05 GMT&quot;
+## [117] &quot;2015-11-13 GMT&quot; &quot;2015-11-24 GMT&quot; &quot;2015-11-24 GMT&quot; &quot;2015-11-27 GMT&quot;
+## [121] &quot;2015-11-27 GMT&quot; &quot;2015-11-27 GMT&quot; &quot;2015-11-30 GMT&quot; &quot;2015-11-30 GMT&quot;
+## [125] &quot;2015-11-30 GMT&quot; &quot;2015-12-01 GMT&quot; &quot;2015-12-01 GMT&quot; &quot;2015-12-08 GMT&quot;
+## [129] &quot;2015-12-08 GMT&quot; &quot;2015-12-10 GMT&quot; &quot;2015-12-14 GMT&quot; &quot;2015-12-16 GMT&quot;
+## [133] &quot;2015-12-17 GMT&quot; &quot;2015-12-22 GMT&quot; &quot;2015-12-25 GMT&quot; &quot;2015-12-29 GMT&quot;
+## [137] &quot;2015-12-29 GMT&quot; &quot;2015-12-31 GMT&quot; &quot;2015-12-31 GMT&quot; &quot;2016-01-05 GMT&quot;
+## [141] &quot;2016-01-08 GMT&quot; &quot;2016-01-11 GMT&quot; &quot;2016-01-18 GMT&quot; &quot;2016-01-25 GMT&quot;
+## [145] &quot;2016-02-01 GMT&quot; &quot;2016-02-15 GMT&quot; &quot;2016-02-18 GMT&quot; &quot;2016-02-22 GMT&quot;
+## [149] &quot;2016-02-25 GMT&quot; &quot;2016-03-02 GMT&quot; &quot;2016-03-07 GMT&quot; &quot;2016-03-08 GMT&quot;
+## [153] &quot;2016-03-09 GMT&quot; &quot;2016-03-10 GMT&quot; &quot;2016-03-11 GMT&quot; &quot;2016-03-14 GMT&quot;
+## [157] &quot;2016-03-16 GMT&quot; &quot;2016-03-21 GMT&quot; &quot;2016-03-23 GMT&quot; &quot;2016-03-24 GMT&quot;
+## [161] &quot;2016-03-28 GMT&quot; &quot;2016-03-29 GMT&quot; &quot;2016-03-30 GMT&quot; &quot;2016-03-31 GMT&quot;
+## [165] &quot;2016-04-06 GMT&quot; &quot;2016-04-07 GMT&quot; &quot;2016-04-11 GMT&quot; &quot;2016-04-14 GMT&quot;
+## [169] &quot;2016-04-14 GMT&quot; &quot;2016-04-18 GMT&quot; &quot;2016-04-21 GMT&quot; &quot;2016-04-25 GMT&quot;
+## [173] &quot;2016-04-26 GMT&quot; &quot;2016-04-28 GMT&quot; &quot;2016-05-03 GMT&quot; &quot;2016-05-05 GMT&quot;
+## [177] &quot;2016-05-09 GMT&quot; &quot;2016-05-11 GMT&quot; &quot;2016-05-17 GMT&quot; &quot;2016-05-19 GMT&quot;
+## [181] &quot;2016-05-23 GMT&quot; &quot;2016-05-24 GMT&quot; &quot;2016-05-26 GMT&quot; &quot;2016-05-30 GMT&quot;
+## [185] &quot;2016-06-02 GMT&quot; &quot;2016-06-06 GMT&quot; &quot;2016-06-08 GMT&quot; &quot;2016-06-13 GMT&quot;
+## [189] &quot;2016-06-15 GMT&quot; &quot;2016-06-20 GMT&quot; &quot;2016-06-23 GMT&quot; &quot;2016-06-27 GMT&quot;
+## [193] &quot;2016-06-30 GMT&quot; &quot;2016-07-04 GMT&quot; &quot;2016-07-07 GMT&quot; &quot;2016-07-08 GMT&quot;
+## [197] &quot;2016-07-14 GMT&quot; &quot;2016-07-20 GMT&quot; &quot;2016-07-26 GMT&quot; &quot;2016-07-28 GMT&quot;
+## [201] &quot;2016-08-03 GMT&quot; &quot;2016-08-09 GMT&quot; &quot;2016-08-15 GMT&quot; &quot;2016-08-18 GMT&quot;
+## [205] &quot;2016-08-24 GMT&quot; &quot;2016-08-26 GMT&quot; &quot;2016-09-01 GMT&quot; &quot;2016-09-07 GMT&quot;
+## [209] &quot;2016-09-09 GMT&quot; &quot;2016-09-13 GMT&quot; &quot;2016-09-19 GMT&quot; &quot;2016-09-26 GMT&quot;
+## [213] &quot;2016-09-29 GMT&quot; &quot;2016-10-04 GMT&quot; &quot;2016-10-11 GMT&quot; &quot;2016-10-17 GMT&quot;
+## [217] &quot;2016-10-24 GMT&quot; &quot;2016-10-28 GMT&quot; &quot;2016-10-31 GMT&quot; &quot;2016-11-10 GMT&quot;
+## [221] &quot;2016-11-13 GMT&quot; &quot;2016-11-14 GMT&quot; &quot;2016-11-17 GMT&quot; &quot;2016-11-18 GMT&quot;
+## [225] &quot;2016-11-22 GMT&quot; &quot;2016-11-27 GMT&quot; &quot;2016-12-01 GMT&quot; &quot;2016-12-01 GMT&quot;
+## [229] &quot;2016-12-06 GMT&quot; &quot;2016-12-08 GMT&quot; &quot;2016-12-14 GMT&quot; &quot;2016-12-20 GMT&quot;
+## [233] &quot;2016-12-26 GMT&quot; &quot;2016-12-29 GMT&quot; &quot;2017-01-03 GMT&quot; &quot;2017-01-09 GMT&quot;
+## [237] &quot;2017-01-12 GMT&quot; &quot;2017-01-18 GMT&quot; &quot;2017-01-23 GMT&quot; &quot;2017-01-24 GMT&quot;
+## [241] &quot;2017-01-27 GMT&quot; &quot;2017-02-02 GMT&quot; &quot;2017-02-07 GMT&quot; &quot;2017-02-14 GMT&quot;
+## [245] &quot;2017-02-20 GMT&quot; &quot;2017-02-24 GMT&quot; &quot;2017-03-01 GMT&quot; &quot;2017-03-06 GMT&quot;
+## [249] &quot;2017-03-10 GMT&quot; &quot;2017-03-16 GMT&quot; &quot;2017-03-27 GMT&quot; &quot;2017-03-31 GMT&quot;
+## [253] &quot;2017-04-06 GMT&quot; &quot;2017-04-10 GMT&quot; &quot;2017-04-13 GMT&quot; &quot;2017-04-17 GMT&quot;
+## [257] &quot;2017-04-20 GMT&quot; &quot;2017-04-24 GMT&quot; &quot;2017-04-27 GMT&quot; &quot;2017-05-02 GMT&quot;
+## [261] &quot;2017-05-08 GMT&quot; &quot;2017-05-11 GMT&quot; &quot;2017-05-16 GMT&quot; &quot;2017-05-19 GMT&quot;
+## [265] &quot;2017-05-23 GMT&quot; &quot;2017-05-26 GMT&quot; &quot;2017-05-31 GMT&quot; &quot;2017-06-12 GMT&quot;
+## [269] &quot;2017-06-15 GMT&quot; &quot;2017-06-22 GMT&quot; &quot;2017-06-26 GMT&quot; &quot;2017-07-11 GMT&quot;
+## [273] &quot;2017-08-14 GMT&quot; &quot;2017-08-17 GMT&quot; &quot;2017-08-21 GMT&quot; &quot;2017-08-25 GMT&quot;
+## [277] &quot;2017-08-29 GMT&quot; &quot;2017-08-31 GMT&quot; &quot;2017-09-04 GMT&quot; &quot;2017-09-07 GMT&quot;
+## [281] &quot;2017-09-14 GMT&quot; &quot;2017-09-18 GMT&quot; &quot;2017-09-21 GMT&quot; &quot;2017-09-28 GMT&quot;
+## [285] &quot;2017-10-05 GMT&quot; &quot;2017-10-12 GMT&quot; &quot;2017-10-16 GMT&quot; &quot;2017-10-19 GMT&quot;
+## [289] &quot;2017-10-23 GMT&quot; &quot;2017-10-26 GMT&quot; &quot;2017-11-02 GMT&quot; &quot;2017-11-07 GMT&quot;
+## [293] &quot;2017-11-07 GMT&quot; &quot;2017-11-16 GMT&quot; &quot;2017-11-22 GMT&quot; &quot;2017-11-27 GMT&quot;
+## [297] &quot;2017-11-30 GMT&quot; &quot;2017-12-04 GMT&quot; &quot;2017-12-07 GMT&quot; &quot;2017-12-13 GMT&quot;
+## [301] &quot;2017-12-18 GMT&quot; &quot;2017-12-21 GMT&quot; &quot;2017-12-27 GMT&quot; &quot;2018-01-04 GMT&quot;
+## [305] &quot;2018-01-08 GMT&quot; &quot;2018-01-18 GMT&quot; &quot;2018-01-23 GMT&quot; &quot;2018-01-25 GMT&quot;
+## [309] &quot;2018-01-29 GMT&quot; &quot;2018-02-01 GMT&quot; &quot;2018-02-08 GMT&quot; &quot;2018-02-22 GMT&quot;
+## [313] &quot;2018-03-01 GMT&quot; &quot;2018-03-09 GMT&quot; &quot;2018-03-09 GMT&quot; &quot;2018-03-22 GMT&quot;
+## [317] &quot;2018-03-29 GMT&quot; &quot;2018-04-12 GMT&quot; &quot;2018-04-19 GMT&quot; &quot;2018-04-26 GMT&quot;
+## [321] &quot;2018-05-03 GMT&quot; &quot;2018-05-10 GMT&quot; &quot;2018-05-17 GMT&quot; &quot;2018-05-24 GMT&quot;
+## [325] &quot;2018-05-25 GMT&quot; &quot;2018-06-07 GMT&quot; &quot;2018-06-14 GMT&quot; &quot;2018-06-21 GMT&quot;
+## [329] &quot;2018-06-28 GMT&quot;</code></pre>
+<pre class="r"><code>start &lt;- proc.time()
+proc.time() - start</code></pre>
+<pre><code>##    user  system elapsed 
+##   0.002   0.000   0.002</code></pre>
+</div>
+</div>
+<div id="ill-formated---ubike" class="section level1">
+<h1><span class="header-section-number">11</span> ill-formated - ubike</h1>
+<ul>
+<li>See next chapter</li>
+</ul>
+</div>
+<div id="review" class="section level1">
+<h1><span class="header-section-number">12</span> Review</h1>
+<div id="type-i-well-formatted-json-uvi-aqi-hospital_revisits" class="section level2">
+<h2><span class="header-section-number">12.1</span> Type I: Well-formatted JSON: UVI, AQI, Hospital_revisits</h2>
+<ul>
+<li><e9>&lt;80&gt;&lt;99&gt;<e9><a1>&lt;9e&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e4><bb><a5><e5>&lt;85&gt;<b8><e5>&lt;9e&gt;&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;[{}, {}, {}]<e5><bd><a2><e5><bc>&lt;8f&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<ef><bc>&lt;8c&gt;<e4><bb><a5><e4><bb><a5><e4><b8>&lt;8b&gt;<e6>&lt;96&gt;<b9><e5><bc>&lt;8f&gt;<e5><b0><b1><e5>&lt;8f&gt;<af><e7>&lt;9b&gt;<b4><e6>&lt;8e&gt;<a5><e8><bd>&lt;89&gt;<e7>&lt;82&gt;<ba>data.frame <code>df &lt;- fromJSON(content(GET(url), &quot;text&quot;))</code></li>
+</ul>
+</div>
+<div id="type-ii-hierarchical-json-rent591-facebook-graph-api-google-map" class="section level2">
+<h2><span class="header-section-number">12.2</span> Type II: hierarchical JSON: rent591, facebook graph api, google map</h2>
+<ul>
+<li><e9>&lt;80&gt;&lt;99&gt;<e9><a1>&lt;9e&gt;<e7>&lt;9a&gt;&lt;84&gt;json<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;82&gt;<ba>well-formatted<ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e8><a6>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<e5>&lt;9c&gt;<a8><e6><af>&lt;94&gt;<e8><bc>&lt;83&gt;<e6><b7><b1><e7>&lt;9a&gt;&lt;84&gt;<e9>&lt;9a&gt;&lt;8e&gt;<e5><b1><a4><e4><b8><ad><ef><bc>&lt;8c&gt;<e4><bb><a3><e8><a1><a8><e5>&lt;85&gt;<b6><e4><b8><a6><e9>&lt;9d&gt;&lt;9e&gt;<e7><b0><a1><e5>&lt;96&gt;<ae><e5>&lt;9c&gt;<b0><e4><ba>&lt;8c&gt;<e7><b6><ad><e8><a1><a8><e6><a0><bc><ef><bc>&lt;8c&gt;<e9>&lt;82&gt;&lt;84&gt;<e6>&lt;9c&gt;&lt;89&gt;<e5>&lt;85&gt;<b6><e4><bb>&lt;96&gt;<e6>&lt;9b&gt;<b4><e5><a4>&lt;9a&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><a9><ae><e9>&lt;87&gt;&lt;8b&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e8><a2><ab><e6>&lt;93&gt;<ba><e5>&lt;9c&gt;<a8><e5>&lt;90&gt;&lt;8c&gt;<e4><b8>&lt;80&gt;<e5>&lt;80&gt;&lt;8b&gt;JSON<e6><aa>&lt;94&gt;<e6><a1>&lt;88&gt;<e4><b8><ad><e3>&lt;80&gt;&lt;82&gt;<e8><a7><a3><e6><b1><ba><e7><ad>&lt;96&gt;<e7>&lt;95&gt;<a5><ef><bc>&lt;9a&gt;<e9>&lt;80&gt;&lt;9a&gt;<e5><b8><b8><code>fromJSON()</code><e8><bd>&lt;89&gt;<e5><ae>&lt;8c&gt;<e5><be>&lt;8c&gt;<e7>&lt;82&gt;<ba>list<ef><bc>&lt;8c&gt;<e9>&lt;80&gt;&lt;90&gt;<e4><b8>&lt;80&gt;<e5><b0><b1>variable names<e6>&lt;9f&gt;<a5><e7>&lt;9c&gt;&lt;8b&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e5>&lt;9c&gt;<a8><e5>&lt;93&gt;<aa><e8><a3><a1><e3>&lt;80&gt;&lt;82&gt;<code>View(res$data$data)</code></li>
+</ul>
+</div>
+<div id="type-iii-ill-formatted-json-food_rumors-ubike" class="section level2">
+<h2><span class="header-section-number">12.3</span> Type III: Ill-formatted JSON: food_rumors, ubike</h2>
+<ul>
+<li><p><e9>&lt;80&gt;&lt;99&gt;<e9><a1>&lt;9e&gt;<e7>&lt;9a&gt;&lt;84&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e4><b8><a6><e9>&lt;9d&gt;&lt;9e&gt;<e4><bb><a5><e5>&lt;85&gt;<b8><e5>&lt;9e&gt;&lt;8b&gt;<e7>&lt;9a&gt;&lt;84&gt;<code>[{}, {}, {}]</code><e5><bd><a2><e5><bc>&lt;8f&gt;<e5>&lt;84&gt;<b2><e5><ad>&lt;98&gt;<ef><bc>&lt;8c&gt;<e4><bd>&lt;86&gt;<e4><bb>&lt;8d&gt;<e6>&lt;98&gt;<af><e6>&lt;9c&gt;&lt;89&gt;<e5><ba>&lt;8f&gt;<e7>&lt;9a&gt;&lt;84&gt;<e4><ba>&lt;8c&gt;<e7><b6><ad><e6>&lt;95&gt;<b8><e6>&lt;93&gt;&lt;9a&gt;<e3>&lt;80&gt;&lt;82&gt;<e5>&lt;8f&gt;<af><e5><b0>&lt;87&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<code>unlist()</code><e6>&lt;94&gt;<a4><e9>&lt;96&gt;&lt;8b&gt;<ef><bc>&lt;8c&gt;<e7>&lt;84&gt;<b6><e5><be>&lt;8c&gt;<e5>&lt;8e&gt;<bb><e9>&lt;99&gt;<a4><e4><b8>&lt;8d&gt;<e5><bf>&lt;85&gt;<e8><a6>&lt;81&gt;<e7>&lt;9a&gt;&lt;84&gt;NA<e5><be>&lt;8c&gt;<ef><bc>&lt;8c&gt;<e6>&lt;8c&gt;&lt;89&gt;<e6><ac>&lt;84&gt;<e4><bd>&lt;8d&gt;<e6>&lt;95&gt;<b8><e7>&lt;9b&gt;<ae><e9>&lt;87&gt;&lt;8d&gt;<e5><bb><ba>Matrix<e5>&lt;86&gt;&lt;8d&gt;<e8><bd>&lt;89&gt;<e5>&lt;9b&gt;&lt;9e&gt;data.frame</p></li>
+<li><p><e8><a7><a3><e6><b1><ba><e7><ad>&lt;96&gt;<e7>&lt;95&gt;<a5><ef><bc>&lt;9a&gt;<e7>&lt;94&gt;<a8><code>as.data.frame()</code><e6>&lt;88&gt;&lt;96&gt;<code>unlist()</code><e7><a1><ac><e8><bd>&lt;89&gt;<e6>&lt;88&gt;&lt;90&gt;data.frame<e6>&lt;88&gt;&lt;96&gt;vector<e4><be>&lt;86&gt;<e7>&lt;9c&gt;&lt;8b&gt;<e8><b3>&lt;87&gt;<e6>&lt;96&gt;&lt;99&gt;<e7>&lt;9a&gt;&lt;84&gt;<e5>&lt;87&gt;<ba><e7>&lt;8f&gt;<be><e6>&lt;98&gt;<af><e5>&lt;90&gt;<a6><e6>&lt;9c&gt;&lt;89&gt;<e6>&lt;89&gt;&lt;80&gt;<e8><a6>&lt;8f&gt;<e5><be>&lt;8b&gt;<e3>&lt;80&gt;&lt;82&gt;</p></li>
+</ul>
 </div>
 </div>
 

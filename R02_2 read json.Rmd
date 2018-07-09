@@ -445,3 +445,85 @@ names(safefood.df) <- c('category', 'question', 'answer', 'timestamp')
 ```
 
 
+# More-處理時間資料
+
+* 通常時間資料被讀取出來時，比方說`2018-07-01 23:59:59`鐵定是用字串也就是字元的方式存。但我們經常需要把時間當成變數來運算，比方說，我要算出臉書粉絲的逐週按讚數、逐月發展等。這時候，我們需要一個函式把文字格式的時間轉為R的時間物件。
+
+* R 有POSIXlt和POSIXct兩種時間格式。
+https://www.r-bloggers.com/whats-the-difference-between-posixct-and-posixlt/
+
+```
+%Y Year as 2017
+%m Month as decimal number (01–12).
+%d Day of the month as decimal number (01–31).
+
+%H Hours
+%M Minute as 00–59.
+%S Second as 00-59
+
+%w Weekday as decimal number (0–6, Sunday is 0).
+%a Abbreviated weekday name in the current locale
+%b Abbreviated month name in the current locale on this platform
+
+```
+
+
+## Converting time
+```{r}
+# convert strings to time objects by specified format
+safefood.df$ltime <- strptime(safefood.df$timestamp, "%m %e %Y")
+class(safefood.df$ltime)
+	# [1] "POSIXlt" "POSIXt" 
+
+# convert to POSIXct
+safefood.df$ctime <- as.POSIXct(safefood.df$ltime) # POSIXct
+class(safefood.df$ctime)
+	# [1] "POSIXct" "POSIXt"
+class(as.Date("2017-01-01"))
+	# [1] "Date"
+class(as.POSIXct("2017-01-08"))
+	# [1] "POSIXct" "POSIXt"
+class(Sys.time())
+	# [1] "POSIXct" "POSIXt"
+
+```
+
+## Accessing time
+```{r}
+# format time object to string
+time.str <- format(safefood.df$ctime, "%m-%d-%Y")
+class(time.str)
+	# [1] "character"
+# Accessing time
+safefood.df$ltime$mday 		# $wday, $yday, $zone, $hour, $month
+months(safefood.df$ctime)		# weekdays()
+	# [1] "12月" "12月" "1月"  "1月"	
+Sys.setlocale("LC_ALL", "C")
+months(safefood.df$ctime)
+	# [1] "December"  "December"  "January"   "January"   "January"
+sort(safefood.df$ctime)		# sort(safefood.df$ltime)
+start <- proc.time()
+proc.time() - start
+
+```
+
+# ill-formated - ubike
+* See next chapter
+
+
+# Review
+
+## Type I: Well-formatted JSON: UVI, AQI, Hospital_revisits
+
+* 這類的資料以典型的[{}, {}, {}]形式儲存，以以下方式就可直接轉為data.frame
+`df <- fromJSON(content(GET(url), "text"))`
+
+## Type II: hierarchical JSON: rent591, facebook graph api, google map
+
+* 這類的json資料為well-formatted，但要的資料儲存在比較深的階層中，代表其並非簡單地二維表格，還有其他更多的詮釋資料被擺在同一個JSON檔案中。解決策略：通常`fromJSON()`轉完後為list，逐一就variable names查看資料在哪裡。`View(res$data$data)`
+
+## Type III: Ill-formatted JSON: food_rumors, ubike
+
+* 這類的資料並非以典型的`[{}, {}, {}]`形式儲存，但仍是有序的二維數據。可將資料`unlist()`攤開，然後去除不必要的NA後，按欄位數目重建Matrix再轉回data.frame
+
+* 解決策略：用`as.data.frame()`或`unlist()`硬轉成data.frame或vector來看資料的出現是否有所規律。

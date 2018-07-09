@@ -50,3 +50,17 @@ date: "2018-01-01T21:48:51-07:00"
 	* [xpath introduction](https://www.w3schools.com/xml/xpath_intro.asp)
 
 
+-------------------------------------------------------
+
+# Topics
+
+## Statistical learnings
+
+* [Pradeep Menon’s Data Science Simplified Series on Medium.com](https://towardsdatascience.com/data-science-simplified-simple-linear-regression-models-3a97811a6a3d)。該網站利用常用的機器學習資料集說明了簡單回歸、多元回歸等多個監督或非監督式學習的原理與實例。他採用非常簡單的語彙來說明統計，唯一美中不足的是，他沒有提供程式碼。
+
+
+## PCA
+
+* Introduction to PCA:　https://georgemdallas.wordpress.com/2013/10/30/principal-component-analysis-4-dummies-eigenvectors-eigenvalues-and-dimension-reduction/. 該網頁提供極為淺顯易懂的例子來說明eigenvector與eigenvalue、orthogonal等PCA的相關概念。非常值得讀。可促進樹決基礎。
+
+* Explained Visually. http://setosa.io/ev/: 該連結提供了非常淺顯易懂的視覺化介面來介紹統計或線性代數中比較難以理解的概念，而且提供可互動的視覺化介面來讓使用者通過操作了解其概念。非常精彩。
