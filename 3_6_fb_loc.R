@@ -13,17 +13,7 @@ Sys.setenv(TZ="Asia/Taipei")
 
 # My function to get longer token -----------------------------------------
 
-get_fb_token <- function(){
-    app_id <- "188730144854871"
-    app_secret <- "8761f7c2146b01c5332dbb1fcf386b3b"
-    url <- sprintf('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=%s&client_secret=%s&extended_permissions=TRUE', app_id, app_secret)
-    text <- content(POST(url),'text')
-    res <- fromJSON(text)
-    print(sprintf("Getting token: %s", res$access_token))
-    res$access_token
-}
 
-token <- get_fb_token()
 
 
 
