@@ -27,6 +27,10 @@
 
 
 # Today
+* [R02_2 read json](html/R02_2 read json.html)
+* [R03_1_crawler_design_rent591](html/R03_1_crawler_design_rent591.html)
+* [SlideCrawler01. crawler design](https://docs.google.com/presentation/d/e/2PACX-1vRW84XoB5sFRT1Eg-GrK4smX23qoNkFffz_h8oRU4AIvJAgrrxBn8059_0UeHv_pFBks_Z37vNbLGai/pub?start=false&loop=false&delayms=3000)
+* [SlideR03. read json](https://docs.google.com/presentation/d/e/2PACX-1vSHPm_O02O1BQotytOXuL6GV4crFSt90Y3Q5AzJ_Od0_ay7WBZT-Wh8Erll-3EbbbsUmaj5LyqhkWek/pub?start=false&loop=false&delayms=3000)
 
 
 # HTML
