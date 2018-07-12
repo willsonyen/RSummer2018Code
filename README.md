@@ -27,10 +27,9 @@
 
 
 # Today
-* [R02_2 read json](html/R02_2 read json.html)
-* [R03_1_crawler_design_rent591](html/R03_1_crawler_design_rent591.html)
-* [SlideCrawler01. crawler design](https://docs.google.com/presentation/d/e/2PACX-1vRW84XoB5sFRT1Eg-GrK4smX23qoNkFffz_h8oRU4AIvJAgrrxBn8059_0UeHv_pFBks_Z37vNbLGai/pub?start=false&loop=false&delayms=3000)
-* [SlideR03. read json](https://docs.google.com/presentation/d/e/2PACX-1vSHPm_O02O1BQotytOXuL6GV4crFSt90Y3Q5AzJ_Od0_ay7WBZT-Wh8Erll-3EbbbsUmaj5LyqhkWek/pub?start=false&loop=false&delayms=3000)
+* [Crawler03_1_html_parsing](html/Crawler03_1_html_parsing.html)
+* [SlideCrawler03. HTML Parser](https://docs.google.com/presentation/d/e/2PACX-1vSGeNG6BcEUNjhZjqo1obJ9bijuMjKJ0WhEva29-AuishNv779rSC0nDShfkR5HcWp4EdlRUBaaiG0M/pub?start=false&loop=false&delayms=3000)
+* [Practice](https://paper.dropbox.com/doc/Crawler-Practice-EyMlulgWI9V9YBUMeOpnQ)
 
 
 # HTML
@@ -44,6 +43,7 @@
 * [R02_1 csv paid maternity leave](html/R02_1 csv paid maternity leave.html)
 * [R02_2 read json](html/R02_2 read json.html)
 * [R03_1_crawler_design_rent591](html/R03_1_crawler_design_rent591.html)
+* [Crawler03_1_html_parsing](html/Crawler03_1_html_parsing.html)
 
 
 # Slides
