@@ -1,0 +1,187 @@
+---
+title: "html_Parsing"
+author: "Jilung Hsieh"
+date: "2018/7/3"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Preface
+
+## Review: csv, json, and html
+
+* 根據所抓取到的資料檔案格式，前章節所介紹過的資料蒐集方法包含csv、json， 而這節要談的是html。網路上的資料主要有兩種：json與html（csv一般只常見於開放資料）。
+	* csv資料原本就是類表格資料，用`read_csv()`或`read.csv()`就可以直接轉成`data.frame`。
+	* json則易於存放階層式的資料，用`jsonlite::fromJSON()`便可將其轉為`data.frame`。唯如果遇到階層較複雜的時候要以`res$var1$var1_1`的方式來存取。該函式`fromJSON()`如果讀到json中的`{}`會將其轉為`list`型態，如果遇到`[{}, {}, ...]`則會將其轉為`data.frame`，原則上只有這兩種情形。
+	* html，或xml這種*markup language*形式上又比json更為自由，在資料上可以插入更多的詮釋資料。例如超鏈結`<a href = "http://www.ntu.edu.tw">台大首頁</a>`這行程式碼，除了`台大首頁`的字樣外，尚有`href="..."`的詮釋資料，代表按了該字樣會連結到的網頁。
+
+## Requirements
+
+* 為了通熟本章節，你會需要額外花時間了解何謂html、css、xpath？在html中，id和class的目的為何？有和特性？何謂html元素（element）？何謂html元素的屬性（attribute）？
+* 你可以略讀參考w3school所提供的說明，無論是英文或者切至中文畫面。
+	* [Learning html](https://www.w3schools.com/html/default.asp): 包含Introduction, Basic, Elements, Attributes, Headings, CSS, Links, Blocks, Images, Tables, Lists, Classes, Id等節。
+	* [css syntax](https://www.w3schools.com/css/css_syntax.asp)。
+	* [css combinator](https://www.w3schools.com/css/css_combinators.asp)。
+	* [xpath introduction](https://www.w3schools.com/xml/xpath_intro.asp)
+	
+
+# Installing packages
+```
+pkgs <- c("rvest", "httr")
+pkgs <- pkgs[!(pkgs %in% installed.packages()[,"Package"])] 
+if(length(pkgs)) install.packages(pkgs)
+```
+
+# Importing packages
+
+* 在這個例子中，不僅要用`httr`來取得網頁頁面，還要用`rvest`來剖析網頁。網頁內容並不像json一樣可以直接轉為data.frame或list。網頁內容可以是資料、視覺化元素、也可以是架構元素，相對於json而言複雜也冗贅許多。因此需要一個套件能夠剖析HTML標籤例如`xml2`，而`rvest`內則應用了`xml2`套件的內容來剖析網頁。
+* 這邊加載`dplyr`套件是為了用`bind_rows()`將過程中所抓取的資料進行合併。
+
+```{r load packages, message=FALSE, warning=FALSE}
+library(rvest)
+library(httr)
+library(dplyr) 
+options(stringsAsFactors = F)
+```
+
+
+
+# 獲取PTT的貼文
+
+* 以下以ptt boy-girl版為例，展示如何以爬蟲擷取網頁上的資料，並整理成`data.frame`。
+* PTT的網頁分為兩種主要類型，
+	* 其一稱為鏈結頁或索引頁，為文章的超鏈結（https://www.ptt.cc/bbs/Boy-Girl/index.html）。
+	* 其二為文章的內容頁（https://www.ptt.cc/bbs/Boy-Girl/M.1523994970.A.71C.html）
+* 對於這種網頁，要設計兩階段的爬蟲，第一階段是把所有所需鏈結撈回來，第二階段是根據撈回來的鏈結去打撈文章，並把裡面的內文整理出來。
+
+
+
+
+## 步驟一：`read_html()`依照網址將網頁取回並轉為`xml_document`。
+
+* `read_html()`內部包含了`GET()`與`content()`等的實作，其主要的功能是將**取回來的response轉為xml_document**，所以若以`class(doc)`觀察其型態，會是*xml_document xml_node*。
+* 使用`browseURL(url)`可以用瀏覽器打開該網址並瀏覽。
+
+```{r read_html()}
+url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+doc   <- read_html(url)
+class(doc)
+browseURL(url)
+```
+
+
+
+## 步驟二：`html_nodes()`以選擇節點。
+
+* html的檔案還包含了相當多其他視覺、互動、排版的標籤，因此通常只有少部分是資料，且存在層層的html元素中。
+* 因此，獲取到該網頁並轉為*xml_document*後，便要用`html_nodes()`或`html_node()`根據所給的**css selector**或**xpath**來選擇所要取出的節點中的資料。
+
+### 用**css selector**抽取
+	- `#`指的是*id*、`.`指的是*class*。
+	- `#main-container`意思是，某個*id*為*main-container*的元素。
+	- `.title`指的是某個*class*為*title*的元素。
+	- `div.title`指的是*class*為*title*的*div*（排版元素）。
+	- `div.r-list-container.action-bar-margin.bbs-screen`指的是同時具有`r-list-container`、`action-bar-margin`、`bbs-scree`三個*class*的*div*元素。
+* 要獲取該元素的css selector可以利用Google chrome dev tool或者是firefox的dev tool均可。用法是對著該網頁空白處按右鍵選擇**檢查（insepect）**。
+
+```{r}
+css <- "#main-container > div.r-list-container.action-bar-margin.bbs-screen > div > div.title > a"
+node.a <- html_nodes(doc, css)
+class(node.a) # "xml_nodeset"
+length(node.a)
+```
+
+### (options) 用**xpath**抽取
+
+```{r}
+path <- '//*[@id="main-container"]/div[2]//div/div[3]/a'
+node.a <- html_nodes(doc, xpath = path)
+links <- html_attr(node.a, "href")
+```
+
+
+
+## 步驟三：`html_text()`或`html_attr()`轉出所要的資料。
+
+* 我們所要的該行資料為`<a href="/bbs/Boy-Girl/M.1523983903.A.71E.html">[心情] 看到自己喜歡女生跟別的男生走很近好難過</a>`。
+	* 在`<a>`與`</a>`之間的`[心情] 看到自己喜歡女生跟別的男生走很近好難過`稱為`<a>`的元素值，要用`html_text(node.a)`來抽取。
+	* 在`<a>`內的`href="/bbs/Boy-Girl/M.1523983903.A.71E.html"`稱為`<a>`的屬性，該屬性名稱為`href`，屬性值為`/bbs/Boy-Girl/M.1523983903.A.71E.html`。要用`html_attr(node.a, "href")`來抽取（相當於指定要`href`這個屬性的內容）。
+
+```{r html_attr()}
+links <- html_attr(node.a, "href")
+length(links)
+```
+
+```{r html_text()}
+texts <- html_text(node.a)
+length(texts)
+```
+
+# 取得第一頁所有貼文標題的超鏈結
+
+## 取得「一個鏈結頁」所有貼文鏈結的程式碼
+
+* 重新組合上述的程式碼後可以得到以下的程式碼內容。
+
+```{r}
+url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+doc   <- read_html(url) # Get and parse the url
+css <- "#main-container > div.r-list-container.action-bar-margin.bbs-screen > div > div.title > a"
+node.a <- html_nodes(doc, css)
+links <- html_attr(node.a, "href")
+class(links) # character
+```
+
+* 除此之外，由於超鏈結少了前面那一段`https://www.ptt.cc`，因此要用`paste0()`自行補上。
+
+```{r}
+pre <- "https://www.ptt.cc"
+links <- paste0(pre, links)
+```
+
+## 用for-loop打撈多頁的超鏈結並合併
+
+* 我們可以觀察到PTT該版的鏈結頁的網址規則如下
+	* 最新頁：https://www.ptt.cc/bbs/Boy-Girl/index.html
+	* 倒數第二頁：https://www.ptt.cc/bbs/Boy-Girl/index3902.html
+	* 倒數第三頁：https://www.ptt.cc/bbs/Boy-Girl/index3901.html
+	* 倒數第四頁：https://www.ptt.cc/bbs/Boy-Girl/index3900.html
+	* 最新一頁因此可類推出為https://www.ptt.cc/bbs/Boy-Girl/index3903.html
+* for-loop從3980抓至3993頁
+* 先產生一個`all_links<- c()`用以存放每一頁的超鏈結。
+* for-loop執行的每一圈會抓取到最多20個鏈結，用`all_links <- c(all_links, link)`合併前幾次抓到的鏈結和該圈所抓到的鏈結。
+
+```{r}
+pre <- "https://www.ptt.cc"
+# url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+# doc   <- read_html(url) # Get and parse the url
+all_links <- c()
+for(p in 3893:3903){
+	
+	url <- sprintf("https://www.ptt.cc/bbs/Boy-Girl/index%s.html", p)
+	url
+	doc   <- read_html(url) # Get and parse the url
+	css <- "#main-container > div.r-list-container.action-bar-margin.bbs-screen > div > div.title > a"
+	node.a <- html_nodes(doc, css)
+	links <- html_attr(node.a, "href")
+	links <- paste0(pre, links) # Recover links
+	
+	all_links <- c(all_links, links)
+	print(p)
+}
+length(all_links)
+```
+
+
+
+# 章節回顧
+* What are html elements? attributes, headings, links, blocks, images, tables, lists, classes, id, and CSS?
+
+# 練習
+
