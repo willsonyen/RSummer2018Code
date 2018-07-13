@@ -185,3 +185,79 @@ length(all_links)
 
 # 練習
 
+# Crawling each post
+```{r}
+
+all.df <- data.frame()
+
+for(link in all_links[1:10]){
+    print(link)
+    doc <- read_html(link)
+    meta.css <- "#main-content > div.article-metaline > span.article-meta-value"
+    metadata <- html_text(html_nodes(doc, meta.css))
+    
+    post.xpath <- '//*[@id="main-content"]/text()'
+    post.paragraph <- html_text(html_nodes(doc, xpath = post.xpath))
+    post <- paste(post.paragraph, collapse = "")
+    temp.df <- data.frame(post, 
+                          uid = metadata[1],
+                          title = metadata[2],
+                          timestamp = metadata[3]
+                          )
+    all.df <- bind_rows(all.df, temp.df)
+}
+
+```
+
+
+# Get with cookie
+```{r}
+pre <- "https://www.ptt.cc"
+# url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+# doc   <- read_html(url) # Get and parse the url
+all_links <- c()
+for(p in 3893:3903){
+	
+	url <- sprintf("https://www.ptt.cc/bbs/Gossiping/index%s.html", p)
+	res <- GET(url, config = set_cookies("over18" = "1"))
+    res.string <- content(res, "text", encoding = "utf8")
+    doc <- read_html(res.string, encoding = "utf-8")
+
+	# doc   <- read_html(url) # Get and parse the url
+	css <- "#main-container > div.r-list-container.action-bar-margin.bbs-screen > div > div.title > a"
+	node.a <- html_nodes(doc, css)
+	links <- html_attr(node.a, "href")
+	links <- paste0(pre, links) # Recover links
+	
+	all_links <- c(all_links, links)
+	print(p)
+}
+length(all_links)
+```
+
+```{r}
+all.df <- data.frame()
+
+for(link in all_links[1:10]){
+    print(link)
+	res <- GET(link, config = set_cookies("over18" = "1"))
+    res.string <- content(res, "text", encoding = "utf8")
+    doc <- read_html(res.string, encoding = "utf-8")
+
+    # doc <- read_html(link)
+    meta.css <- "#main-content > div.article-metaline > span.article-meta-value"
+    metadata <- html_text(html_nodes(doc, meta.css))
+    
+    post.xpath <- '//*[@id="main-content"]/text()'
+    post.paragraph <- html_text(html_nodes(doc, xpath = post.xpath))
+    post <- paste(post.paragraph, collapse = "")
+    temp.df <- data.frame(post, 
+                          uid = metadata[1],
+                          title = metadata[2],
+                          timestamp = metadata[3]
+                          )
+    all.df <- bind_rows(all.df, temp.df)
+}
+```
+
+
