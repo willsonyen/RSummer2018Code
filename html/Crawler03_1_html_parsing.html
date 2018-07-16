@@ -132,20 +132,25 @@ $(document).ready(function () {
 </ul></li>
 <li><a href="#installing-packages"><span class="toc-section-number">2</span> Installing packages</a></li>
 <li><a href="#importing-packages"><span class="toc-section-number">3</span> Importing packages</a></li>
-<li><a href="#ptt"><span class="toc-section-number">4</span> 獲取PTT的貼文</a><ul>
-<li><a href="#read_htmlxml_document"><span class="toc-section-number">4.1</span> 步驟一：<code>read_html()</code>依照網址將網頁取回並轉為<code>xml_document</code>。</a></li>
-<li><a href="#html_nodes"><span class="toc-section-number">4.2</span> 步驟二：<code>html_nodes()</code>以選擇節點。</a><ul>
-<li><a href="#css-selector"><span class="toc-section-number">4.2.1</span> 用<strong>css selector</strong>抽取</a></li>
-<li><a href="#options-xpath"><span class="toc-section-number">4.2.2</span> (options) 用<strong>xpath</strong>抽取</a></li>
+<li><a href="#i.-ptt"><span class="toc-section-number">4</span> I. 獲取PTT的貼文</a><ul>
+<li><a href="#read_htmlxml_document"><span class="toc-section-number">4.1</span> 1.<code>read_html()</code>依照網址將網頁取回並轉為<code>xml_document</code>。</a></li>
+<li><a href="#html_nodes"><span class="toc-section-number">4.2</span> 2. <code>html_nodes()</code>以選擇節點。</a><ul>
+<li><a href="#css-selector"><span class="toc-section-number">4.2.1</span> 2.1 用<strong>css selector</strong>抽取</a></li>
+<li><a href="#options-xpath"><span class="toc-section-number">4.2.2</span> 2.2. (options) 用<strong>xpath</strong>抽取</a></li>
 </ul></li>
-<li><a href="#html_texthtml_attr"><span class="toc-section-number">4.3</span> 步驟三：<code>html_text()</code>或<code>html_attr()</code>轉出所要的資料。</a></li>
+<li><a href="#html_texthtml_attr"><span class="toc-section-number">4.3</span> 3.<code>html_text()</code>或<code>html_attr()</code>轉出所要的資料。</a></li>
+<li><a href="#for-loop"><span class="toc-section-number">4.4</span> 4.用for-loop打撈多頁的超鏈結並合併</a></li>
 </ul></li>
-<li><a><span class="toc-section-number">5</span> 取得第一頁所有貼文標題的超鏈結</a><ul>
-<li><a><span class="toc-section-number">5.1</span> 取得「一個鏈結頁」所有貼文鏈結的程式碼</a></li>
-<li><a href="#for-loop"><span class="toc-section-number">5.2</span> 用for-loop打撈多頁的超鏈結並合併</a></li>
+<li><a href="#ii.-"><span class="toc-section-number">5</span> II. 取回所有的貼文</a><ul>
+<li><a href="#getting-first-post-by-link"><span class="toc-section-number">5.1</span> 1. Getting first post by link</a></li>
+<li><a href="#get-all-posts-by-links"><span class="toc-section-number">5.2</span> 2. Get all posts by links</a></li>
+<li><a href="#practice-get-all-comments-and-store-to-comments.df"><span class="toc-section-number">5.3</span> 3. Practice: get all comments and store to comments.df</a></li>
 </ul></li>
-<li><a><span class="toc-section-number">6</span> 章節回顧</a></li>
-<li><a><span class="toc-section-number">7</span> 練習</a></li>
+<li><a href="#cookie"><span class="toc-section-number">6</span> cookie</a><ul>
+<li><a href="#get-links-with-cookie"><span class="toc-section-number">6.1</span> Get links with cookie</a></li>
+<li><a href="#crawling-post-with-cookie"><span class="toc-section-number">6.2</span> Crawling post with cookie</a></li>
+</ul></li>
+<li><a><span class="toc-section-number">7</span> 章節回顧</a></li>
 </ul>
 </div>
 
@@ -193,8 +198,8 @@ library(httr)
 library(dplyr) 
 options(stringsAsFactors = F)</code></pre>
 </div>
-<div id="ptt" class="section level1">
-<h1><span class="header-section-number">4</span> 獲取PTT的貼文</h1>
+<div id="i.-ptt" class="section level1">
+<h1><span class="header-section-number">4</span> I. 獲取PTT的貼文</h1>
 <ul>
 <li>以下以ptt boy-girl版為例，展示如何以爬蟲擷取網頁上的資料，並整理成<code>data.frame</code>。</li>
 <li>PTT的網頁分為兩種主要類型，
@@ -205,7 +210,7 @@ options(stringsAsFactors = F)</code></pre>
 <li>對於這種網頁，要設計兩階段的爬蟲，第一階段是把所有所需鏈結撈回來，第二階段是根據撈回來的鏈結去打撈文章，並把裡面的內文整理出來。</li>
 </ul>
 <div id="read_htmlxml_document" class="section level2">
-<h2><span class="header-section-number">4.1</span> 步驟一：<code>read_html()</code>依照網址將網頁取回並轉為<code>xml_document</code>。</h2>
+<h2><span class="header-section-number">4.1</span> 1.<code>read_html()</code>依照網址將網頁取回並轉為<code>xml_document</code>。</h2>
 <ul>
 <li><code>read_html()</code>內部包含了<code>GET()</code>與<code>content()</code>等的實作，其主要的功能是將<strong>取回來的response轉為xml_document</strong>，所以若以<code>class(doc)</code>觀察其型態，會是<em>xml_document xml_node</em>。</li>
 <li>使用<code>browseURL(url)</code>可以用瀏覽器打開該網址並瀏覽。</li>
@@ -217,13 +222,13 @@ class(doc)</code></pre>
 <pre class="r"><code>browseURL(url)</code></pre>
 </div>
 <div id="html_nodes" class="section level2">
-<h2><span class="header-section-number">4.2</span> 步驟二：<code>html_nodes()</code>以選擇節點。</h2>
+<h2><span class="header-section-number">4.2</span> 2. <code>html_nodes()</code>以選擇節點。</h2>
 <ul>
 <li>html的檔案還包含了相當多其他視覺、互動、排版的標籤，因此通常只有少部分是資料，且存在層層的html元素中。</li>
 <li>因此，獲取到該網頁並轉為<em>xml_document</em>後，便要用<code>html_nodes()</code>或<code>html_node()</code>根據所給的<strong>css selector</strong>或<strong>xpath</strong>來選擇所要取出的節點中的資料。</li>
 </ul>
 <div id="css-selector" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> 用<strong>css selector</strong>抽取</h3>
+<h3><span class="header-section-number">4.2.1</span> 2.1 用<strong>css selector</strong>抽取</h3>
 <pre><code>- `#`指的是*id*、`.`指的是*class*。
 - `#main-container`意思是，某個*id*為*main-container*的元素。
 - `.title`指的是某個*class*為*title*的元素。
@@ -237,17 +242,17 @@ node.a &lt;- html_nodes(doc, css)
 class(node.a) # &quot;xml_nodeset&quot;</code></pre>
 <pre><code>## [1] &quot;xml_nodeset&quot;</code></pre>
 <pre class="r"><code>length(node.a)</code></pre>
-<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] 14</code></pre>
 </div>
 <div id="options-xpath" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> (options) 用<strong>xpath</strong>抽取</h3>
-<pre class="r"><code>path &lt;- '//*[@id=&quot;main-container&quot;]/div[2]//div/div[3]/a'
+<h3><span class="header-section-number">4.2.2</span> 2.2. (options) 用<strong>xpath</strong>抽取</h3>
+<pre><code>path &lt;- '//*[@id=&quot;main-container&quot;]/div[2]//div/div[3]/a'
 node.a &lt;- html_nodes(doc, xpath = path)
 links &lt;- html_attr(node.a, &quot;href&quot;)</code></pre>
 </div>
 </div>
 <div id="html_texthtml_attr" class="section level2">
-<h2><span class="header-section-number">4.3</span> 步驟三：<code>html_text()</code>或<code>html_attr()</code>轉出所要的資料。</h2>
+<h2><span class="header-section-number">4.3</span> 3.<code>html_text()</code>或<code>html_attr()</code>轉出所要的資料。</h2>
 <ul>
 <li>我們所要的該行資料為<code>&lt;a href=&quot;/bbs/Boy-Girl/M.1523983903.A.71E.html&quot;&gt;[心情] 看到自己喜歡女生跟別的男生走很近好難過&lt;/a&gt;</code>。
 <ul>
@@ -257,16 +262,25 @@ links &lt;- html_attr(node.a, &quot;href&quot;)</code></pre>
 </ul>
 <pre class="r"><code>links &lt;- html_attr(node.a, &quot;href&quot;)
 length(links)</code></pre>
-<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 14</code></pre>
+<pre class="r"><code>links</code></pre>
+<pre><code>##  [1] &quot;/bbs/Boy-Girl/M.1531748591.A.10F.html&quot;
+##  [2] &quot;/bbs/Boy-Girl/M.1531748618.A.955.html&quot;
+##  [3] &quot;/bbs/Boy-Girl/M.1531751813.A.351.html&quot;
+##  [4] &quot;/bbs/Boy-Girl/M.1531753044.A.AE0.html&quot;
+##  [5] &quot;/bbs/Boy-Girl/M.1531753716.A.A17.html&quot;
+##  [6] &quot;/bbs/Boy-Girl/M.1531755495.A.B99.html&quot;
+##  [7] &quot;/bbs/Boy-Girl/M.1531755572.A.1EE.html&quot;
+##  [8] &quot;/bbs/Boy-Girl/M.1531756045.A.797.html&quot;
+##  [9] &quot;/bbs/Boy-Girl/M.1531756323.A.11B.html&quot;
+## [10] &quot;/bbs/Boy-Girl/M.1399745290.A.6F3.html&quot;
+## [11] &quot;/bbs/Boy-Girl/M.1399818891.A.D72.html&quot;
+## [12] &quot;/bbs/Boy-Girl/M.1434215804.A.C8D.html&quot;
+## [13] &quot;/bbs/Boy-Girl/M.1399018430.A.4CF.html&quot;
+## [14] &quot;/bbs/Boy-Girl/M.1522516294.A.86E.html&quot;</code></pre>
 <pre class="r"><code>texts &lt;- html_text(node.a)
 length(texts)</code></pre>
-<pre><code>## [1] 0</code></pre>
-</div>
-</div>
-<div class="section level1">
-<h1><span class="header-section-number">5</span> 取得第一頁所有貼文標題的超鏈結</h1>
-<div class="section level2">
-<h2><span class="header-section-number">5.1</span> 取得「一個鏈結頁」所有貼文鏈結的程式碼</h2>
+<pre><code>## [1] 14</code></pre>
 <ul>
 <li>重新組合上述的程式碼後可以得到以下的程式碼內容。</li>
 </ul>
@@ -284,7 +298,7 @@ class(links) # character</code></pre>
 links &lt;- paste0(pre, links)</code></pre>
 </div>
 <div id="for-loop" class="section level2">
-<h2><span class="header-section-number">5.2</span> 用for-loop打撈多頁的超鏈結並合併</h2>
+<h2><span class="header-section-number">4.4</span> 4.用for-loop打撈多頁的超鏈結並合併</h2>
 <ul>
 <li>我們可以觀察到PTT該版的鏈結頁的網址規則如下
 <ul>
@@ -330,14 +344,146 @@ for(p in 3893:3903){
 <pre><code>## [1] 220</code></pre>
 </div>
 </div>
+<div id="ii.-" class="section level1">
+<h1><span class="header-section-number">5</span> II. 取回所有的貼文</h1>
+<ul>
+<li>前面是針對每一個URL取回該ULR中所有的post link，所以我現在<code>all_links</code>中是所有的post的links。我可以仿照前面的做法，就每一個post link，取回貼文內容，貼文內容可能包含作者、時間、標題、版別、內文等資料欄位。</li>
+</ul>
+<div id="getting-first-post-by-link" class="section level2">
+<h2><span class="header-section-number">5.1</span> 1. Getting first post by link</h2>
+<pre class="r"><code>link &lt;- all_links[1]
+doc &lt;- read_html(link)
+meta.css &lt;- &quot;#main-content &gt; div.article-metaline &gt; span.article-meta-value&quot;
+metadata &lt;- html_text(html_nodes(doc, meta.css))
+    
+post.xpath &lt;- '//*[@id=&quot;main-content&quot;]/text()'
+post.paragraph &lt;- html_text(html_nodes(doc, xpath = post.xpath))
+post &lt;- paste(post.paragraph, collapse = &quot;&quot;)
+post.df &lt;- data.frame(post, 
+                      uid = metadata[1],
+                      title = metadata[2],
+                      timestamp = metadata[3],
+                      url = link
+                          )</code></pre>
+</div>
+<div id="get-all-posts-by-links" class="section level2">
+<h2><span class="header-section-number">5.2</span> 2. Get all posts by links</h2>
+<pre class="r"><code>for(link in all_links[2:10]){
+    print(link)
+    doc &lt;- read_html(link)
+    meta.css &lt;- &quot;#main-content &gt; div.article-metaline &gt; span.article-meta-value&quot;
+    metadata &lt;- html_text(html_nodes(doc, meta.css))
+    
+    post.xpath &lt;- '//*[@id=&quot;main-content&quot;]/text()'
+    post.paragraph &lt;- html_text(html_nodes(doc, xpath = post.xpath))
+    post &lt;- paste(post.paragraph, collapse = &quot;&quot;)
+    
+    temp.df &lt;- data.frame(post, 
+                          uid = metadata[1],
+                          title = metadata[2],
+                          timestamp = metadata[3],
+                          url = link
+                          )
+    post.df &lt;- bind_rows(post.df, temp.df)
+}</code></pre>
+<pre><code>## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524850312.A.C47.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524853374.A.4A0.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524854513.A.DBE.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524856772.A.228.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524865318.A.866.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524880956.A.179.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524881133.A.604.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524884818.A.060.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Boy-Girl/M.1524886142.A.1E1.html&quot;</code></pre>
+</div>
+<div id="practice-get-all-comments-and-store-to-comments.df" class="section level2">
+<h2><span class="header-section-number">5.3</span> 3. Practice: get all comments and store to comments.df</h2>
+</div>
+</div>
+<div id="cookie" class="section level1">
+<h1><span class="header-section-number">6</span> cookie</h1>
+<div id="get-links-with-cookie" class="section level2">
+<h2><span class="header-section-number">6.1</span> Get links with cookie</h2>
+<pre><code>res &lt;- GET(link, config = set_cookies(&quot;over18&quot; = &quot;1&quot;))
+res.string &lt;- content(res, &quot;text&quot;, encoding = &quot;utf8&quot;)
+doc &lt;- read_html(res.string, encoding = &quot;utf-8&quot;)</code></pre>
+<pre class="r"><code>pre &lt;- &quot;https://www.ptt.cc&quot;
+# url &lt;- &quot;https://www.ptt.cc/bbs/Boy-Girl/index.html&quot;
+# doc   &lt;- read_html(url) # Get and parse the url
+all_links &lt;- c()
+for(p in 3893:3903){
+    
+    url &lt;- sprintf(&quot;https://www.ptt.cc/bbs/Gossiping/index%s.html&quot;, p)
+    res &lt;- GET(url, config = set_cookies(&quot;over18&quot; = &quot;1&quot;))
+    res.string &lt;- content(res, &quot;text&quot;, encoding = &quot;utf8&quot;)
+    doc &lt;- read_html(res.string, encoding = &quot;utf-8&quot;)
+
+    # doc   &lt;- read_html(url) # Get and parse the url
+    css &lt;- &quot;#main-container &gt; div.r-list-container.action-bar-margin.bbs-screen &gt; div &gt; div.title &gt; a&quot;
+    node.a &lt;- html_nodes(doc, css)
+    links &lt;- html_attr(node.a, &quot;href&quot;)
+    links &lt;- paste0(pre, links) # Recover links
+    
+    all_links &lt;- c(all_links, links)
+    print(p)
+}</code></pre>
+<pre><code>## Warning in strptime(x, fmt, tz = &quot;GMT&quot;): unknown timezone 'zone/tz/2018c.
+## 1.0/zoneinfo/Asia/Taipei'</code></pre>
+<pre><code>## [1] 3893
+## [1] 3894
+## [1] 3895
+## [1] 3896
+## [1] 3897
+## [1] 3898
+## [1] 3899
+## [1] 3900
+## [1] 3901
+## [1] 3902
+## [1] 3903</code></pre>
+<pre class="r"><code>length(all_links)</code></pre>
+<pre><code>## [1] 220</code></pre>
+</div>
+<div id="crawling-post-with-cookie" class="section level2">
+<h2><span class="header-section-number">6.2</span> Crawling post with cookie</h2>
+<pre class="r"><code>all.df &lt;- data.frame()
+
+for(link in all_links[1:10]){
+    print(link)
+    res &lt;- GET(link, config = set_cookies(&quot;over18&quot; = &quot;1&quot;))
+    res.string &lt;- content(res, &quot;text&quot;, encoding = &quot;utf8&quot;)
+    doc &lt;- read_html(res.string, encoding = &quot;utf-8&quot;)
+
+    # doc &lt;- read_html(link)
+    meta.css &lt;- &quot;#main-content &gt; div.article-metaline &gt; span.article-meta-value&quot;
+    metadata &lt;- html_text(html_nodes(doc, meta.css))
+    
+    post.xpath &lt;- '//*[@id=&quot;main-content&quot;]/text()'
+    post.paragraph &lt;- html_text(html_nodes(doc, xpath = post.xpath))
+    post &lt;- paste(post.paragraph, collapse = &quot;&quot;)
+    temp.df &lt;- data.frame(post, 
+                          uid = metadata[1],
+                          title = metadata[2],
+                          timestamp = metadata[3]
+                          )
+    all.df &lt;- bind_rows(all.df, temp.df)
+}</code></pre>
+<pre><code>## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312872.A.5D0.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312879.A.3E4.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312885.A.80C.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312898.A.E5E.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312926.A.5E9.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312938.A.EEF.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312941.A.3C1.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312952.A.E23.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506312954.A.982.html&quot;
+## [1] &quot;https://www.ptt.cc/bbs/Gossiping/M.1506313033.A.6DC.html&quot;</code></pre>
+</div>
+</div>
 <div class="section level1">
-<h1><span class="header-section-number">6</span> 章節回顧</h1>
+<h1><span class="header-section-number">7</span> 章節回顧</h1>
 <ul>
 <li>What are html elements? attributes, headings, links, blocks, images, tables, lists, classes, id, and CSS?</li>
 </ul>
-</div>
-<div class="section level1">
-<h1><span class="header-section-number">7</span> 練習</h1>
 </div>
 
 

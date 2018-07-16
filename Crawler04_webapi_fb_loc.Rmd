@@ -1,0 +1,189 @@
+---
+title: "Webapi_facebook"
+author: "Jilung Hsieh"
+date: "2018/7/17"
+output: 
+  html_document: 
+    number_sections: true
+    highlight: textmate
+    theme: spacelab
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Import packages
+```{r}
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(lubridate)
+# library(rjson)
+
+options(fileEncoding = "utf-8")
+options(encoding = "UTF-8")
+options(stringsAsFactors = FALSE)
+Sys.setenv(TZ="Asia/Taipei")
+
+```
+
+
+
+# Setting parameters
+
+1. Visit [facebook grpah api](https://developers.facebook.com/tools/explorer/) to obtain your user token.
+
+2. Open [google map](https://www.google.com.tw/maps), find interested location ,and copy the central latlng in url. e.g., `https://www.google.com.tw/maps/@24.9823232,121.5482373,15z`
+
+3. Decide a radius you want to search
+
+```{r}
+token <- "EAAMpYE1VNjcBAG5ZB5AyoFiBGijsIuRMGfbBbFhwJtK2QlP0cub2vv9cncgxy3w6fTdzLE2ZCd0TTOmKeUcrmPmPcUEN05KQ69ah3WmXT14hK6b6m5ZAQpYdplb7uYAVBnjZBhkaZBVPfbF5yg41BFbnwvX7Ys1ZCZB3pIZBH31IrZB5m5eOTwPT3Pawyj9HmS9YMVtbY22NT7AUQUBVYO5z0"
+latlng <- "25.0163978,121.5335295"
+distance <- 500
+```
+
+
+# Composing search url
+
+```{r}
+url <- sprintf(
+    "https://graph.facebook.com/v3.0/search?type=place&center=%s&distance=%s&fields=name,checkins,category_list,rating_count,engagement,fan_count&access_token=%s", latlng, distance, token)
+browseURL(url)
+```
+
+
+# GET and convert to JSON
+
+## Convert tree-like list to data.frame
+```{r}
+res <- fromJSON(content(GET(url),'text'))
+test.df <- as.data.frame(res)
+```
+
+
+## flatten the tree
+
+```{r}
+res <- fromJSON(content(GET(url),'text'))
+res$data$category <- sapply(res$data$category_list, function(x){paste(x$name, collapse = ",")})
+res$data$category_list <- NULL
+res$data$engage.count <- res$data$engagement$count
+res$data$engage.text <- res$data$engagement$social_sentence
+res$data$engagement <- NULL
+head(res$data)
+loc.df <- res$data
+```
+
+
+
+# GET next page data
+
+```{r}
+nexturl <- res$paging$"next"
+res <- fromJSON(content(GET(nexturl),'text'))
+res$data$category <- sapply(res$data$category_list, function(x){paste(x$name, collapse = ",")})
+res$data$category_list <- NULL
+res$data$engage.count <- res$data$engagement$count
+res$data$engage.text <- res$data$engagement$social_sentence
+res$data$engagement <- NULL
+loc.df <- bind_rows(loc.df, res$data)
+```
+
+
+# Creating a flatten function
+
+```{r}
+flatten_data <- function(df){
+    df$category <- sapply(df$category_list, function(x){paste(x$name, collapse = ",")})
+    df$category_list <- NULL
+    # df$pic.url <- df$picture$data$url
+    # df$picture <- NULL
+    df$engage.count <- df$engagement$count
+    df$engage.text <- df$engagement$social_sentence
+    df$engagement <- NULL
+    df
+}
+
+```
+
+
+
+# Rewriting all code
+
+```{r}
+url <- sprintf(
+    "https://graph.facebook.com/v3.0/search?type=place&center=%s&distance=%s&fields=name,checkins,category_list,rating_count,engagement,fan_count&access_token=%s", latlng, distance, token)
+res <- fromJSON(content(GET(url),'text'))
+loc.df <- flatten_data(res$data)
+nexturl <- res$paging$"next"
+res <- fromJSON(content(GET(nexturl),'text'))
+temp.df <- flatten_data(res$data)
+loc.df <- bind_rows(loc.df, temp.df)
+```
+
+
+
+
+# loop to get more data until no data
+
+```{r}
+url <- sprintf(
+    "https://graph.facebook.com/v3.0/search?type=place&center=%s&distance=%s&fields=name,checkins,category_list,rating_count,engagement,fan_count&access_token=%s", latlng, distance, token)
+res <- fromJSON(content(GET(url),'text'))
+loc.df <- flatten_data(res$data)
+nexturl <- res$paging$"next"
+i <- 0
+while(!is.null(nexturl)){
+    i <- i + 1
+    res <- fromJSON(content(GET(nexturl),'text'))
+    loc.df <- bind_rows(loc.df, flatten_data(res$data))
+    nexturl <- res$paging$"next"
+    print(sprintf("Get page %d", i))
+}
+
+```
+
+
+# Better version by list
+
+```{r}
+loc.list <- list()
+i <- 1
+
+
+url <- sprintf(
+    "https://graph.facebook.com/v3.0/search?type=place&center=%s&distance=%s&fields=name,checkins,category_list,rating_count,engagement,fan_count&access_token=%s", latlng, distance, token)
+res <- fromJSON(content(GET(url),'text'))
+loc.list[[i]] <- flatten_data(res$data)
+print("Get page 1")
+
+
+# crawl following pages
+nexturl <- res$paging$"next"
+while(!is.null(nexturl)){
+    i <- i + 1
+    res <- fromJSON(content(GET(nexturl),'text'))
+    loc.list[[i]] <- flatten_data(res$data)
+    nexturl <- res$paging$"next"
+    print(sprintf("Get page %d", i))
+}
+
+# Binding all data
+loc.df <- bind_rows(loc.list)
+```
+
+
+
+# Saving data to csv
+```{r}
+write.csv(loc.df, file = "test.csv")
+```
+
+
+
+

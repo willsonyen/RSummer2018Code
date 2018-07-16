@@ -1,0 +1,86 @@
+---
+title: "rtweet"
+output: 
+  html_document:
+    keep_md: true
+    number_sections: true
+    highlight: zenburn
+    toc: yes
+editor_options: 
+  chunk_output_type: inline
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "figs/tweet-"
+)
+```
+
+* http://rtweet.info/
+
+
+```{r import libraries, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(rtweet)
+library(stringr)
+library(tidyverse)
+library(tidytext)
+options(stringsAsFactors = F)
+```
+
+# token
+```{r}
+token1 <- create_token(app = "",
+             consumer_key = "",
+             consumer_secret = "")
+```
+
+
+
+
+# search_tweets()
+* arguments: `max_id = ` and `since_id = `
+
+
+
+```{r}
+topics <- c("#metoo", "prom dress", "taiwan", "#climatechange", "#nuclear", "#china")
+q <- "#china"
+rt <- search_tweets( q, n = 1000,
+  retryonratelimit = TRUE, include_rts = T
+)
+saveRDS(rt, file = 
+          sprintf("data/%s.rt.%s.rds", gsub(" ", "_", q),
+                  as.character(strftime(Sys.time(), "%y%m%d%H%M"))))
+min.id <- min(rt$status_id)
+max.id <- max(rt$status_id)
+```
+##　timestamp summary
+```{r}
+rt$created_at %>% summary
+```
+
+
+
+
+# combining data
+```{r}
+rt$created_at %>% summary
+
+ts_plot(rt, "5 mins") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
+  ggplot2::labs(
+    x = NULL, y = NULL,
+    title = "Frequency of tweets related to prom dress event",
+    subtitle = "Twitter status (tweet) counts aggregated using hour intervals",
+    caption = "\nSource: Data collected from Twitter's REST API via rtweet"
+  )
+```
+
+
+
+# Get timeline
+```{r}
+user_id <- "daumkeziah"
+rt.u <- get_timeline(user_id, n = 3200)
+```
+

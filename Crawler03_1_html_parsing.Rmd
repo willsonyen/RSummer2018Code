@@ -52,7 +52,7 @@ options(stringsAsFactors = F)
 
 
 
-# 獲取PTT的貼文
+# I. 獲取PTT的貼文
 
 * 以下以ptt boy-girl版為例，展示如何以爬蟲擷取網頁上的資料，並整理成`data.frame`。
 * PTT的網頁分為兩種主要類型，
@@ -63,7 +63,7 @@ options(stringsAsFactors = F)
 
 
 
-## 步驟一：`read_html()`依照網址將網頁取回並轉為`xml_document`。
+## 1.`read_html()`依照網址將網頁取回並轉為`xml_document`。
 
 * `read_html()`內部包含了`GET()`與`content()`等的實作，其主要的功能是將**取回來的response轉為xml_document**，所以若以`class(doc)`觀察其型態，會是*xml_document xml_node*。
 * 使用`browseURL(url)`可以用瀏覽器打開該網址並瀏覽。
@@ -77,12 +77,12 @@ browseURL(url)
 
 
 
-## 步驟二：`html_nodes()`以選擇節點。
+## 2. `html_nodes()`以選擇節點。
 
 * html的檔案還包含了相當多其他視覺、互動、排版的標籤，因此通常只有少部分是資料，且存在層層的html元素中。
 * 因此，獲取到該網頁並轉為*xml_document*後，便要用`html_nodes()`或`html_node()`根據所給的**css selector**或**xpath**來選擇所要取出的節點中的資料。
 
-### 用**css selector**抽取
+### 2.1 用**css selector**抽取
 	- `#`指的是*id*、`.`指的是*class*。
 	- `#main-container`意思是，某個*id*為*main-container*的元素。
 	- `.title`指的是某個*class*為*title*的元素。
@@ -97,9 +97,9 @@ class(node.a) # "xml_nodeset"
 length(node.a)
 ```
 
-### (options) 用**xpath**抽取
+### 2.2. (options) 用**xpath**抽取
 
-```{r}
+```
 path <- '//*[@id="main-container"]/div[2]//div/div[3]/a'
 node.a <- html_nodes(doc, xpath = path)
 links <- html_attr(node.a, "href")
@@ -107,7 +107,7 @@ links <- html_attr(node.a, "href")
 
 
 
-## 步驟三：`html_text()`或`html_attr()`轉出所要的資料。
+## 3.`html_text()`或`html_attr()`轉出所要的資料。
 
 * 我們所要的該行資料為`<a href="/bbs/Boy-Girl/M.1523983903.A.71E.html">[心情] 看到自己喜歡女生跟別的男生走很近好難過</a>`。
 	* 在`<a>`與`</a>`之間的`[心情] 看到自己喜歡女生跟別的男生走很近好難過`稱為`<a>`的元素值，要用`html_text(node.a)`來抽取。
@@ -116,16 +116,13 @@ links <- html_attr(node.a, "href")
 ```{r html_attr()}
 links <- html_attr(node.a, "href")
 length(links)
+links
 ```
 
 ```{r html_text()}
 texts <- html_text(node.a)
 length(texts)
 ```
-
-# 取得第一頁所有貼文標題的超鏈結
-
-## 取得「一個鏈結頁」所有貼文鏈結的程式碼
 
 * 重新組合上述的程式碼後可以得到以下的程式碼內容。
 
@@ -145,7 +142,7 @@ pre <- "https://www.ptt.cc"
 links <- paste0(pre, links)
 ```
 
-## 用for-loop打撈多頁的超鏈結並合併
+## 4.用for-loop打撈多頁的超鏈結並合併
 
 * 我們可以觀察到PTT該版的鏈結頁的網址規則如下
 	* 最新頁：https://www.ptt.cc/bbs/Boy-Girl/index.html
@@ -180,17 +177,36 @@ length(all_links)
 
 
 
-# 章節回顧
-* What are html elements? attributes, headings, links, blocks, images, tables, lists, classes, id, and CSS?
 
-# 練習
 
-# Crawling each post
+# II. 取回所有的貼文
+
+* 前面是針對每一個URL取回該ULR中所有的post link，所以我現在`all_links`中是所有的post的links。我可以仿照前面的做法，就每一個post link，取回貼文內容，貼文內容可能包含作者、時間、標題、版別、內文等資料欄位。
+
+
+## 1. Getting first post by link
+```{r}
+link <- all_links[1]
+doc <- read_html(link)
+meta.css <- "#main-content > div.article-metaline > span.article-meta-value"
+metadata <- html_text(html_nodes(doc, meta.css))
+    
+post.xpath <- '//*[@id="main-content"]/text()'
+post.paragraph <- html_text(html_nodes(doc, xpath = post.xpath))
+post <- paste(post.paragraph, collapse = "")
+post.df <- data.frame(post, 
+                      uid = metadata[1],
+                      title = metadata[2],
+                      timestamp = metadata[3],
+                      url = link
+                          )
+```
+
+## 2. Get all posts by links
+
 ```{r}
 
-all.df <- data.frame()
-
-for(link in all_links[1:10]){
+for(link in all_links[2:10]){
     print(link)
     doc <- read_html(link)
     meta.css <- "#main-content > div.article-metaline > span.article-meta-value"
@@ -199,18 +215,34 @@ for(link in all_links[1:10]){
     post.xpath <- '//*[@id="main-content"]/text()'
     post.paragraph <- html_text(html_nodes(doc, xpath = post.xpath))
     post <- paste(post.paragraph, collapse = "")
+    
     temp.df <- data.frame(post, 
                           uid = metadata[1],
                           title = metadata[2],
-                          timestamp = metadata[3]
+                          timestamp = metadata[3],
+                          url = link
                           )
-    all.df <- bind_rows(all.df, temp.df)
+    post.df <- bind_rows(post.df, temp.df)
 }
 
 ```
 
+## 3. Practice: get all comments and store to comments.df
+```{r}
 
-# Get with cookie
+```
+
+
+# cookie
+
+## Get links with cookie
+
+```
+res <- GET(link, config = set_cookies("over18" = "1"))
+res.string <- content(res, "text", encoding = "utf8")
+doc <- read_html(res.string, encoding = "utf-8")
+```
+
 ```{r}
 pre <- "https://www.ptt.cc"
 # url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
@@ -234,6 +266,9 @@ for(p in 3893:3903){
 }
 length(all_links)
 ```
+
+
+## Crawling post with cookie
 
 ```{r}
 all.df <- data.frame()
@@ -261,3 +296,5 @@ for(link in all_links[1:10]){
 ```
 
 
+# 章節回顧
+* What are html elements? attributes, headings, links, blocks, images, tables, lists, classes, id, and CSS?
