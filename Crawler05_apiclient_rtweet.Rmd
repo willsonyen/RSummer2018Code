@@ -27,10 +27,32 @@ options(stringsAsFactors = F)
 ```
 
 # token
+
+* Using `sessionInfo()` to check if your rtweet version is later than 0.6.7. If not, using `install.packages()` to re-install the package.
+
+* ...(copy from the page)...The `create_token()` function should automatically save your token as an environment variable for you. To make sure it worked, compare the created token object to the object returned by `get_token()`
+
+
+* Visiting rtweet package doc to see how to authenticate
+```
+twitter_token <- create_token(
+  app = appname,
+  consumer_key = key,
+  consumer_secret = secret,
+  access_token = access_token,
+  access_secret = access_secret
+)
+
+## check to see if the token is loaded
+identical(twitter_token, get_token())
+```
+
 ```{r}
-token1 <- create_token(app = "",
-             consumer_key = "",
-             consumer_secret = "")
+token1 <- create_token(app = "TaiwanProtessAnalysis",
+                       consumer_key = "2KkDfxFu3j4giYxir4FQI1lgW",
+                       consumer_secret = "yfDBjY00fBbn7VN0IQHodYNQE7SvJrsJIoLJfNzviLPGdICPK0",
+                       access_token = "53118769-81DvfPmWkT33TZfcQsyOJ6XE4vGzGj1ssIOsZyuTg",
+                       access_secret = "pB6me2dmWQOHTouPDf0JXYmdIzXeZmCLeFtDatx0lxewf")
 ```
 
 

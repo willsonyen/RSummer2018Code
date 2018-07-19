@@ -27,15 +27,10 @@
 
 
 # Today
-* [Crawler03_1_html_parsing](html/Crawler03_1_html_parsing.html)
-* [Crawler04_webapi_fb_loc](html/Crawler04_webapi_fb_loc.html)
-* [viz01_ggplot_tsai_page](html/viz01_ggplot_tsai_page.html)
 * [viz02_trump_tweet](html/viz02_trump_tweet.html)
 * [SlideCrawler03. HTML Parser](https://docs.google.com/presentation/d/e/2PACX-1vSGeNG6BcEUNjhZjqo1obJ9bijuMjKJ0WhEva29-AuishNv779rSC0nDShfkR5HcWp4EdlRUBaaiG0M/pub?start=false&loop=false&delayms=3000)
 * [SlideTM06. dplyr_trump's tweet](https://docs.google.com/presentation/d/e/2PACX-1vRNLWSWiTePNA5tmAhFcbkFWEzfa0LFiG0FENhalVpxz2lG2Z1lZ8pJHacaKHWpnC1SYhR-qxQOnKb7/pub?start=false&loop=false&delayms=3000)
-* [SlideR05. ggplot](https://docs.google.com/presentation/d/e/2PACX-1vR0MIoaDm9YaEvop3wYAYHnr5O-kCPtK2AlS9QR8zpgeoCBQCfJ39q55VrK4RvM_UJg18JDQa1I_pgJ/pub?start=false&loop=false&delayms=3000)
-* [Practice](https://paper.dropbox.com/doc/Crawler-Practice-EyMlulgWI9V9YBUMeOpnQ)
-
+* [SlideTM07. Processing Chinese text and topic modeling](https://docs.google.com/presentation/d/e/2PACX-1vRTSSO_8JuLTK_1OyM9eDrogA-K2fhXQwlKxh1PpRvNavkurCCcKBNftv9MpKGYM6EDXtNnqZvPDdKy/pub?start=false&loop=false&delayms=3000)
 
 # HTML
 
