@@ -27,10 +27,13 @@
 
 
 # Today
-* [viz02_trump_tweet](html/viz02_trump_tweet.html)
-* [SlideCrawler03. HTML Parser](https://docs.google.com/presentation/d/e/2PACX-1vSGeNG6BcEUNjhZjqo1obJ9bijuMjKJ0WhEva29-AuishNv779rSC0nDShfkR5HcWp4EdlRUBaaiG0M/pub?start=false&loop=false&delayms=3000)
-* [SlideTM06. dplyr_trump's tweet](https://docs.google.com/presentation/d/e/2PACX-1vRNLWSWiTePNA5tmAhFcbkFWEzfa0LFiG0FENhalVpxz2lG2Z1lZ8pJHacaKHWpnC1SYhR-qxQOnKb7/pub?start=false&loop=false&delayms=3000)
+
+* [TM01_demographic_typhoon](html/TM01_demographic_typhoon.html)
+* [TM02_ngram_network_typhoon](html/TM02_ngram_network_typhoon.html)
+* [TM03_sentiment_en](html/TM03_sentiment_en.html)
+* [TM06_LDA_Speech](html/TM06_LDA_Speech.html)
 * [SlideTM07. Processing Chinese text and topic modeling](https://docs.google.com/presentation/d/e/2PACX-1vRTSSO_8JuLTK_1OyM9eDrogA-K2fhXQwlKxh1PpRvNavkurCCcKBNftv9MpKGYM6EDXtNnqZvPDdKy/pub?start=false&loop=false&delayms=3000)
+* [SlideTM06. dplyr_trump's tweet](https://docs.google.com/presentation/d/e/2PACX-1vRNLWSWiTePNA5tmAhFcbkFWEzfa0LFiG0FENhalVpxz2lG2Z1lZ8pJHacaKHWpnC1SYhR-qxQOnKb7/pub?start=false&loop=false&delayms=3000)
 
 # HTML
 
@@ -45,6 +48,10 @@
 * [R02_1 csv paid maternity leave](html/R02_1 csv paid maternity leave.html)
 * [R02_2 read json](html/R02_2 read json.html)
 * [R03_1_crawler_design_rent591](html/R03_1_crawler_design_rent591.html)
+* [TM01_demographic_typhoon](html/TM01_demographic_typhoon.html)
+* [TM02_ngram_network_typhoon](html/TM02_ngram_network_typhoon.html)
+* [TM03_sentiment_en](html/TM03_sentiment_en.html)
+* [TM06_LDA_Speech](html/TM06_LDA_Speech.html)
 * [viz01_ggplot_tsai_page](html/viz01_ggplot_tsai_page.html)
 * [viz02_trump_tweet](html/viz02_trump_tweet.html)
 
