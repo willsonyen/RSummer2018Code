@@ -1,0 +1,223 @@
+---
+title: "9_2_cosine_similarity"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+library(stringr)
+library(tidytext)
+library(jiebaR)
+options(stringsAsFactors = FALSE)
+
+```
+
+
+# cosine similarity
+```{r}
+eng <- "The dog run A cat run A dog sleep The cat sleep A dog bark The cat meows The bird fly A bird sleep"
+
+mutual_grams <- data.frame(w1 = unlist(str_split(eng, "\\s"))) %>% 
+	mutate(w2 = lead(w1, 1)) %>%
+	filter(complete.cases(.)) %>%
+	bind_rows(data.frame(w1 = .$w2, w2 = .$w1))
+
+affmatrix <- mutual_grams %>%
+	count(w1, w2) %>%
+	spread(w2, n, fill = 0) %>%
+	`rownames<-`(.$w1) %>%
+	select(-w1)
+```
+
+
+```{r}
+affmatrix["dog",]
+affmatrix[,"dog"]
+affmatrix[c("dog" ,"cat"),]
+affmatrix[c("dog" ,"bird"),]
+```
+
+## calculating cosine similarity
+* possible solution. https://www.rdocumentation.org/packages/tcR/versions/2.2.1.11
+* Build a Simple Cosine Similarity Search Engine in R http://rstudio-pubs-static.s3.amazonaws.com/266142_e947ad96bead4abdb3d0fa8a539f7511.html
+* The cosine measure is nearly identical with the pearson correlation coefficient (besides a constant factor) cor(method="pearson"). For an investigation on the differences in the context of textmining see (Leydesdorff, 2005).
+	* https://www.rdocumentation.org/packages/lsa/versions/0.73.1/topics/cosine
+	* References: Leydesdorff, L. (2005) Similarity Measures, Author Cocitation Analysis,and Information Theory. In: JASIST 56(7), pp.769-772.
+
+## (to test) method 1?
+* https://stats.stackexchange.com/questions/31565/is-there-an-r-function-that-will-compute-the-cosine-dissimilarity-matrix
+```
+# input: row matrices 'ma' and 'mb' (with compatible dimensions)
+# output: cosine similarity matrix
+
+cos.sim=function(ma, mb){
+  mat=tcrossprod(ma, mb)
+  t1=sqrt(apply(ma, 1, crossprod))
+  t2=sqrt(apply(mb, 1, crossprod))
+  mat / outer(t1,t2)
+}
+```
+
+
+## method 2 byself
+```{r}
+sum(affmatrix['cat',]*affmatrix['dog',])/(sqrt(sum(affmatrix['cat']^2))*sqrt(sum(affmatrix['dog']^2)))
+
+sum(affmatrix['bird',]*affmatrix['dog',])/(sqrt(sum(affmatrix['bird']^2))*sqrt(sum(affmatrix['dog']^2)))
+```
+
+# SVD to reduce dimension to plot
+
+```{r}
+m.svd <- svd(affmatrix)
+D <- diag(m.svd$d)
+m.svd$u %*% D %*% t(m.svd$v)    # X = U D V'
+
+plot(m.svd$u)
+text(m.svd$u[,1], m.svd$u[,2], labels=rownames(affmatrix), cex= 0.7)
+plot(m.svd$d)
+```
+
+## plot SVD results
+* 因為是一個m*m矩陣，所以看u或v幾乎沒差。
+```{r}
+plot(m.svd$v)
+text(m.svd$v[,1], m.svd$v[,2], labels=rownames(affmatrix), cex= 0.7)
+View(m.svd$u)
+View(m.svd$v)
+m.svd$d
+library(lattice)
+levelplot(m.svd$u)
+levelplot(m.svd$v)
+```
+
+# Load trump's tweets
+```{r}
+raw.df <- readRDS("data/alltweets.rds")
+
+# raw.df %>% summary()
+filtered.df <- raw.df %>%
+    filter(!str_detect(text, '^"')) %>%
+    filter(str_detect(text, "nytime|fox|news"))
+    # filter(timestamp > as.POSIXct("2017-01-01") & 
+    #            timestamp < as.POSIXct("2017-05-08")) 
+
+data(stop_words)
+unnested.df <- filtered.df %>%
+    mutate(text = str_replace_all(text, 
+                                  "https://t.co/[A-Za-z\\d]+|&amp;", "")) %>%
+    # unnest_tokens(word, text, drop = FALSE) %>%
+    unnest_tokens(word, text, 
+                  token = "regex", pattern = "[^A-Za-z\\d#@']", 
+                  drop=FALSE) 
+# %>%
+#     anti_join(stop_words)
+```
+
+
+## build affmatrix for trump's data
+```{r}
+mutual_grams.trump <- unnested.df %>%
+    select(id_str, w1 = word) %>%
+    group_by(id_str) %>%
+    mutate(w2 = lead(w1, 1)) %>%
+    ungroup() %>%
+    filter(complete.cases(.)) %>% 
+    bind_rows(data.frame(id_str = .$id_str, w1 = .$w2, w2 = .$w1))
+    
+affmatrix.trump <- mutual_grams.trump %>%
+	count(w1, w2) %>%
+	spread(w2, n, fill = 0) %>%
+	`rownames<-`(.$w1) %>%
+	select(-w1)
+```
+
+
+
+## (STOP) SVD
+* "Never end, never end, ...."
+```
+# svd.trump <- svd(affmatrix.trump)
+```
+
+## (TRY) tsne
+* time-consumed but workable
+```{r}
+library(tsne)
+res <- tsne(affmatrix.trump, initial_config = NULL, k = 2, initial_dims = 30, perplexity = 30, max_iter = 500, min_cost = 0, epoch_callback = NULL, whiten = TRUE,
+epoch=100)
+```
+## plotting
+```{r}
+as.data.frame(res) %>%
+    bind_cols(data.frame(name = rownames(affmatrix.trump))) %>%
+    filter(V1 > 0, V2 > 0) %>%
+    ggplot(aes(V1, V2, label = name)) +
+    geom_jitter(alpha = 0.1, color = "blue") + 
+    geom_text(aes(label = name),
+              hjust=0, vjust=0, size = 4, alpha = 0.5)
+```
+
+
+## (TRY) t-sne by Rtsne
+* https://www.r-bloggers.com/playing-with-dimensions-from-clustering-pca-t-sne-to-carl-sagan/
+* t-sne is often compared to PCA, SVD or other dimensional reduction method.
+* Rtsne: https://rpubs.com/marwahsi/tnse
+
+
+
+
+
+
+
+## (Deprecated) Alan's cosine similarity
+```
+eng <- unlist(strsplit(eng," "))
+
+options(stringsAsFactors = F)
+word2DR <- function(data_1){
+	test1 <- unlist(data_1)
+	alls <- sapply(1:length(test1),function(x){
+		paste(c(test1[x],test1[x+1]),collapse = " ")
+	})
+	alls <- alls[-length(alls)]
+	alls <- data.frame(alls=alls)
+	alls <- alls%>%separate(alls,c("first","second"),sep=" ")
+	test <- data.frame(tapply(alls$first,list(alls$first, alls$second),length))
+	test2 <- data.frame(t(test))
+	if(ncol(test)>ncol(test2)){
+		name <-colnames(test)[which(!colnames(test)%in%colnames(test2))]
+		num <- which(!colnames(test)%in%colnames(test2))
+		x1 <- c(rep(0,nrow(test2)))
+		test <- rbind(test[1:num-1,],x1,test[num:nrow(test),])
+		test2 <- cbind(test2[,1:num-1],x1,test[,num:ncol(test2)])
+		rownames(test)[num] <- name
+		colnames(test2)[num]<- name
+	}
+	else if(ncol(test2)>ncol(test)){
+		name <-colnames(test2)[which(!colnames(test2)%in%colnames(test))]
+		num <- which(!colnames(test2)%in%colnames(test))
+		x1 <- c(rep(0,nrow(test)))
+		test <- cbind(test[,1:num-1],x1,test[,num:ncol(test)])
+		test2 <- rbind(test2[1:num-1,],x1,test2[num:nrow(test2),])
+		rownames(test)[num] <- name
+		colnames(test2)[num]<- name
+		
+	}
+	
+	test[is.na(test)] <- 0
+	test2[is.na(test2)] <- 0
+	final <- test+test2
+	return(final)
+}
+
+
+ha <- word2DR(eng)
+
+sum(ha['cat',]*ha['dog',])/c(sqrt(sum(ha['cat']^2))*sqrt(sum(ha['dog']^2)))
+sum(ha['bird',]*ha['dog',])/c(sqrt(sum(ha['bird']^2))*sqrt(sum(ha['dog']^2)))
+
+```
+
